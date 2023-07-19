@@ -7,6 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <TextBox x:Name="txtUser" HorizontalAlignment="Center" Height="31" Margin="0,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="354" RenderTransformOrigin="0.5,0.5">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.945"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.577"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox x:Name="txtPassword" HorizontalAlignment="Center" Height="34" Margin="0,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="354"/>
+        <Button x:Name="btnLogin" Content="Iniciar sesión" HorizontalAlignment="Left" Height="37" Margin="237,316,0,0" VerticalAlignment="Top" Width="107" Click="btnLogin_Click"/>
+        <Label Content="Contraseña" HorizontalAlignment="Left" Height="29" Margin="242,219,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="Usuario" HorizontalAlignment="Left" Height="29" Margin="230,138,0,0" VerticalAlignment="Top" Width="90"/>
 
     </Grid>
 </Window>

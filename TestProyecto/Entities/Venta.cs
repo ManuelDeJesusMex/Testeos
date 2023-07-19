@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TestProyecto.Entities
 {
-    public class Compra
+    public class Venta
     {
 
 

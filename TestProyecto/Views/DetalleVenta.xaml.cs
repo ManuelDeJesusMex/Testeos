@@ -10,29 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TestProyecto.Views;
 
-namespace TestProyecto
+namespace TestProyecto.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Lógica de interacción para DetalleVenta.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DetalleVenta : Window
     {
-        public MainWindow()
+        public DetalleVenta()
         {
             InitializeComponent();
-        }
-
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
-        {
-            CarritodeCompra vista = new CarritodeCompra();
-
-            vista.Show();
-
-            Close();
         }
     }
 }
