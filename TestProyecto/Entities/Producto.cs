@@ -17,19 +17,36 @@ namespace TestProyecto.Entities
         public string Nombre { get; set; }
 
         public int Cantidad { get; set; }
-
-        public string Sabor { get; set; }
-
-        public string Tamaño { get; set; }
-
-        public string Lote { get; set; }
-
         public double PrecioUnitario { get; set; }
 
         [ForeignKey(("Vendedores"))]
 
-        public int? FkVendedor { get; set; }
+        public int? FkVendedor { get; set; } //Se tendrá que ingrsar el foreign key del vendedor/admin quien ingreso la bebida
 
         public Vendedor Vendedores { get; set; }
+
+        [ForeignKey(("Lotes"))]
+
+        public int? FkLote { get; set; }
+
+        public Lote Lotes { get; set; }
+
+        [ForeignKey(("Sabores"))]
+
+        public int? FkSabor { get; set; }
+
+        public Sabor Sabores { get; set; }
+
+        [ForeignKey(("Tamaños"))]
+
+        public int FkTamaño { get; set; }
+
+        public Tamaño Tamaños { get; set; }
+
+        
+
+        
+
+
     }
 }

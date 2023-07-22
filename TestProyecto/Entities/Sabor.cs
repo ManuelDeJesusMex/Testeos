@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestProyecto.Entities
 {
-    internal class DetalleVenta
+    internal class Sabor
     {
     }
 }

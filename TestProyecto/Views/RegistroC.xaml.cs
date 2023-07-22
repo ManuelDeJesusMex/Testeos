@@ -15,27 +15,18 @@ using System.Windows.Shapes;
 namespace TestProyecto.Views
 {
     /// <summary>
-    /// Lógica de interacción para CarritodeCompra.xaml
+    /// Lógica de interacción para RegistroC.xaml
     /// </summary>
-    public partial class CarritodeCompra : Window
+    public partial class RegistroC : Window
     {
-        public CarritodeCompra()
+        public RegistroC()
         {
             InitializeComponent();
         }
 
-        private void btnback_Click(object sender, RoutedEventArgs e)
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
 
-            mainWindow.Show();
-            Close();
-        }
-
-        private void MouseMessage (object sender, MouseEventArgs e)
-        {
-            
-            
         }
     }
 }

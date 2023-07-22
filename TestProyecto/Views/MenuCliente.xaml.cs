@@ -23,5 +23,29 @@ namespace TestProyecto.Views
         {
             InitializeComponent();
         }
+
+        private void btnReadProductos_Click(object sender, RoutedEventArgs e)
+        {
+            Vistadeproductos verproductos = new Vistadeproductos();
+
+            verproductos.Show();
+            Close();
+        }
+
+        private void btnCarritoCompra_Click(object sender, RoutedEventArgs e)
+        {
+            CarritodeCompra carroCliente = new CarritodeCompra();
+
+            carroCliente.Show();
+            Close();
+        }
+
+        private void btnLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow log = new MainWindow();
+
+            log.Show();
+            Close();
+        }
     }
 }
