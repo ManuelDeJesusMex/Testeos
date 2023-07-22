@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace TestProyecto.Services
 {
-    internal class CrudVendedor
+    public class CrudVendedor
     {
+
+
+
     }
 }

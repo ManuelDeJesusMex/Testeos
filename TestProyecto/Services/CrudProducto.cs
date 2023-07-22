@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestProyecto.Services
 {
-    internal class CrudProducto
+    public class CrudProducto
     {
     }
 }

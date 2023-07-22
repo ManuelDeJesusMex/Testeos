@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TestProyecto.Entities;
+using TestProyecto.Services;
 
 namespace TestProyecto.Views
 {
@@ -23,10 +25,49 @@ namespace TestProyecto.Views
         {
             InitializeComponent();
         }
-
+        CrudCliente servicios = new CrudCliente();
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow MenuPrincipal = new MainWindow();
 
+            MenuPrincipal.Show();
+
+            Close();
+        }
+
+        private void btnReset_Click(object sender, RoutedEventArgs e)
+        {
+            txtApellido.Clear();
+            txtCorreo.Clear();
+            txtNombre.Clear();
+            txtPassword.Clear();
+            txtSaldo.Clear();
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            Cliente AddCliente = new Cliente();
+
+            if (!string.IsNullOrEmpty(txtApellido.Text) || !string.IsNullOrEmpty(txtCorreo.Text) || !string.IsNullOrEmpty(txtNombre.Text) || !string.IsNullOrEmpty(txtSaldo.Text) || !string.IsNullOrEmpty(txtPassword.Text))
+            {
+                txtNombre.Text = AddCliente.Nombre;
+                txtApellido.Text = AddCliente.Apellido;
+                txtCorreo.Text = AddCliente.Correo;
+                txtPassword.Text = AddCliente.Password;
+                txtSaldo.Text = AddCliente.Saldo.ToString();
+
+                servicios.CreateCliente(AddCliente);
+
+                MessageBox.Show("Se ha registrado con éxito");
+
+                MainWindow Login = new MainWindow();
+
+                Login.Show();
+
+            
+                //HOla
+                Close();
+            }
         }
     }
 }

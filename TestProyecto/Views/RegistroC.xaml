@@ -7,6 +7,15 @@
         mc:Ignorable="d"
         Title="RegistroC" Height="450" Width="800">
     <Grid>
-        
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="40" Margin="38,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181"/>
+        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="40" Margin="40,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181"/>
+        <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Height="40" Margin="390,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181"/>
+        <TextBox x:Name="txtSaldo" HorizontalAlignment="Left" Height="40" Margin="395,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" RenderTransformOrigin="1.284,1.654"/>
+        <TextBox x:Name="txtApellido" HorizontalAlignment="Left" Height="40" Margin="38,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181"/>
+        <ComboBox x:Name="cbRol" HorizontalAlignment="Left" Margin="389,269,0,0" VerticalAlignment="Top" Width="120" Text="Usuario"/>
+        <Button x:Name="btnAdd" Content="Registrar" HorizontalAlignment="Left" Margin="128,346,0,0" VerticalAlignment="Top" Height="34" Width="135" Click="btnAdd_Click"/>
+        <Button x:Name="btnCancel" Content="Regresar" HorizontalAlignment="Left" Margin="22,26,0,0" VerticalAlignment="Top" Height="35" Width="65" Click="btnCancel_Click"/>
+        <Button x:Name="btnReset" Content="Borrar todo" HorizontalAlignment="Left" Margin="386,345,0,0" VerticalAlignment="Top" Height="34" Width="135" Click="btnReset_Click"/>
+
     </Grid>
 </Window>
