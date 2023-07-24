@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TestProyecto.Entities;
@@ -56,13 +57,22 @@ namespace TestProyecto.Views
                 AddCliente.Apellido = txtApellido.Text;
                 AddCliente.Correo = txtCorreo.Text;
                 AddCliente.Password = txtPassword.Text;
+
+               // txtSaldo.Text = AddCliente.Saldo.ToString();
+               
+
+                AddCliente.Saldo = double.Parse (txtSaldo.Text);
+
                 AddCliente.FkRol = 1;
 
                // AddCliente.FkRol = int.Parse(SelectRol.SelectedValue.ToString());
 
                 //Al tratarse de un cliente, directamente se le asigna el FkRol de 1 (Cliente)
 
-                txtSaldo.Text = AddCliente.Saldo.ToString();
+                
+
+
+                
 
                 servicios.CreateCliente(AddCliente);
 

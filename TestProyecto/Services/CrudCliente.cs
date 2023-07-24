@@ -31,6 +31,8 @@ namespace TestProyecto.Services
 					NewCliente.Saldo = request.Saldo;
 					NewCliente.FkRol = request.FkRol;
 
+					//Detalle, saldo se està ingresando como null aunque le especifiquemos el valor
+
 						_context.Clientes.Add(request);
 						_context.SaveChanges();
 					}
