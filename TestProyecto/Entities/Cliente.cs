@@ -12,7 +12,7 @@ namespace TestProyecto.Entities
     {
 
         [Key]
-        int PkCliente { get; set; }
+        public int PkCliente { get; set; }
 
         public string Nombre { get; set; }
 

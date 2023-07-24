@@ -13,8 +13,8 @@ namespace TestProyecto.Services
     {
         public void CreateCliente (Cliente request) //Función para que cliente se registre y SA lo agregue
         {
-			try
-			{
+			//try
+			//{
 				if (request != null) 
 				{
 
@@ -22,23 +22,25 @@ namespace TestProyecto.Services
 					{
 						Cliente NewCliente = new Cliente();
 
-						request.Nombre = NewCliente.Nombre;
-						request.Apellido = NewCliente.Apellido;
-						request.Correo = NewCliente.Correo;
-						request.Password = NewCliente.Password;
-						request.Saldo = NewCliente.Saldo;
-						request.FkRol = NewCliente.FkRol;
+						
+
+					NewCliente.Nombre = request.Nombre;
+					NewCliente.Apellido = request.Apellido;
+					NewCliente.Correo = request.Correo;
+					NewCliente.Password = request.Password;
+					NewCliente.Saldo = request.Saldo;
+					NewCliente.FkRol = request.FkRol;
 
 						_context.Clientes.Add(request);
 						_context.SaveChanges();
 					}
 				}
-			}
-			catch (Exception ex)
-			{
+			//}
+			//catch (Exception ex)
+			//{
 
-				throw new Exception ("Error: "+ex.Message);
-			}
+			//	throw new Exception ("Error: "+ex.Message);
+			//}
         }
 
 		public List<Cliente> GetClientes() //Lectura de clientes valido solo para SA

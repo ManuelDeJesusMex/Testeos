@@ -50,10 +50,18 @@ namespace TestProyecto.Views
 
             if (!string.IsNullOrEmpty(txtApellido.Text) || !string.IsNullOrEmpty(txtCorreo.Text) || !string.IsNullOrEmpty(txtNombre.Text) || !string.IsNullOrEmpty(txtSaldo.Text) || !string.IsNullOrEmpty(txtPassword.Text))
             {
-                txtNombre.Text = AddCliente.Nombre;
-                txtApellido.Text = AddCliente.Apellido;
-                txtCorreo.Text = AddCliente.Correo;
-                txtPassword.Text = AddCliente.Password;
+                
+
+                AddCliente.Nombre = txtNombre.Text;
+                AddCliente.Apellido = txtApellido.Text;
+                AddCliente.Correo = txtCorreo.Text;
+                AddCliente.Password = txtPassword.Text;
+                AddCliente.FkRol = 1;
+
+               // AddCliente.FkRol = int.Parse(SelectRol.SelectedValue.ToString());
+
+                //Al tratarse de un cliente, directamente se le asigna el FkRol de 1 (Cliente)
+
                 txtSaldo.Text = AddCliente.Saldo.ToString();
 
                 servicios.CreateCliente(AddCliente);
@@ -69,5 +77,7 @@ namespace TestProyecto.Views
                 Close();
             }
         }
+
+       
     }
 }

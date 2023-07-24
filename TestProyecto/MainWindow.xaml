@@ -21,6 +21,7 @@
         <Button x:Name="btnLogin" Content="Iniciar sesión" HorizontalAlignment="Left" Height="37" Margin="237,316,0,0" VerticalAlignment="Top" Width="107" Click="btnLogin_Click"/>
         <Label Content="Contraseña" HorizontalAlignment="Left" Height="29" Margin="242,219,0,0" VerticalAlignment="Top" Width="90"/>
         <Label Content="Usuario" HorizontalAlignment="Left" Height="29" Margin="230,138,0,0" VerticalAlignment="Top" Width="90"/>
+        <Button x:Name="btnRegistrer" Content="¡Registrate!" HorizontalAlignment="Left" Height="37" Margin="407,316,0,0" VerticalAlignment="Top" Width="105" Click="btnRegistrer_Click"/>
 
     </Grid>
 </Window>

@@ -28,9 +28,22 @@ namespace TestProyecto
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+
+
+
+
             CarritodeCompra vista = new CarritodeCompra();
 
             vista.Show();
+
+            Close();
+        }
+
+        private void btnRegistrer_Click(object sender, RoutedEventArgs e)
+        {
+            RegistroC registrarC = new RegistroC();
+
+            registrarC.Show();
 
             Close();
         }

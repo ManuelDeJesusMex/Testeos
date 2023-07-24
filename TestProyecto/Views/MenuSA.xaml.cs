@@ -15,13 +15,18 @@ using System.Windows.Shapes;
 namespace TestProyecto.Views
 {
     /// <summary>
-    /// Lógica de interacción para DetalleVenta.xaml
+    /// Lógica de interacción para MenuSA.xaml
     /// </summary>
-    public partial class DetalleVenta : Window
+    public partial class MenuSA : Window
     {
-        public DetalleVenta()
+        public MenuSA()
         {
             InitializeComponent();
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+                
         }
     }
 }
