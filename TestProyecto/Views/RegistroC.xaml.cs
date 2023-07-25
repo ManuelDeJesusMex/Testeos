@@ -53,15 +53,15 @@ namespace TestProyecto.Views
             {
                 
 
-                AddCliente.Nombre = txtNombre.Text;
-                AddCliente.Apellido = txtApellido.Text;
-                AddCliente.Correo = txtCorreo.Text;
-                AddCliente.Password = txtPassword.Text;
+                AddCliente.NombreCliente = txtNombre.Text;
+                AddCliente.ApellidoCliente = txtApellido.Text;
+                AddCliente.CorreoCliente = txtCorreo.Text;
+                AddCliente.PasswordCliente = txtPassword.Text;
 
                // txtSaldo.Text = AddCliente.Saldo.ToString();
                
 
-                AddCliente.Saldo = double.Parse (txtSaldo.Text);
+                AddCliente.SaldoCliente = double.Parse (txtSaldo.Text);
 
                 AddCliente.FkRol = 1;
 

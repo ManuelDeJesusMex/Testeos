@@ -28,15 +28,15 @@ namespace TestProyecto
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            MenuGeneral nuevo = new MenuGeneral();
 
-
-
-
-            CarritodeCompra vista = new CarritodeCompra();
-
-            vista.Show();
+            nuevo.Show();
 
             Close();
+
+
+
+            
         }
 
         private void btnRegistrer_Click(object sender, RoutedEventArgs e)

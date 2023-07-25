@@ -9,8 +9,8 @@ using TestProyecto.Context;
 namespace TestProyecto.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230724141538_Test1")]
-    partial class Test1
+    [Migration("20230725162133_test")]
+    partial class test
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -25,11 +25,11 @@ namespace TestProyecto.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Apellido")
+                    b.Property<string>("ApellidoCliente")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Correo")
+                    b.Property<string>("CorreoCliente")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -37,15 +37,15 @@ namespace TestProyecto.Migrations
                         .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<string>("Nombre")
+                    b.Property<string>("NombreCliente")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Password")
+                    b.Property<string>("PasswordCliente")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<double>("Saldo")
+                    b.Property<double>("SaldoCliente")
                         .HasColumnType("double");
 
                     b.HasKey("PkCliente");
@@ -176,11 +176,16 @@ namespace TestProyecto.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int?>("FkRol")
+                        .HasColumnType("int");
+
                     b.Property<string>("NombreVendedor")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("PkVendedor");
+
+                    b.HasIndex("FkRol");
 
                     b.ToTable("Vendedores");
                 });
@@ -251,6 +256,15 @@ namespace TestProyecto.Migrations
                     b.Navigation("Tamaños");
 
                     b.Navigation("Vendedores");
+                });
+
+            modelBuilder.Entity("TestProyecto.Entities.Vendedor", b =>
+                {
+                    b.HasOne("TestProyecto.Entities.Rol", "Roles")
+                        .WithMany()
+                        .HasForeignKey("FkRol");
+
+                    b.Navigation("Roles");
                 });
 
             modelBuilder.Entity("TestProyecto.Entities.Venta", b =>

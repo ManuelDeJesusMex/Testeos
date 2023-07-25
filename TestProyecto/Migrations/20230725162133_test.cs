@@ -4,7 +4,7 @@ using MySql.EntityFrameworkCore.Metadata;
 
 namespace TestProyecto.Migrations
 {
-    public partial class Test1 : Migration
+    public partial class test : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -61,32 +61,16 @@ namespace TestProyecto.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Vendedores",
-                columns: table => new
-                {
-                    PkVendedor = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    NombreVendedor = table.Column<string>(type: "text", nullable: false),
-                    ApellidoVendedor = table.Column<string>(type: "text", nullable: false),
-                    CorreoV = table.Column<string>(type: "text", nullable: false),
-                    ContraseñaVendedor = table.Column<string>(type: "text", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Vendedores", x => x.PkVendedor);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Clientes",
                 columns: table => new
                 {
                     PkCliente = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    Nombre = table.Column<string>(type: "text", nullable: false),
-                    Apellido = table.Column<string>(type: "text", nullable: false),
-                    Correo = table.Column<string>(type: "text", nullable: false),
-                    Password = table.Column<string>(type: "text", nullable: false),
-                    Saldo = table.Column<double>(type: "double", nullable: false),
+                    NombreCliente = table.Column<string>(type: "text", nullable: false),
+                    ApellidoCliente = table.Column<string>(type: "text", nullable: false),
+                    CorreoCliente = table.Column<string>(type: "text", nullable: false),
+                    PasswordCliente = table.Column<string>(type: "text", nullable: false),
+                    SaldoCliente = table.Column<double>(type: "double", nullable: false),
                     FkRol = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -98,6 +82,29 @@ namespace TestProyecto.Migrations
                         principalTable: "Roles",
                         principalColumn: "PkRol",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Vendedores",
+                columns: table => new
+                {
+                    PkVendedor = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    NombreVendedor = table.Column<string>(type: "text", nullable: false),
+                    ApellidoVendedor = table.Column<string>(type: "text", nullable: false),
+                    CorreoV = table.Column<string>(type: "text", nullable: false),
+                    ContraseñaVendedor = table.Column<string>(type: "text", nullable: false),
+                    FkRol = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Vendedores", x => x.PkVendedor);
+                    table.ForeignKey(
+                        name: "FK_Vendedores_Roles_FkRol",
+                        column: x => x.FkRol,
+                        principalTable: "Roles",
+                        principalColumn: "PkRol",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -194,6 +201,11 @@ namespace TestProyecto.Migrations
                 name: "IX_Productos_FkVendedor",
                 table: "Productos",
                 column: "FkVendedor");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Vendedores_FkRol",
+                table: "Vendedores",
+                column: "FkRol");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Ventas_FkCliente",

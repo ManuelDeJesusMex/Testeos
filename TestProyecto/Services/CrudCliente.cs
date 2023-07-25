@@ -24,11 +24,11 @@ namespace TestProyecto.Services
 					
 						
 
-					NewCliente.Nombre = request.Nombre;
-					NewCliente.Apellido = request.Apellido;
-					NewCliente.Correo = request.Correo;
-					NewCliente.Password = request.Password;
-					NewCliente.Saldo = request.Saldo;
+					NewCliente.NombreCliente = request.NombreCliente;
+					NewCliente.ApellidoCliente = request.ApellidoCliente;
+					NewCliente.CorreoCliente = request.CorreoCliente;
+					NewCliente.PasswordCliente = request.PasswordCliente;
+					NewCliente.SaldoCliente = request.SaldoCliente;
 					NewCliente.FkRol = request.FkRol;
 
 					//Detalle, saldo se està ingresando como null aunque le especifiquemos el valor
@@ -45,27 +45,7 @@ namespace TestProyecto.Services
 			//}
         }
 
-		public List<Cliente> GetClientes() //Lectura de clientes valido solo para SA
-		{
-			try
-			{
-				using (var _context = new ApplicationDbContext ())
-				{
-                    List<Cliente> Clientes = new List<Cliente>();
-
-                    Clientes = _context.Clientes.Include(x=>x.Roles).ToList();
-					return Clientes;
-
-                }
-
-				
-			}
-			catch (Exception ex)
-			{
-
-				throw new Exception("Error: " + ex.Message);
-			}
-		}
+		
 		public void UpdateCliente (Cliente requestUpdate) //Cliente y SA actualizarán cliente
 		{
 			try

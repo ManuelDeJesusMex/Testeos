@@ -1,0 +1,16 @@
+﻿<Window x:Class="TestProyecto.Views.MenuGeneral"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestProyecto.Views"
+        mc:Ignorable="d"
+        Title="MenuGeneral" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="btnUpdateProductos" Content="Administrar productos" HorizontalAlignment="Left" Height="59" Margin="70,158,0,0" VerticalAlignment="Top" Width="137" Visibility="Hidden"/>
+        <Button x:Name="btnWatchProductos" Content="Ver productos" HorizontalAlignment="Left" Height="59" Margin="319,159,0,0" VerticalAlignment="Top" Width="137" Visibility="Hidden"/>
+        <Button x:Name="btnAdminUsers" Content="Administrar Usuarios" HorizontalAlignment="Left" Height="59" Margin="562,160,0,0" VerticalAlignment="Top" Width="137" Click="btnAdminUsers_Click"/>
+        <Button x:Name="btnLogOut" Content="Cerrar sesión" HorizontalAlignment="Left" Height="59" Margin="26,347,0,0" VerticalAlignment="Top" Width="137" Click="btnLogOut_Click"/>
+
+    </Grid>
+</Window>

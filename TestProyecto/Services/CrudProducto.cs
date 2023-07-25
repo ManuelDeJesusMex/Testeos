@@ -59,6 +59,58 @@ namespace TestProyecto.Services
 				throw new Exception("Error: "+ex.Message);
 			}
 		}
+		public List<Tamaño> GetTamaños ()
+		{
+			try
+			{
+				using (var _context = new ApplicationDbContext())
+				{
+					List<Tamaño> tamaños = _context.Tamaños.ToList();
+					
 
+					return tamaños;
+				}
+			}
+			catch (Exception ex)
+			{
+
+				throw new Exception("Error: "+ex.Message);
+			}
+		}
+
+		public List<Sabor> GetSabores ()
+		{
+			try
+			{
+				using (var _context = new ApplicationDbContext())
+				{
+					List<Sabor> Sabores = _context.Sabores.ToList();
+
+					return Sabores;
+				}
+			}
+			catch (Exception ex)
+			{
+
+				throw new Exception ("Error: "+ex.Message);
+			}
+		}
+        public List<Lote> GetLotes()
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    List<Lote> LotesB = _context.Lotes.ToList();
+
+                    return LotesB;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error: " + ex.Message);
+            }
+        }
     }
 }

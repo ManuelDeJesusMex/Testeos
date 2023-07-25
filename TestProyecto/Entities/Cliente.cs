@@ -14,15 +14,15 @@ namespace TestProyecto.Entities
         [Key]
         public int PkCliente { get; set; }
 
-        public string Nombre { get; set; }
+        public string NombreCliente { get; set; }
 
-        public string Apellido { get; set; }
+        public string ApellidoCliente { get; set; }
 
-        public string Correo { get; set; }
+        public string CorreoCliente { get; set; }
 
-        public string Password { get; set; }
+        public string PasswordCliente { get; set; }
 
-        public double Saldo { get; set; }
+        public double SaldoCliente { get; set; }
 
         [ForeignKey(("Roles"))]
 

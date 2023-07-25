@@ -26,9 +26,9 @@ namespace TestProyecto.Views
 
         private void btnReadProductos_Click(object sender, RoutedEventArgs e)
         {
-            Vistadeproductos verproductos = new Vistadeproductos();
+           // Vistadeproductos verproductos = new Vistadeproductos();
 
-            verproductos.Show();
+           // verproductos.Show();
             Close();
         }
 
