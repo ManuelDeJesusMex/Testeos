@@ -49,6 +49,7 @@ namespace TestProyecto.Views
                 cbSabor.Visibility = Visibility.Hidden;
                 cbTamaño.Visibility = Visibility.Hidden;
                 GetClientesTable();
+                
 
 
             } else if (cboptionsUsers.SelectedItem == "Vendedor")
@@ -163,7 +164,14 @@ namespace TestProyecto.Views
             }
             else if (cboptionsUsers.SelectedItem == "Producto")
             {
-                
+                Producto ProductoF = new Producto();
+                if (txtPkUser.Text == "")
+                {
+                    ProductoF.Nombre = txtNombre.Text;
+                    cbLote.SelectedItem = ProductoF.FkLote;
+                    cbTamaño.SelectedItem = ProductoF.FkTamaño;
+                    cbSabor.SelectedItem = ProductoF.FkSabor;
+                }
             }
         }
 

@@ -42,6 +42,7 @@ namespace TestProyecto.Views
 
             sa.Show();
             Close();
+            //JASIJFD
         }
     }
 }
