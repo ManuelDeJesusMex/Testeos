@@ -45,10 +45,12 @@ namespace TestProyecto
                 nuevo.Show();
 
                 Close();
+               //return "SA";
             }
             else
             {
                 MessageBox.Show("No hay usuario");
+              //  return "";
             }
 
 
