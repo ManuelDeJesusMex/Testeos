@@ -13,7 +13,7 @@ namespace TestProyecto.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseMySQL("Server=localhost; database=Testproyecto; user=root; password=arenaquesito;");
+            optionsBuilder.UseMySQL("Server=localhost; database=Testproyecto; user=root; password=;");
 
 
         }
@@ -37,6 +37,8 @@ namespace TestProyecto.Context
         public DbSet<Lote> Lotes { get; set; }
 
         public DbSet<Venta> Ventas { get; set; }
+
+        public DbSet<SuperAdmin> SuperAdministradores { get; set; }
 
     }
 

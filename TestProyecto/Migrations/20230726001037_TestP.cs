@@ -4,7 +4,7 @@ using MySql.EntityFrameworkCore.Metadata;
 
 namespace TestProyecto.Migrations
 {
-    public partial class test : Migration
+    public partial class TestP : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -82,6 +82,29 @@ namespace TestProyecto.Migrations
                         principalTable: "Roles",
                         principalColumn: "PkRol",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SuperAdministradores",
+                columns: table => new
+                {
+                    PkSuperAdmin = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    NombreSuperAdmin = table.Column<string>(type: "text", nullable: false),
+                    ApellidoSuperAdmin = table.Column<string>(type: "text", nullable: false),
+                    CorreoSuperAdmin = table.Column<string>(type: "text", nullable: false),
+                    ContraseñaSuperAdmin = table.Column<string>(type: "text", nullable: false),
+                    FkRol = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SuperAdministradores", x => x.PkSuperAdmin);
+                    table.ForeignKey(
+                        name: "FK_SuperAdministradores_Roles_FkRol",
+                        column: x => x.FkRol,
+                        principalTable: "Roles",
+                        principalColumn: "PkRol",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -203,6 +226,11 @@ namespace TestProyecto.Migrations
                 column: "FkVendedor");
 
             migrationBuilder.CreateIndex(
+                name: "IX_SuperAdministradores_FkRol",
+                table: "SuperAdministradores",
+                column: "FkRol");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Vendedores_FkRol",
                 table: "Vendedores",
                 column: "FkRol");
@@ -222,6 +250,9 @@ namespace TestProyecto.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Productos");
+
+            migrationBuilder.DropTable(
+                name: "SuperAdministradores");
 
             migrationBuilder.DropTable(
                 name: "Ventas");

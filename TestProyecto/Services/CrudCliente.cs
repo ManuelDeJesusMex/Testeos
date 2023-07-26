@@ -60,7 +60,7 @@ namespace TestProyecto.Services
 			{
 
 				throw new Exception("Error: "+ ex.Message);
-			}
+		}
 		}
 
 		public bool DeleteCliente (int ID) //SA lo podrá eliminar

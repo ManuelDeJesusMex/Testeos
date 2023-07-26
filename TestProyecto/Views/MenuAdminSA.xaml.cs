@@ -49,6 +49,9 @@ namespace TestProyecto.Views
                 cbSabor.Visibility = Visibility.Hidden;
                 cbTamaño.Visibility = Visibility.Hidden;
                 GetClientesTable();
+                ProductosTable.Visibility = Visibility.Hidden;
+                VendedorTable.Visibility = Visibility.Hidden;
+                ClienteTable.Visibility = Visibility.Visible;
                 
 
 
@@ -61,6 +64,11 @@ namespace TestProyecto.Views
                 cbRol.Visibility = Visibility.Visible;
                 cbSabor.Visibility = Visibility.Hidden;
                 cbTamaño.Visibility = Visibility.Hidden;
+                ClienteTable.Visibility = Visibility.Hidden;
+                ProductosTable.Visibility = Visibility.Hidden;
+                VendedorTable.Visibility = Visibility.Hidden;
+                VendedorTable.Visibility = Visibility.Visible;
+                
 
             } else if (cboptionsUsers.SelectedItem == "Producto")
             {
@@ -71,6 +79,11 @@ namespace TestProyecto.Views
                 cbRol.Visibility = Visibility.Hidden;
                 cbSabor.Visibility = Visibility.Visible;
                 cbTamaño.Visibility = Visibility.Visible;
+                ClienteTable.Visibility = Visibility.Hidden;
+                ProductosTable.Visibility = Visibility.Hidden;
+                VendedorTable.Visibility = Visibility.Hidden;
+                ProductosTable.Visibility = Visibility.Visible;
+               
 
             } else if (cboptionsUsers.SelectedItem == "SA")
             {
@@ -81,6 +94,11 @@ namespace TestProyecto.Views
                 cbRol.Visibility = Visibility.Visible;
                 cbSabor.Visibility = Visibility.Hidden;
                 cbTamaño.Visibility = Visibility.Hidden;
+                ClienteTable.Visibility = Visibility.Hidden;
+                VendedorTable.Visibility = Visibility.Hidden;
+                ProductosTable.Visibility = Visibility.Hidden;
+                SuperAdminTable.Visibility = Visibility.Visible;
+               
             }
         }
         public void GetRoles()
@@ -109,13 +127,26 @@ namespace TestProyecto.Views
         }
         public void GetClientesTable ()
         {
-            UserTable.ItemsSource = modSA.GetClientes();
+            ClienteTable.ItemsSource = modSA.GetClientes();
         }
         public void GetVendedoresTable ()
         {
 
         }
+        public void EditItemCliente (Object sender, RoutedEventArgs e)
+        {
+            Cliente modC = new Cliente();
 
+            modC = (sender as FrameworkElement).DataContext as Cliente;
+
+            txtNombre.Text = modC.NombreCliente.ToString();
+            txtApellido.Text = modC.ApellidoCliente.ToString();
+            txtCorreo.Text = modC.CorreoCliente.ToString();
+            txtPassword.Text = modC.PasswordCliente.ToString();
+            txtSaldo.Text = modC.SaldoCliente.ToString();
+            txtPkUser.Text = modC.PkCliente.ToString();
+            cbRol.SelectedValue = modC.FkRol;
+        }
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
             if (cboptionsUsers.SelectedItem == "Cliente")
@@ -137,6 +168,17 @@ namespace TestProyecto.Views
                 }
                 else
                 {
+                    ClienteF.NombreCliente = txtNombre.Text;
+                    ClienteF.NombreCliente = txtNombre.Text;
+                    ClienteF.ApellidoCliente = txtApellido.Text;
+                    ClienteF.CorreoCliente = txtCorreo.Text;
+                    ClienteF.PasswordCliente = txtPassword.Text;
+                    ClienteF.SaldoCliente = double.Parse(txtSaldo.Text);
+                    cbRol.SelectedValue = ClienteF.FkRol;
+
+                    modcliente.UpdateCliente(ClienteF);
+
+                    MessageBox.Show("Se editó correctamente");
                     //Hacer función de update
                 }
             } 

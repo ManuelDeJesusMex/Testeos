@@ -9,8 +9,8 @@ using TestProyecto.Context;
 namespace TestProyecto.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230725162133_test")]
-    partial class test
+    [Migration("20230726001037_TestP")]
+    partial class TestP
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -143,6 +143,38 @@ namespace TestProyecto.Migrations
                     b.ToTable("Sabores");
                 });
 
+            modelBuilder.Entity("TestProyecto.Entities.SuperAdmin", b =>
+                {
+                    b.Property<int>("PkSuperAdmin")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("ApellidoSuperAdmin")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ContraseñaSuperAdmin")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("CorreoSuperAdmin")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int?>("FkRol")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NombreSuperAdmin")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("PkSuperAdmin");
+
+                    b.HasIndex("FkRol");
+
+                    b.ToTable("SuperAdministradores");
+                });
+
             modelBuilder.Entity("TestProyecto.Entities.Tamaño", b =>
                 {
                     b.Property<int>("PkTamaño")
@@ -256,6 +288,15 @@ namespace TestProyecto.Migrations
                     b.Navigation("Tamaños");
 
                     b.Navigation("Vendedores");
+                });
+
+            modelBuilder.Entity("TestProyecto.Entities.SuperAdmin", b =>
+                {
+                    b.HasOne("TestProyecto.Entities.Rol", "Roles")
+                        .WithMany()
+                        .HasForeignKey("FkRol");
+
+                    b.Navigation("Roles");
                 });
 
             modelBuilder.Entity("TestProyecto.Entities.Vendedor", b =>
