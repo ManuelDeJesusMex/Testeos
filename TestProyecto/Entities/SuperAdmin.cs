@@ -27,7 +27,7 @@ namespace TestProyecto.Entities
         public int? FkRol { set; get; }
 
         public Rol Roles { set; get; }
-
+        //SADSA
 
     }
 }
