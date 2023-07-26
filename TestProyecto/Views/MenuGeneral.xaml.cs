@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TestProyecto.Services;
 
 namespace TestProyecto.Views
 {
@@ -25,8 +26,11 @@ namespace TestProyecto.Views
             
 
         }
-
-        
+        CrudCliente log = new CrudCliente();
+        public void HabilityButtons ()
+        {
+           
+        }
 
         private void btnLogOut_Click(object sender, RoutedEventArgs e)
         {

@@ -27,7 +27,7 @@
                 <DataGridTemplateColumn Header="Delete">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button  Background="#FA4D4D" Content="Delete"/>
+                            <Button  Background="#FA4D4D" Content="Delete" Click="DeleteItemCliente"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -42,6 +42,20 @@
                 <DataGridTextColumn Header="Correo" Binding="{Binding CorreoV}"/>
                 <DataGridTextColumn Header="Password" Binding="{Binding ContraseñaVendedor}" />
                 <DataGridTextColumn Header="Rol" Binding="{Binding Roles.RolName}"/>
+                <DataGridTemplateColumn Header="Editar">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Edit" Background="AliceBlue" Click="EditItemVendedor"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Delete">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Background="#FA4D4D" Content="Delete" Click="DeteleItemVendedor"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
 
         </DataGrid>
@@ -53,6 +67,20 @@
                 <DataGridTextColumn Header="Correo" Binding="{Binding CorreoSuperAdmin}"/>
                 <DataGridTextColumn Header="Password" Binding="{Binding ContraseñaSuperAdmin}" />
                 <DataGridTextColumn Header="Rol" Binding="{Binding Roles.RolName}"/>
+                <DataGridTemplateColumn Header="Editar">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Edit" Background="AliceBlue" Click="EditItemSA"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Delete">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Background="#FA4D4D" Content="Delete" Click="DeleteItemSA"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
 
         </DataGrid>
@@ -66,6 +94,20 @@
                 <DataGridTextColumn Header="Sabor" Binding="{Binding Sabores.NameSabor}"/>
                 <DataGridTextColumn Header="Tamaño" Binding="{Binding Tamaños.TamañoP}"/>
                 <DataGridTextColumn Header="Lote" Binding="{Binding Lotes.LoteName}"/>
+                <DataGridTemplateColumn Header="Editar">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Edit" Background="AliceBlue" Click="EditItemProducto"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Delete">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Background="#FA4D4D" Content="Delete" Click="DeleteItemProducto"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 
             </DataGrid.Columns>
 
@@ -81,11 +123,15 @@
         <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="15,286,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="27" />
         <TextBox x:Name="txtSaldo" HorizontalAlignment="Left" Margin="203,336,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="23" Visibility="Hidden" />
         <TextBox x:Name="txtPkUser" HorizontalAlignment="Left" Margin="16,335,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" Height="27" IsEnabled="False"/>
+        
         <Label x:Name="lblnombre" Content="Nombre" HorizontalAlignment="Left" Margin="39,65,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbApellido" Content="Apellido" HorizontalAlignment="Left" Margin="32,136,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbCorreo" Content="Correo" HorizontalAlignment="Left" Margin="27,198,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbPassword" Content="Contraseña" HorizontalAlignment="Left" Margin="34,259,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbPK" Content="ID" HorizontalAlignment="Left" Margin="85,335,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbSaldo" Content="Saldo" HorizontalAlignment="Left" Margin="230,303,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Label x:Name="lblote" Content="Lote" HorizontalAlignment="Left" Margin="206,389,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.202,0.906" Width="47" Visibility="Hidden"/>
+        <Label x:Name="lbsabor" Content="Sabor" HorizontalAlignment="Left" Margin="363,385,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.202,0.906" Width="47" Visibility="Hidden"/>
+        <Label x:Name="lbtamaño" Content="Tamaño" HorizontalAlignment="Left" Margin="498,388,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.202,0.906" Width="84" Visibility="Hidden"/>
     </Grid>
 </Window>

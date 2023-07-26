@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TestProyecto.Services;
 using TestProyecto.Views;
 
 namespace TestProyecto
@@ -26,13 +27,32 @@ namespace TestProyecto
             InitializeComponent();
         }
 
+        CrudCliente logC = new CrudCliente();
+
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            MenuGeneral nuevo = new MenuGeneral();
 
-            nuevo.Show();
+            string nombre = txtUser.Text;
+            string contraseña = txtPassword.Text;
 
-            Close();
+            var responser = logC.LoginC(nombre, contraseña);
+
+            if (responser.Roles.RolName == "Cliente")
+
+            {
+                MenuGeneral nuevo = new MenuGeneral();
+
+                nuevo.Show();
+
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("No hay usuario");
+            }
+
+
+           
 
 
 

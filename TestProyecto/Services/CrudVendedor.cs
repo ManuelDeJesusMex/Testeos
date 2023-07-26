@@ -15,34 +15,55 @@ namespace TestProyecto.Services
         {
             try
             {
-            if (request != null)
-            {
-
-                using (var _context = new ApplicationDbContext())
+                if (request != null)
                 {
-                    Vendedor NewVendedor = new Vendedor();
+
+                    using (var _context = new ApplicationDbContext())
+                    {
+                        Vendedor NewVendedor = new Vendedor();
 
 
 
-                    NewVendedor.NombreVendedor = request.NombreVendedor;
-                    NewVendedor.ApellidoVendedor = request.ApellidoVendedor;
-                    NewVendedor.CorreoV = NewVendedor.CorreoV;
-                    NewVendedor.ContraseñaVendedor = NewVendedor.ContraseñaVendedor;                   
-                    NewVendedor.FkRol = request.FkRol;
+                        NewVendedor.NombreVendedor = request.NombreVendedor;
+                        NewVendedor.ApellidoVendedor = request.ApellidoVendedor;
+                        NewVendedor.CorreoV = NewVendedor.CorreoV;
+                        NewVendedor.ContraseñaVendedor = NewVendedor.ContraseñaVendedor;
+                        NewVendedor.FkRol = request.FkRol;
 
-                    //Detalle, saldo se està ingresando como null aunque le especifiquemos el valor
+                        //Detalle, saldo se està ingresando como null aunque le especifiquemos el valor
 
-                    _context.Vendedores.Add(request);
-                    _context.SaveChanges();
+                        _context.Vendedores.Add(request);
+                        _context.SaveChanges();
+                    }
                 }
-            }
             }
             catch (Exception ex)
             {
 
-            	throw new Exception ("Error: "+ex.Message);
+                throw new Exception("Error: " + ex.Message);
             }
         }
+        public void DeleteVendedor (Vendedor request)
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    Vendedor deleteV = _context.Vendedores.Find(request.PkVendedor);
 
+                    if (deleteV != null)
+                    {
+                        _context.Vendedores.Remove(deleteV);
+                        _context.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception ("Error: "+ex.Message);
+            }
+        }
+       
     }
 }
