@@ -57,18 +57,46 @@ namespace TestProyecto.Services
 				using (var _context = new ApplicationDbContext())
 				{
 					Cliente updatec = _context.Clientes.Find(request.PkCliente);
-					if (updatec != null)
-					{
-						updatec.NombreCliente = request.NombreCliente;
-						updatec.ApellidoCliente = request.ApellidoCliente;
-						updatec.CorreoCliente = request.CorreoCliente;
-						updatec.PasswordCliente = request.PasswordCliente;
-						updatec.SaldoCliente = request.SaldoCliente;
-						//	updatec.FkRol = request.FkRol;
+					Vendedor vendedorN = new Vendedor();
+					SuperAdmin admin = new SuperAdmin();
 
-						_context.Clientes.Update(updatec);
-						_context.SaveChanges();
-					}
+					if (request.FkRol == 1)
+					{
+                        if (updatec != null)
+                        {
+                            updatec.NombreCliente = request.NombreCliente;
+                            updatec.ApellidoCliente = request.ApellidoCliente;
+                            updatec.CorreoCliente = request.CorreoCliente;
+                            updatec.PasswordCliente = request.PasswordCliente;
+                            updatec.SaldoCliente = request.SaldoCliente;
+                            updatec.FkRol = request.FkRol;
+
+                            _context.Clientes.Update(updatec);
+                            _context.SaveChanges();
+                        }
+
+                    }
+					//else if (request.FkRol == 2)
+					//{
+     //                   if (updatec != null)
+     //                   {
+     //                       vendedorN.NombreVendedor = request.NombreCliente;
+     //                       vendedorN.ApellidoVendedor = request.ApellidoCliente;
+     //                       vendedorN.CorreoV = request.CorreoCliente;
+     //                       vendedorN.ContraseñaVendedor = request.PasswordCliente;
+                           
+     //                       updatec.FkRol = request.FkRol;
+
+
+					//		_context.Vendedores.Add(vendedorN);
+     //                       _context.Clientes.Remove(request);
+     //                       _context.SaveChanges();
+     //                   }
+     //               } else
+					//{
+
+					//} 
+					
 				}
 			}
 			catch (Exception ex)

@@ -45,6 +45,7 @@ namespace TestProyecto.Views
         {
             if (cboptionsUsers.SelectedItem == "Cliente")
             {
+                GetRoles();
                 //  DataGridTextColumn.HeaderProperty(Saldo) = Visibility.Visible;
                 txtSaldo.Visibility = Visibility.Visible;
                 lbSaldo.Visibility = Visibility.Visible;
@@ -122,7 +123,7 @@ namespace TestProyecto.Views
         {
             cbRol.ItemsSource = modSA.GetRoles();
             cbRol.DisplayMemberPath = "RolName";
-            cbRol.SelectedValuePath = "PkRol";
+           cbRol.SelectedValuePath = "PkRol";
         }
         public void GetSabores()
         {
@@ -223,10 +224,10 @@ namespace TestProyecto.Views
                 MessageBox.Show("No hay ID colocado");
             } else
             {
-                Cliente deletec = new Cliente();
-                deletec.PkCliente = int.Parse(txtPkUser.Text);
+                Cliente deleteC = (sender as FrameworkElement).DataContext as Cliente;
 
-                modcliente.DeleteCliente(deletec);
+                modcliente.DeleteCliente(deleteC);
+
                 MessageBox.Show("Eliminado");
                 GetClientesTable();
                 txtNombre.Clear();
@@ -235,7 +236,12 @@ namespace TestProyecto.Views
                 txtPassword.Clear();
                 txtPkUser.Clear();
                 txtSaldo.Clear();
+
             }
+
+            
+
+
         }
         public void DeteleItemVendedor(object sender, RoutedEventArgs e)
         {
@@ -244,8 +250,8 @@ namespace TestProyecto.Views
                 MessageBox.Show("No hay ID colocado");
             } else
             {
-                Vendedor deletev = new Vendedor();
-                deletev.PkVendedor = int.Parse(txtPkUser.Text);
+                Vendedor deletev = (sender as FrameworkElement).DataContext as Vendedor;
+                
 
                 modVendedor.DeleteVendedor(deletev);
                 MessageBox.Show("Eliminado");
@@ -266,8 +272,8 @@ namespace TestProyecto.Views
             }
             else
             {
-                SuperAdmin deleteSA = new SuperAdmin();
-                deleteSA.PkSuperAdmin = int.Parse(txtPkUser.Text);
+                SuperAdmin deleteSA = (sender as FrameworkElement).DataContext as SuperAdmin;
+                
 
                 modSA.DeleteSA(deleteSA);
                 MessageBox.Show("Eliminado");
@@ -288,8 +294,7 @@ namespace TestProyecto.Views
             }
             else
             {
-                Producto DeleteP = new Producto();
-                DeleteP.PkProducto = int.Parse(txtPkUser.Text);
+                Producto DeleteP = (sender as FrameworkElement).DataContext as Producto;
 
                 modProducto.DeleteProducto(DeleteP);
                 MessageBox.Show("Eliminado");
@@ -338,7 +343,7 @@ namespace TestProyecto.Views
                     ClienteF.CorreoCliente = txtCorreo.Text;
                     ClienteF.PasswordCliente = txtPassword.Text;
                     ClienteF.SaldoCliente = double.Parse(txtSaldo.Text);
-             //       cbRol.SelectedValue = ClienteF.FkRol;
+                    cbRol.SelectedValue = ClienteF.FkRol;
 
                     modcliente.UCliente(ClienteF);
 
@@ -410,9 +415,7 @@ namespace TestProyecto.Views
                     superAdminF.CorreoSuperAdmin = txtCorreo.Text;
                     superAdminF.ContraseñaSuperAdmin = txtCorreo.Text;
                     superAdminF.FkRol = 3; //Se le asigna directamente 3 porque estamos registrando directamente
-
                     modSA.CreateAdmin(superAdminF);
-
                     MessageBox.Show("Agregado con éxito");
                     txtPkUser.Clear();
                     txtPassword.Clear();
@@ -421,7 +424,8 @@ namespace TestProyecto.Views
                     txtCorreo.Clear();
                     txtNombre.Clear();
                     GetSuperAdminTable();
-                } else if (txtPkUser.Text != "")
+                }
+                else if (txtPkUser.Text != "")
                 {
                     superAdminF.PkSuperAdmin = int.Parse(txtPkUser.Text);
                     superAdminF.NombreSuperAdmin = txtNombre.Text;
@@ -431,9 +435,7 @@ namespace TestProyecto.Views
 
                     //superAdminF.FkRol = cbrol.SelectedValue;
                     modSA.UpdateSA(superAdminF);
-
-                    MessageBox.Show("Se editó con exito");
-                    
+                    MessageBox.Show("Se editó con exito");                 
                     txtPkUser.Clear();
                     txtPassword.Clear();
                     txtSaldo.Clear();
@@ -481,8 +483,6 @@ namespace TestProyecto.Views
             {
                 MessageBox.Show("No has seleccionado el tipo de usuario");
             }
-        }
-
-        
+        }       
     }
 }
