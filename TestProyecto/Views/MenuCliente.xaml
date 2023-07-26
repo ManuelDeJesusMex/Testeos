@@ -10,7 +10,6 @@
         <Button x:Name="btnLogOut" Content="Cerrar sesión" HorizontalAlignment="Left" Height="39" Margin="30,111,0,0" VerticalAlignment="Top" Width="167" Click="btnLogOut_Click"/>
         <Button x:Name="btnReadProductos" Content="Productos" HorizontalAlignment="Left" Height="39" Margin="28,173,0,0" VerticalAlignment="Top" Width="167" Click="btnReadProductos_Click"/>
         <Button x:Name="btnCarritoCompra" Content="Carrito de compras" HorizontalAlignment="Left" Height="39" Margin="30,230,0,0" VerticalAlignment="Top" Width="167" Click="btnCarritoCompra_Click"/>
-        <Button x:Name="btnUpdate" Content="Configuración" HorizontalAlignment="Left" Height="47" Margin="28,291,0,0" VerticalAlignment="Top" Width="177"/>
 
     </Grid>
 </Window>

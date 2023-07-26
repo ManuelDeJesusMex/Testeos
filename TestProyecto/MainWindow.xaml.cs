@@ -35,28 +35,44 @@ namespace TestProyecto
             string nombre = txtUser.Text;
             string contraseña = txtPassword.Text;
 
-            var responser = logC.LoginC(nombre, contraseña);
-
-            if (responser.Roles.RolName == "Cliente")
-
+            if (nombre == "" || contraseña == "")
             {
-                MenuGeneral nuevo = new MenuGeneral();
-
-                nuevo.Show();
-
-                Close();
-               //return "SA";
+                MessageBox.Show("Faltan campos");
             }
             else
             {
-                MessageBox.Show("No hay usuario");
-              //  return "";
-            }
+                var responser = logC.LoginC(nombre, contraseña);
 
+                if (responser.Roles.RolName == "Cliente")
 
-           
+                {
+                    MenuGeneral nuevo = new MenuGeneral();
 
+                    nuevo.Show();
 
+                    Close();
+                    //return "SA";
+                }
+                else if (responser.Roles.RolName == "SA")
+                {
+                    MenuAdminSA sa = new MenuAdminSA();
+
+                    sa.Show();
+
+                    Close();
+
+                }
+                else if (responser.Roles.RolName == "Vendedor")
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("No hay usuario");
+                    //  return "";
+                }
+
+            }                  
 
             
         }

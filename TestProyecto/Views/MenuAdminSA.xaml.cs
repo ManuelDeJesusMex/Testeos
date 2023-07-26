@@ -47,6 +47,9 @@ namespace TestProyecto.Views
             {
                 GetRoles();
                 //  DataGridTextColumn.HeaderProperty(Saldo) = Visibility.Visible;
+                lbApellido.Content = "Apellido";
+                lbSaldo.Content = "Saldo";
+                lbCorreo.Content = "Correo";
                 txtSaldo.Visibility = Visibility.Visible;
                 lbSaldo.Visibility = Visibility.Visible;
                 cbLote.Visibility = Visibility.Hidden;
@@ -66,7 +69,8 @@ namespace TestProyecto.Views
                 GetVendedoresTable();
                 txtSaldo.Visibility = Visibility.Hidden;
                 lbSaldo.Visibility = Visibility.Hidden;
-
+                lbApellido.Content = "Apellido";
+                lbCorreo.Content = "Correo";
                 cbLote.Visibility = Visibility.Hidden;
                 cbRol.Visibility = Visibility.Visible;
                 cbSabor.Visibility = Visibility.Hidden;
@@ -107,7 +111,8 @@ namespace TestProyecto.Views
                 GetSuperAdminTable();
                 txtSaldo.Visibility = Visibility.Hidden;
                 lbSaldo.Visibility = Visibility.Hidden;
-
+                lbApellido.Content = "Apellido";
+                lbCorreo.Content = "Correo";
                 cbLote.Visibility = Visibility.Hidden;
                 cbRol.Visibility = Visibility.Visible;
                 cbSabor.Visibility = Visibility.Hidden;
