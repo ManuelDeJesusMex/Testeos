@@ -94,9 +94,20 @@ namespace TestProyecto.Services
 							_context.SaveChanges();
 
                        }
-                  } else
+                  } else if (request.FkRol == 3)
 					{
+						if (updatec != null)
+						{
+							admin.NombreSuperAdmin = request.NombreCliente;
+							admin.ApellidoSuperAdmin = request.ApellidoCliente;
+							admin.CorreoSuperAdmin = request.CorreoCliente;
+							admin.ContraseñaSuperAdmin = request.PasswordCliente;
+							admin.FkRol = request.FkRol;
 
+							_context.SuperAdministradores.Add(admin);
+							_context.Clientes.Remove(updatec);
+							_context.SaveChanges();
+						}
 					} 
 					
 				}

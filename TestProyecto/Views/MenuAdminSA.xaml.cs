@@ -402,16 +402,7 @@ namespace TestProyecto.Views
                     vendedorF.ApellidoVendedor = txtApellido.Text;
                     vendedorF.CorreoV = txtCorreo.Text;
                     vendedorF.ContraseñaVendedor = txtPassword.Text;
-
-                    //cbrol.SelectedValue = vendedorF.FkRol;
-
-                    int Fkr = 0;
-
-                    cbRol.SelectedValue = Fkr;
-
-                   // vendedorF.FkRol = Fkr;
-
-                //    vendedorF.FkRol = int.Parse(cbRol.SelectedValue);
+                    vendedorF.FkRol = int.Parse(cbRol.SelectedValue.ToString());
 
                     modSA.UpdateVendedores(vendedorF);
 
@@ -454,7 +445,7 @@ namespace TestProyecto.Views
                     superAdminF.CorreoSuperAdmin = txtCorreo.Text;
                     superAdminF.ContraseñaSuperAdmin = txtCorreo.Text;
 
-                    //superAdminF.FkRol = cbrol.SelectedValue;
+                    superAdminF.FkRol = int.Parse(cbRol.SelectedValue.ToString());
                     modSA.UpdateSA(superAdminF);
                     MessageBox.Show("Se editó con exito");                 
                     txtPkUser.Clear();
