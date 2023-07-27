@@ -224,11 +224,7 @@ namespace TestProyecto.Views
         }
         public void DeleteItemCliente(object sender, RoutedEventArgs e)
         {
-            if (txtPkUser.Text == "")
-            {
-                MessageBox.Show("No hay ID colocado");
-            } else
-            {
+            
                 Cliente deleteC = (sender as FrameworkElement).DataContext as Cliente;
 
                 modcliente.DeleteCliente(deleteC);
@@ -242,7 +238,7 @@ namespace TestProyecto.Views
                 txtPkUser.Clear();
                 txtSaldo.Clear();
 
-            }
+            
 
             
 
@@ -342,26 +338,37 @@ namespace TestProyecto.Views
                 }
                 else if (txtPkUser.Text != "")
                 {
-                    ClienteF.PkCliente = int.Parse(txtPkUser.Text);
-                    ClienteF.NombreCliente = txtNombre.Text;
-                    ClienteF.ApellidoCliente = txtApellido.Text;
-                    ClienteF.CorreoCliente = txtCorreo.Text;
-                    ClienteF.PasswordCliente = txtPassword.Text;
-                    ClienteF.SaldoCliente = double.Parse(txtSaldo.Text);
-                    cbRol.SelectedValue = ClienteF.FkRol;
+                    
 
-                    modcliente.UCliente(ClienteF);
+                    
+                        ClienteF.PkCliente = int.Parse(txtPkUser.Text);
+                        ClienteF.NombreCliente = txtNombre.Text;
+                        ClienteF.ApellidoCliente = txtApellido.Text;
+                        ClienteF.CorreoCliente = txtCorreo.Text;
+                        ClienteF.PasswordCliente = txtPassword.Text;
+                        ClienteF.SaldoCliente = double.Parse(txtSaldo.Text);
+                   //     cbRol.SelectedValue = ClienteF.FkRol;
 
-                    MessageBox.Show("Se editó correctamente");
+                    ClienteF.FkRol = int.Parse(cbRol.SelectedValue.ToString());
 
-                    txtPkUser.Clear();
-                    txtPassword.Clear();
-                    txtSaldo.Clear();
-                    txtApellido.Clear();
-                    txtCorreo.Clear();
-                    txtNombre.Clear();
-                    GetClientesTable();
-                    //Hacer función de update
+                        modcliente.UCliente(ClienteF);
+
+                       
+
+                        MessageBox.Show("Se editó correctamente");
+
+                        txtPkUser.Clear();
+                        txtPassword.Clear();
+                        txtSaldo.Clear();
+                        txtApellido.Clear();
+                        txtCorreo.Clear();
+                        txtNombre.Clear();
+                        GetClientesTable();
+                        //Hacer función de update
+                    
+
+
+
                 }
             } 
             else if (cboptionsUsers.SelectedItem == "Vendedor")
@@ -398,9 +405,18 @@ namespace TestProyecto.Views
 
                     //cbrol.SelectedValue = vendedorF.FkRol;
 
+                    int Fkr = 0;
+
+                    cbRol.SelectedValue = Fkr;
+
+                   // vendedorF.FkRol = Fkr;
+
+                //    vendedorF.FkRol = int.Parse(cbRol.SelectedValue);
+
                     modSA.UpdateVendedores(vendedorF);
 
                     MessageBox.Show("Se editó con éxito");
+
                     txtPkUser.Clear();
                     txtPassword.Clear();
                     txtSaldo.Clear();

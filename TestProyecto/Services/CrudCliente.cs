@@ -76,26 +76,28 @@ namespace TestProyecto.Services
                         }
 
                     }
-					//else if (request.FkRol == 2)
-					//{
-     //                   if (updatec != null)
-     //                   {
-     //                       vendedorN.NombreVendedor = request.NombreCliente;
-     //                       vendedorN.ApellidoVendedor = request.ApellidoCliente;
-     //                       vendedorN.CorreoV = request.CorreoCliente;
-     //                       vendedorN.ContraseñaVendedor = request.PasswordCliente;
-                           
-     //                       updatec.FkRol = request.FkRol;
+					else if (request.FkRol == 2)
+					{
+                       if (updatec != null)
+                        {
+                            vendedorN.NombreVendedor = request.NombreCliente;
+                            vendedorN.ApellidoVendedor = request.ApellidoCliente;
+                            vendedorN.CorreoV = request.CorreoCliente;
+                            vendedorN.ContraseñaVendedor = request.PasswordCliente;
+                                                      
+
+							vendedorN.FkRol = request.FkRol;
 
 
-					//		_context.Vendedores.Add(vendedorN);
-     //                       _context.Clientes.Remove(request);
-     //                       _context.SaveChanges();
-     //                   }
-     //               } else
-					//{
+							_context.Vendedores.Add(vendedorN);
+                           _context.Clientes.Remove(updatec);
+							_context.SaveChanges();
 
-					//} 
+                       }
+                  } else
+					{
+
+					} 
 					
 				}
 			}
@@ -106,6 +108,8 @@ namespace TestProyecto.Services
 			}
 		}
 
+		
+		
 		public void DeleteCliente(Cliente request) //SA lo podrá eliminar
 		{
 			try

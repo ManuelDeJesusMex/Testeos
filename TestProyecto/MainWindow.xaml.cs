@@ -66,7 +66,7 @@ namespace TestProyecto
                 {
 
                 }
-                else
+                else if (responser.Roles.RolName == null)
                 {
                     MessageBox.Show("No hay usuario");
                     //  return "";
