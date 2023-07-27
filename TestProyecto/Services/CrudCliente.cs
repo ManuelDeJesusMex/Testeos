@@ -74,7 +74,7 @@ namespace TestProyecto.Services
                             _context.Clientes.Update(updatec);
                             _context.SaveChanges();
                         }
-
+						//FGd
                     }
 					else if (request.FkRol == 2)
 					{
