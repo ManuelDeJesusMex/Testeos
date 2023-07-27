@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using TestProyecto.Context;
 using TestProyecto.Entities;
 
@@ -11,18 +13,20 @@ namespace TestProyecto.Services
 {
     public class CrudProducto
     {
-        public void CreateProducto (Producto request, int IDV)
+        public void CreateProducto (Producto request, int IDSA)
         {
-			try
-			{
+			//try
+			//{
 
 				if (request != null)
 				{
-					using (var _context = new ApplicationDbContext()) {
+				using (var _context = new ApplicationDbContext()) {
 
-						Vendedor FindVendedor = _context.Vendedores.Find(IDV);
 
-						if (FindVendedor.PkVendedor == IDV)
+					
+					Vendedor FindVendedor = _context.Vendedores.Find(IDSA);
+
+						if (FindVendedor.PkVendedor == IDSA)
 						{
                             Producto NewProduct = new Producto();
 
@@ -36,46 +40,40 @@ namespace TestProyecto.Services
 
                             _context.Productos.Add(NewProduct);
                             _context.SaveChanges();
-                        }
+                        } else if (FindVendedor.PkVendedor != IDSA)
+						{
+							MessageBox.Show("No se encontró el SA");
+						}
 						
 
 						
 
 				}
 			}
-			}
-			catch (Exception ex)
-			{
+			//}
+			//catch (Exception ex)
+			//{
 
-				throw new Exception ("Error: "+ex.Message);
-			}
+			//	throw new Exception ("Error: "+ex.Message);
+			//}
         }
 		public void UpdateProducto (Producto request)
 		{
-			try
-			{
+			//try
+			//{
 				using (var _context = new ApplicationDbContext())
 				{
-					Producto productoc = _context.Productos.Find(request.PkProducto);
-					if (productoc != null)
-					{
-						productoc.Nombre = request.Nombre;
-						productoc.Cantidad = request.Cantidad;
-						productoc.PrecioUnitario = request.PrecioUnitario;
-						productoc.FkTamaño = request.FkTamaño;
-						productoc.FkLote = request.FkLote;
-						productoc.FkSabor = request.FkSabor;
-						
-						_context.Productos.Update(productoc);
-						_context.SaveChanges();
-					}
+					//Producto productoc = _context.Productos.Find(request.PkProducto);
+					_context.Entry(request).State = EntityState.Modified;
+					_context.SaveChanges();
+					
 				}
-			}
-			catch (Exception ex)
-			{
+			//}
+			//catch (Exception ex)
+		//	{
 
-				throw new Exception("Error: "+ex.Message);
-			}
+				//throw new Exception("Error: "+ex.Message);
+			//}
 		}
 		public List<Producto> GetProductos ()
 		{
@@ -84,9 +82,10 @@ namespace TestProyecto.Services
 				using (var _context = new ApplicationDbContext())
 				{
 					List<Producto> Productos = new List<Producto>();
-					Productos = _context.Productos.ToList();
+					Productos = _context.Productos.Include(x => x.Sabores).ToList();
+					
 
-					return Productos;
+                    return Productos;
 				}
 			}
 			catch (Exception ex )
@@ -147,29 +146,7 @@ namespace TestProyecto.Services
 
                 throw new Exception("Error: " + ex.Message);
             }
-        }
-		public bool FindVendedor (int ID)
-		{
-			try
-			{
-				if (ID != null)
-				{
-					using (var _context = new ApplicationDbContext ())
-					{
-						Cliente BuscarC = _context.Clientes.Find(ID);
-						return true;
-					}
-				} else
-				{
-					return false;
-				}
-			}
-			catch (Exception ex)
-			{
-
-				throw new Exception ("Error: "+ex.Message);
-			}
-		}
+        }		
 		public void DeleteProducto (Producto request)
 		{
 			try

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TestProyecto.Services;
 
 namespace TestProyecto.Views
 {
@@ -22,14 +23,12 @@ namespace TestProyecto.Views
         public MenuCliente()
         {
             InitializeComponent();
+            GetProductos();
         }
-
-        private void btnReadProductos_Click(object sender, RoutedEventArgs e)
+        CrudProducto watchP = new CrudProducto();
+       public void GetProductos ()
         {
-           // Vistadeproductos verproductos = new Vistadeproductos();
-
-           // verproductos.Show();
-            Close();
+            ProductosTable.ItemsSource = watchP.GetProductos();
         }
 
         private void btnCarritoCompra_Click(object sender, RoutedEventArgs e)

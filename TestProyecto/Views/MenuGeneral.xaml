@@ -9,7 +9,7 @@
     <Grid>
         <Button x:Name="btnUpdateProductos" Content="Administrar productos" HorizontalAlignment="Left" Height="59" Margin="70,158,0,0" VerticalAlignment="Top" Width="137" Visibility="Hidden"/>
         <Button x:Name="btnWatchProductos" Content="Ver productos" HorizontalAlignment="Left" Height="59" Margin="319,159,0,0" VerticalAlignment="Top" Width="137" Visibility="Hidden"/>
-        <Button x:Name="btnAdminUsers" Content="Administrar Usuarios (SA)" HorizontalAlignment="Left" Height="59" Margin="562,160,0,0" VerticalAlignment="Top" Width="137" Click="btnAdminUsers_Click"/>
+        <Button x:Name="btnAdminUsers" Content="Administrar usuarios" HorizontalAlignment="Left" Height="64" Margin="562,160,0,0" VerticalAlignment="Top" Width="137" Click="btnAdminUsers_Click" Background="{x:Null}"/>
         <Button x:Name="btnLogOut" Content="Cerrar sesión" HorizontalAlignment="Left" Height="32" Margin="26,374,0,0" VerticalAlignment="Top" Width="137" Click="btnLogOut_Click"/>
         <Button x:Name="btnWatchProducts" Content="Ver productos" HorizontalAlignment="Left" Height="63" Margin="326,156,0,0" VerticalAlignment="Top" Width="143"/>
         <Button x:Name="btnProductsVendedor" Content="Administrar productos" HorizontalAlignment="Left" Height="63" Margin="79,156,0,0" VerticalAlignment="Top" Width="143"/>

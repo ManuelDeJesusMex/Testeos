@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -110,6 +111,22 @@ namespace TestProyecto.Services
                         _context.Vendedores.Remove(vendeMod);
                         _context.SaveChanges();
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception ("Error: "+ex.Message);
+            }
+        }
+        public Vendedor LoginV (string nombre, string password)
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    var vendedor = _context.Vendedores.Include(y => y.Roles).FirstOrDefault(x => x.NombreVendedor == nombre && x.ContraseñaVendedor == password);
+                    return vendedor;
                 }
             }
             catch (Exception ex)

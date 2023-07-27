@@ -7,9 +7,35 @@
         mc:Ignorable="d"
         Title="MenuCliente" Height="450" Width="800">
     <Grid>
-        <Button x:Name="btnLogOut" Content="Cerrar sesión" HorizontalAlignment="Left" Height="39" Margin="30,111,0,0" VerticalAlignment="Top" Width="167" Click="btnLogOut_Click"/>
-        <Button x:Name="btnReadProductos" Content="Productos" HorizontalAlignment="Left" Height="39" Margin="28,173,0,0" VerticalAlignment="Top" Width="167" Click="btnReadProductos_Click"/>
-        <Button x:Name="btnCarritoCompra" Content="Carrito de compras" HorizontalAlignment="Left" Height="39" Margin="30,230,0,0" VerticalAlignment="Top" Width="167" Click="btnCarritoCompra_Click"/>
+        <Button x:Name="btnLogOut" Content="Cerrar sesión" HorizontalAlignment="Left" Height="39" Margin="8,17,0,0" VerticalAlignment="Top" Width="167" Click="btnLogOut_Click"/>
+        <Button x:Name="btnCarritoCompra" Content="Carrito de compras" HorizontalAlignment="Left" Height="39" Margin="11,65,0,0" VerticalAlignment="Top" Width="167" Click="btnCarritoCompra_Click"/>
+        <DataGrid x:Name="ProductosTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="205,17,11,169">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="NomProducto" Binding="{Binding PkProducto}" />
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
+                <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" />
+                <DataGridTextColumn Header="Precio Unitario" Binding="{Binding PrecioUnitario}"/>
+                <DataGridTextColumn Header="Vendido por" Binding="{Binding Vendedores.NombreVendedor}"/>
+                <DataGridTextColumn Header="Sabor" Binding="{Binding Sabores.NameSabor}"/>
+                <DataGridTextColumn Header="Tamaño" Binding="{Binding Tamaños.TamañoP}"/>
+                <DataGridTextColumn Header="Lote" Binding="{Binding Lotes.NomLote}"/>
+                <DataGridTemplateColumn Header="">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Comprar" Background="AliceBlue"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Background="#FA4D4D" Content="Añadir al carrito"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
 
+            </DataGrid.Columns>
+
+        </DataGrid>
     </Grid>
 </Window>

@@ -14,7 +14,7 @@ namespace TestProyecto.Entities
 
         public int PkLote { get; set; }
 
-        public string LoteName { get; set; }
+        public int NomLote { get; set; }
 
     }
 }

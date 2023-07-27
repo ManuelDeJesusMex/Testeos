@@ -59,9 +59,8 @@ namespace TestProyecto.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("LoteName")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("NomLote")
+                        .HasColumnType("int");
 
                     b.HasKey("PkLote");
 

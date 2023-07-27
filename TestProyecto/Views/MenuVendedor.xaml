@@ -1,0 +1,58 @@
+﻿<Window x:Class="TestProyecto.Views.MenuVendedor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestProyecto.Views"
+        mc:Ignorable="d"
+        Title="MenuVendedor" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="btnLogOut" Content="Cerrar sesión" HorizontalAlignment="Left" Margin="7,12,0,0" VerticalAlignment="Top" Height="21" Width="105"/>
+        <Label x:Name="lbNombre" Content="Nombre" HorizontalAlignment="Left" Margin="17,52,0,0" VerticalAlignment="Top" Width="87"/>
+        <Label x:Name="lbCantidad" Content="Cantidad" HorizontalAlignment="Left" Margin="18,107,0,0" VerticalAlignment="Top" Width="87"/>
+        <Label x:Name="lbIDVendedor" Content="ID Vendedor" HorizontalAlignment="Left" Margin="19,165,0,0" VerticalAlignment="Top" Width="87"/>
+        <Label x:Name="lbPrecioU" Content="Precio Unitario" HorizontalAlignment="Left" Margin="17,230,0,0" VerticalAlignment="Top" Width="87"/>
+        <Label x:Name="lbLote" Content="Lote" HorizontalAlignment="Left" Margin="166,350,0,0" VerticalAlignment="Top" Width="87"/>
+        <Label x:Name="lbSabor" Content="Sabor" HorizontalAlignment="Left" Margin="281,352,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbTamaño" Content="Tamaño" HorizontalAlignment="Left" Margin="424,354,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbPkProducto" Content="ID" HorizontalAlignment="Left" Margin="25,292,0,0" VerticalAlignment="Top" Width="87"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="14,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtCantidad" HorizontalAlignment="Left" Margin="13,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtIDVendedor" HorizontalAlignment="Left" Margin="19,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtPrecioUnitario" HorizontalAlignment="Left" Margin="15,265,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtPkProducto" HorizontalAlignment="Left" Margin="16,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <ComboBox x:Name="cbLote" HorizontalAlignment="Left" Margin="136,385,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cbSabor" HorizontalAlignment="Left" Margin="276,383,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cbTamaño" HorizontalAlignment="Left" Margin="412,382,0,0" VerticalAlignment="Top" Width="120"/>
+        <DataGrid x:Name="ProductosTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="162,19,27,83">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding PkProducto}" />
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
+                <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" />
+                <DataGridTextColumn Header="Precio Unitario" Binding="{Binding PrecioUnitario}"/>
+                <DataGridTextColumn Header="Vendedor" Binding="{Binding Vendedores.NombreVendedor}"/>
+                <DataGridTextColumn Header="Sabor" Binding="{Binding Sabores.NameSabor}"/>
+                <DataGridTextColumn Header="Tamaño" Binding="{Binding Tamaños.TamañoP}"/>
+                <DataGridTextColumn Header="Lote" Binding="{Binding Lotes.NomLote}"/>
+                <DataGridTemplateColumn Header="Editar">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Edit" Background="AliceBlue" Click="EditItemProducto"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Delete">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Background="#FA4D4D" Content="Delete" Click="DeleteItemProducto"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Button x:Name="btnUpdate" Content="Agregar" HorizontalAlignment="Left" Margin="21,379,0,0" VerticalAlignment="Top" Height="39" Width="76" Click="btnUpdate_Click"/>
+
+    </Grid>
+</Window>

@@ -4,7 +4,7 @@ using MySql.EntityFrameworkCore.Metadata;
 
 namespace TestProyecto.Migrations
 {
-    public partial class TestP : Migration
+    public partial class PruebaPCP1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,7 +14,7 @@ namespace TestProyecto.Migrations
                 {
                     PkLote = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    LoteName = table.Column<string>(type: "text", nullable: false)
+                    NomLote = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -191,5 +191,21 @@ namespace TestProyecto.Services
                 throw new Exception ("Error: "+ex.Message);
             }
         }
+        public SuperAdmin LogSA (string nombre, string password)
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    var sa = _context.SuperAdministradores.Include(y => y.Roles).FirstOrDefault(x => x.NombreSuperAdmin == nombre && x.ContraseñaSuperAdmin == password);
+                    return sa;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error: "+ex.Message);
+            }
+        }
     }
 }

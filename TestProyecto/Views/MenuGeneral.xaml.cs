@@ -27,10 +27,7 @@ namespace TestProyecto.Views
 
         }
         CrudCliente log = new CrudCliente();
-        public void HabilityButtons ()
-        {
-           
-        }
+        
 
         private void btnLogOut_Click(object sender, RoutedEventArgs e)
         {

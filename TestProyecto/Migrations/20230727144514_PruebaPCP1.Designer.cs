@@ -9,8 +9,8 @@ using TestProyecto.Context;
 namespace TestProyecto.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230726001037_TestP")]
-    partial class TestP
+    [Migration("20230727144514_PruebaPCP1")]
+    partial class PruebaPCP1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -61,9 +61,8 @@ namespace TestProyecto.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("LoteName")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("NomLote")
+                        .HasColumnType("int");
 
                     b.HasKey("PkLote");
 
