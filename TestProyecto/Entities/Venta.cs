@@ -12,6 +12,16 @@ namespace TestProyecto.Entities
     {
 
 
+        //public Venta() {
+        
+        //    ProductosVenta = new List<DetalleVenta>();
+
+        //}
+
+        //public List<Producto> Productos { get; set; }
+
+        //public ICollection<DetalleVenta> ProductosVenta { get; set; }
+
         [Key]
 
         public int PkCompra { get; set; }

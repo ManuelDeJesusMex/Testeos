@@ -34,18 +34,24 @@ namespace TestProyecto
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
 
-            string nombre = txtUser.Text;
-            string contraseña = txtPassword.Text;
 
-            if (nombre == "" || contraseña == "")
-            {
-                MessageBox.Show("Faltan campos");
-            }
-            else
-            {
-                var responser = logC.LoginC(nombre, contraseña);
-                var responserV = logV.LoginV(nombre, contraseña);
-                var responserSA = logSA.LogSA(nombre, contraseña);
+            MenuAdminSA ne = new MenuAdminSA();
+
+            ne.Show();
+
+            Close();
+            //string nombre = txtUser.Text;
+            //string contraseña = txtPassword.Text;
+
+            //if (nombre == "" || contraseña == "")
+            //{
+            //    MessageBox.Show("Faltan campos");
+            //}
+            //else
+            //{
+            //    var responser = logC.LoginC(nombre, contraseña);
+            //    var responserV = logV.LoginV(nombre, contraseña);
+            //    var responserSA = logSA.LogSA(nombre, contraseña);
 
                 //if (responser.Roles.RolName == "Cliente")
 
@@ -72,22 +78,22 @@ namespace TestProyecto
 
                // }
                 //else 
-                if (responserV.Roles.RolName == "Vendedor")
-                {
-                    MessageBox.Show("Sesión iniciada");
+            //    if (responserV.Roles.RolName == "Vendedor")
+            //    {
+            //        MessageBox.Show("Sesión iniciada");
 
-                    MenuVendedor nuevo = new MenuVendedor();
-                    nuevo.Show();
-                    Close();
+            //        MenuVendedor nuevo = new MenuVendedor();
+            //        nuevo.Show();
+            //        Close();
 
-                }
-                else if (responser.Roles.RolName == null)
-                {
-                    MessageBox.Show("No hay usuario");
-                    //  return "";
-                }
+            //    }
+            //    else if (responser.Roles.RolName == null)
+            //    {
+            //        MessageBox.Show("No hay usuario");
+            //        //  return "";
+            //    }
 
-            }                  
+          // }                  
 
             
         }

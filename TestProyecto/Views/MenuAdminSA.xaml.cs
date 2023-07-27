@@ -36,6 +36,7 @@ namespace TestProyecto.Views
             cboptionsUsers.Items.Add("Vendedor");
             cboptionsUsers.Items.Add("SA");
             cboptionsUsers.Items.Add("Producto");
+            
         }
         CrudCliente modcliente = new CrudCliente();
         CrudProducto modProducto = new CrudProducto();
