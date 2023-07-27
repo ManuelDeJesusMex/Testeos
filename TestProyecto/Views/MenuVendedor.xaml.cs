@@ -134,6 +134,7 @@ namespace TestProyecto.Views
                 cbSabor.SelectedItem = null;
                 txtIDVendedor.IsEnabled = true;
                 GetProductosU();
+                 //JJJ
 
             }
         }
