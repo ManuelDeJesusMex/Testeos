@@ -353,7 +353,7 @@ namespace TestProyecto.Views
 
                         modcliente.UCliente(ClienteF);
 
-                       
+                       //SSS
 
                         MessageBox.Show("Se editó correctamente");
 
