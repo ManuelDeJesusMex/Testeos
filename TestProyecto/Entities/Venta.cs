@@ -34,6 +34,9 @@ namespace TestProyecto.Entities
 
         public Cliente Clientes { get; set; }
 
+        
+
+
         [ForeignKey(("Vendedores"))]
 
         public int? FkVendedor { get; set; }

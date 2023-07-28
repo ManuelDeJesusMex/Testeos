@@ -52,15 +52,17 @@ namespace TestProyecto.Views
                 lbSaldo.Content = "Saldo";
                 lbCorreo.Content = "Correo";
                 lbPassword.Content = "Contraseña";
+                cbRol.Visibility = Visibility.Hidden;
+                lbPassword.Visibility = Visibility.Visible;
                 lbtamaño.Visibility = Visibility.Hidden;
                 lblote.Visibility = Visibility.Hidden;
                 lbsabor.Visibility = Visibility.Hidden;
                 txtSaldo.Visibility = Visibility.Visible;
                 lbSaldo.Visibility = Visibility.Visible;
-                cbLote.Visibility = Visibility.Hidden;
-                cbRol.Visibility = Visibility.Visible;
+                cbLote.Visibility = Visibility.Hidden;                
                 cbSabor.Visibility = Visibility.Hidden;
                 cbTamaño.Visibility = Visibility.Hidden;
+                txtPassword.Visibility = Visibility.Visible;
                 GetClientesTable();
                 ProductosTable.Visibility = Visibility.Hidden;
                 VendedorTable.Visibility = Visibility.Hidden;
@@ -78,8 +80,11 @@ namespace TestProyecto.Views
             } else if (cboptionsUsers.SelectedItem == "Vendedor")
             {
                 GetVendedoresTable();
+                lbPassword.Visibility = Visibility.Visible;
+                txtPassword.Visibility = Visibility.Visible;
                 txtSaldo.Visibility = Visibility.Hidden;
                 lbSaldo.Visibility = Visibility.Hidden;
+                cbRol.Visibility = Visibility.Hidden;
                 lbApellido.Content = "Apellido";
                 lbCorreo.Content = "Correo";
                 lbPassword.Content = "Contraseña";
@@ -87,7 +92,6 @@ namespace TestProyecto.Views
                 lblote.Visibility = Visibility.Hidden;
                 lbsabor.Visibility = Visibility.Hidden;
                 cbLote.Visibility = Visibility.Hidden;
-                cbRol.Visibility = Visibility.Visible;
                 cbSabor.Visibility = Visibility.Hidden;
                 cbTamaño.Visibility = Visibility.Hidden;
                 ClienteTable.Visibility = Visibility.Hidden;
@@ -105,6 +109,7 @@ namespace TestProyecto.Views
             } else if (cboptionsUsers.SelectedItem == "Producto")
             {
                 GetProductosTable();
+
                 txtSaldo.Visibility = Visibility.Hidden;
                 lbSaldo.Visibility = Visibility.Visible;
                 txtSaldo.Visibility = Visibility.Visible;
@@ -135,9 +140,12 @@ namespace TestProyecto.Views
 
             } else if (cboptionsUsers.SelectedItem == "SA")
             {
+                lbPassword.Visibility = Visibility.Visible;
+                txtPassword.Visibility = Visibility.Visible;
                 GetSuperAdminTable();
                 txtSaldo.Visibility = Visibility.Hidden;
                 lbSaldo.Visibility = Visibility.Hidden;
+                cbRol.Visibility = Visibility.Hidden;
                 lbApellido.Content = "Apellido";
                 lbCorreo.Content = "Correo";
                 lbPassword.Content = "Contraseña";
@@ -145,7 +153,6 @@ namespace TestProyecto.Views
                 lblote.Visibility = Visibility.Hidden;
                 lbsabor.Visibility = Visibility.Hidden;
                 cbLote.Visibility = Visibility.Hidden;
-                cbRol.Visibility = Visibility.Visible;
                 cbSabor.Visibility = Visibility.Hidden;
                 cbTamaño.Visibility = Visibility.Hidden;
                 ClienteTable.Visibility = Visibility.Hidden;
@@ -216,6 +223,7 @@ namespace TestProyecto.Views
             txtPkUser.Text = modC.PkCliente.ToString();
             cbRol.SelectedValue = modC.FkRol;
             txtCorreo.IsEnabled = true;
+            cbRol.Visibility = Visibility.Visible;
         }
         public void EditItemVendedor(object sender, RoutedEventArgs e)
         {
@@ -230,6 +238,7 @@ namespace TestProyecto.Views
             txtPkUser.Text = vendedorc.PkVendedor.ToString();
             cbRol.SelectedValue = vendedorc.FkRol;
             txtCorreo.IsEnabled = true;
+            cbRol.Visibility = Visibility.Visible;
 
         }
         public void EditItemSA(object sender, RoutedEventArgs e)
@@ -246,6 +255,7 @@ namespace TestProyecto.Views
             txtPassword.Text = sac.ContraseñaSuperAdmin.ToString();
             cbRol.SelectedValue = sac.FkRol;
             txtCorreo.IsEnabled = true;
+            cbRol.Visibility = Visibility.Visible;
         }
         public void EditItemProducto(object sender, RoutedEventArgs e)
         {
@@ -262,6 +272,7 @@ namespace TestProyecto.Views
             cbSabor.SelectedValue = productoc.FkSabor;
             cbTamaño.SelectedValue = productoc.FkTamaño;
             txtCorreo.IsEnabled = false;
+
         }
         public void DeleteItemCliente(object sender, RoutedEventArgs e)
         {
