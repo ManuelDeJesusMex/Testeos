@@ -132,7 +132,7 @@ namespace TestProyecto.Services
                 throw new Exception("Error: " + ex.Message);
             }
         }
-
+        //
         public List<Cliente> GetClientes() //Lectura de clientes valido solo para SA
         {
             try
