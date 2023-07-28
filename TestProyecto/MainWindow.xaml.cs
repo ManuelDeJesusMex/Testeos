@@ -36,7 +36,7 @@ namespace TestProyecto
 
             MenuVendedor ne = new MenuVendedor();
             //MenuAdminSA ne = new MenuAdminSA();
-
+            //
             ne.Show();
 
             Close();
