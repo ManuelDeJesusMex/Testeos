@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:TestProyecto.Views"
         mc:Ignorable="d"
         Title="MenuVendedor" Height="450" Width="800">
-    <Grid>
-        <Button x:Name="btnLogOut" Content="Cerrar sesión" HorizontalAlignment="Left" Margin="7,12,0,0" VerticalAlignment="Top" Height="21" Width="105"/>
+    <Grid Background="#FF007B72">
+        <Button x:Name="btnLogOut" Content="Cerrar sesión" HorizontalAlignment="Left" Margin="15,12,0,0" VerticalAlignment="Top" Height="21" Width="105" Background="DarkGray"/>
         <Label x:Name="lbNombre" Content="Nombre" HorizontalAlignment="Left" Margin="17,52,0,0" VerticalAlignment="Top" Width="87"/>
         <Label x:Name="lbCantidad" Content="Cantidad" HorizontalAlignment="Left" Margin="18,107,0,0" VerticalAlignment="Top" Width="87"/>
         <Label x:Name="lbIDVendedor" Content="ID Vendedor" HorizontalAlignment="Left" Margin="19,165,0,0" VerticalAlignment="Top" Width="87"/>
@@ -16,11 +16,11 @@
         <Label x:Name="lbSabor" Content="Sabor" HorizontalAlignment="Left" Margin="281,352,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbTamaño" Content="Tamaño" HorizontalAlignment="Left" Margin="424,354,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbPkProducto" Content="ID" HorizontalAlignment="Left" Margin="25,292,0,0" VerticalAlignment="Top" Width="87"/>
-        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="14,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtCantidad" HorizontalAlignment="Left" Margin="13,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtIDVendedor" HorizontalAlignment="Left" Margin="19,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtPrecioUnitario" HorizontalAlignment="Left" Margin="15,265,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtPkProducto" HorizontalAlignment="Left" Margin="16,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="15,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF91E2E0"/>
+        <TextBox x:Name="txtCantidad" HorizontalAlignment="Left" Margin="15,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF91E2E0"/>
+        <TextBox x:Name="txtIDVendedor" HorizontalAlignment="Left" Margin="15,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF91E2E0"/>
+        <TextBox x:Name="txtPrecioUnitario" HorizontalAlignment="Left" Margin="15,265,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF91E2E0"/>
+        <TextBox x:Name="txtPkProducto" HorizontalAlignment="Left" Margin="15,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False" Background="#FFD4FFFE"/>
         <ComboBox x:Name="cbLote" HorizontalAlignment="Left" Margin="136,385,0,0" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="cbSabor" HorizontalAlignment="Left" Margin="276,383,0,0" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="cbTamaño" HorizontalAlignment="Left" Margin="412,382,0,0" VerticalAlignment="Top" Width="120"/>
@@ -48,11 +48,11 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                
+
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button x:Name="btnUpdate" Content="Agregar" HorizontalAlignment="Left" Margin="21,379,0,0" VerticalAlignment="Top" Height="39" Width="76" Click="btnUpdate_Click"/>
+        <Button x:Name="btnUpdate" Content="Agregar" HorizontalAlignment="Left" Margin="21,379,0,0" VerticalAlignment="Top" Height="39" Width="76" Click="btnUpdate_Click" Background="#FF189014"/>
 
     </Grid>
 </Window>
