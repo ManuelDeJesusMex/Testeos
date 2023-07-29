@@ -138,5 +138,14 @@ namespace TestProyecto.Views
 
             }
         }
+
+        private void btnLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow logout = new MainWindow();
+
+            logout.Show();
+
+            Close();
+        }
     }
 }

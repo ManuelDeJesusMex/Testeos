@@ -6,8 +6,13 @@
         xmlns:local="clr-namespace:TestProyecto.Views"
         mc:Ignorable="d"
         Title="MenuVendedor" Height="450" Width="800">
+<<<<<<< HEAD
     <Grid Background="#FF007B72">
         <Button x:Name="btnLogOut" Content="Cerrar sesión" HorizontalAlignment="Left" Margin="15,12,0,0" VerticalAlignment="Top" Height="21" Width="105" Background="DarkGray"/>
+=======
+    <Grid>
+        <Button x:Name="btnLogOut" Content="Cerrar sesión" HorizontalAlignment="Left" Margin="7,12,0,0" VerticalAlignment="Top" Height="21" Width="105" Click="btnLogOut_Click"/>
+>>>>>>> 1aaa7a0066c8c14ca92a9e11fb3fb64e053a8160
         <Label x:Name="lbNombre" Content="Nombre" HorizontalAlignment="Left" Margin="17,52,0,0" VerticalAlignment="Top" Width="87"/>
         <Label x:Name="lbCantidad" Content="Cantidad" HorizontalAlignment="Left" Margin="18,107,0,0" VerticalAlignment="Top" Width="87"/>
         <Label x:Name="lbIDVendedor" Content="ID Vendedor" HorizontalAlignment="Left" Margin="19,165,0,0" VerticalAlignment="Top" Width="87"/>

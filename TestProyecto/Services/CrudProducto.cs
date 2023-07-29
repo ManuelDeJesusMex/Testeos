@@ -82,7 +82,7 @@ namespace TestProyecto.Services
 				using (var _context = new ApplicationDbContext())
 				{
 					List<Producto> Productos = new List<Producto>();
-					Productos = _context.Productos.Include(x => x.Sabores).ToList();
+					Productos = _context.Productos.Include(x => x.Sabores).Include(y => y.Tamaños).Include(e => e.Lotes).Include(o => o.Vendedores).ToList();
 					
 
                     return Productos;
