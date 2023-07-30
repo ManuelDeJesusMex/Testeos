@@ -200,6 +200,8 @@ namespace TestProyecto.Services
 									CompraP.Cantidad = NuevaCantidad;
 									ClienteCompra.SaldoCliente = NuevoSaldo;
 
+
+
 									_context.Ventas.Add(NuevaCompra);
 									_context.Clientes.Update(ClienteCompra);
 									_context.Productos.Update(CompraP);
