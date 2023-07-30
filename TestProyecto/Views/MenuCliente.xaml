@@ -8,7 +8,18 @@
         Title="MenuCliente" Height="450" Width="800">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Views/PalmerasRetro2.jpg"/>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <LinearGradientBrush.RelativeTransform>
+                    <TransformGroup>
+                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                        <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                        <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </LinearGradientBrush.RelativeTransform>
+                <GradientStop Color="#FF790074"/>
+                <GradientStop Color="#FFDC5405" Offset="1"/>
+            </LinearGradientBrush>
         </Grid.Background>
         <Button x:Name="btnLogOut" Content="Cerrar sesión" HorizontalAlignment="Left" Height="40" Margin="615,70,0,0" VerticalAlignment="Top" Width="167" Click="btnLogOut_Click"/>
         <Button x:Name="btnCarritoCompra" Content="Carrito de compras" HorizontalAlignment="Left" Height="39" Margin="615,11,0,0" VerticalAlignment="Top" Width="167" Click="btnCarritoCompra_Click"/>
