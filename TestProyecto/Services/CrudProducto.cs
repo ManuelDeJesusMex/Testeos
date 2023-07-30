@@ -100,7 +100,7 @@ namespace TestProyecto.Services
 			{
 				using (var _context = new ApplicationDbContext())
 				{
-					List<Tamano> tamaños = _context.Tamaños.ToList();
+					List<Tamano> tamaños = _context.Tamanos.ToList();
 					
 
 					return tamaños;

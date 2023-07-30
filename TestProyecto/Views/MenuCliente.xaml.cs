@@ -26,6 +26,7 @@ namespace TestProyecto.Views
             GetProductos();
         }
         CrudProducto watchP = new CrudProducto();
+        CrudCliente Compra = new CrudCliente();
        public void GetProductos ()
         {
             ProductosTable.ItemsSource = watchP.GetProductos();
@@ -45,6 +46,24 @@ namespace TestProyecto.Views
 
             log.Show();
             Close();
+        }
+
+        private void btnComprar_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtCantidad.Text != "" && txtIDCliente.Text != "" && txtIDProducto.Text != "")
+            {
+                int IDC = int.Parse(txtIDCliente.Text);
+                int IDP = int.Parse(txtIDProducto.Text);
+                int Cantidad = int.Parse(txtCantidad.Text);
+
+                Compra.Compra(IDC, IDP, Cantidad);
+
+                
+
+            } else
+            {
+                MessageBox.Show("Hay campos vacíos");
+            }
         }
     }
 }

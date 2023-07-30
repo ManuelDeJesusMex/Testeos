@@ -189,8 +189,8 @@ namespace TestProyecto.Views
         public void GetTamañosB()
         {
             cbTamaño.ItemsSource = modProducto.GetTamaños();
-            cbRol.DisplayMemberPath = "TamañoP";
-            cbRol.SelectedValuePath = "PkTamaño";
+            cbRol.DisplayMemberPath = "TamanoP";
+            cbRol.SelectedValuePath = "PkTamano";
         }
         public void GetClientesTable()
         {

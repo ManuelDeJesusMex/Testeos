@@ -10,14 +10,14 @@ namespace TestProyecto.Entities
 {
     public class Producto
     {
-        //public Producto() {
+        public Producto() {
         
-        //    ProductosVenta = new List<DetalleVenta>();
+            ProductosVenta = new List<DetalleVenta>();
 
-        //}
+        }
 
-        //public List<Venta> Ventas { get; set; }
-        //public ICollection<DetalleVenta> ProductosVenta { get; set; }
+        public List<Venta> Ventas { get; set; }
+        public ICollection<DetalleVenta> ProductosVenta { get; set; }
 
         [Key]
 

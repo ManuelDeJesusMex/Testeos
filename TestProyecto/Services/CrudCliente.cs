@@ -164,9 +164,76 @@ namespace TestProyecto.Services
 				throw new Exception("Error: "+ex.Message);
 			}
 		}
-		public void Compra ()
+		public void Compra (int request, int Cantidad, int IDCliente)
 		{
+			//En la compra se harán 3 modificaciones, Al cliente con su saldo,
+			//al producto con su cantidad y la creación de la venta junto al detalle de venta
+			try
+			{
+				using (var _context = new ApplicationDbContext())
+				{
+					Venta NuevaCompra = new Venta();
+					DateTime FechadeCompr = DateTime.Now;
 
+
+					Producto CompraP = _context.Productos.Find(request);
+					Cliente ClienteCompra = _context.Clientes.Find(IDCliente);
+
+					if (ClienteCompra != null)
+					{
+                        if (CompraP != null)
+                        {
+							if (Cantidad == CompraP.Cantidad || Cantidad <= CompraP.Cantidad)
+							{
+								double Subtotal = (Cantidad * CompraP.PrecioUnitario);
+								double IVA = (Subtotal * .16);
+								double total = Subtotal + IVA;
+
+								if (ClienteCompra.SaldoCliente == total || ClienteCompra.SaldoCliente > total)
+								{
+									NuevaCompra.FechaCompra = FechadeCompr;
+									NuevaCompra.FkCliente = ClienteCompra.PkCliente;
+
+									double NuevoSaldo = ClienteCompra.SaldoCliente - total;
+									int NuevaCantidad = CompraP.Cantidad - Cantidad;
+
+									CompraP.Cantidad = NuevaCantidad;
+									ClienteCompra.SaldoCliente = NuevoSaldo;
+
+									_context.Ventas.Add(NuevaCompra);
+									_context.Clientes.Update(ClienteCompra);
+									_context.Productos.Update(CompraP);
+									_context.SaveChanges();
+
+									MessageBox.Show("Producot comprado");
+
+								} else
+								{
+									MessageBox.Show("Saldo insuficiente");
+								}
+                            }
+                            else 
+                            {
+                                MessageBox.Show("Te estás excediendo de la cantidad disponible");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se encontró el producto");
+                        }
+                    } else
+					{
+						MessageBox.Show("No existe el cliente o está mal escrito");
+					}
+
+					
+				}
+			}
+			catch (Exception ex)
+			{
+
+				throw new Exception("Error: " + ex.Message);
+			}
 		}
     }
 }

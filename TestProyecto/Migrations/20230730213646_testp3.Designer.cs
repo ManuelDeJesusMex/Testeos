@@ -9,8 +9,8 @@ using TestProyecto.Context;
 namespace TestProyecto.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230730184155_TestP")]
-    partial class TestP
+    [Migration("20230730213646_testp3")]
+    partial class testp3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -18,6 +18,21 @@ namespace TestProyecto.Migrations
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "5.0.0");
+
+            modelBuilder.Entity("ProductoVenta", b =>
+                {
+                    b.Property<int>("ProductosPkProducto")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VentasPkCompra")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductosPkProducto", "VentasPkCompra");
+
+                    b.HasIndex("VentasPkCompra");
+
+                    b.ToTable("ProductoVenta");
+                });
 
             modelBuilder.Entity("TestProyecto.Entities.Cliente", b =>
                 {
@@ -65,6 +80,30 @@ namespace TestProyecto.Migrations
                             PasswordCliente = "123",
                             SaldoCliente = 0.0
                         });
+                });
+
+            modelBuilder.Entity("TestProyecto.Entities.DetalleVenta", b =>
+                {
+                    b.Property<int>("FkProducto")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FkVenta")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("FechaCompra")
+                        .HasColumnType("datetime");
+
+                    b.Property<double>("Subtotal")
+                        .HasColumnType("double");
+
+                    b.Property<double>("Total")
+                        .HasColumnType("double");
+
+                    b.HasKey("FkProducto", "FkVenta");
+
+                    b.HasIndex("FkVenta");
+
+                    b.ToTable("DetalleVenta");
                 });
 
             modelBuilder.Entity("TestProyecto.Entities.Lote", b =>
@@ -309,7 +348,7 @@ namespace TestProyecto.Migrations
 
                     b.HasKey("PkTamano");
 
-                    b.ToTable("Tamaños");
+                    b.ToTable("Tamanos");
 
                     b.HasData(
                         new
@@ -373,16 +412,26 @@ namespace TestProyecto.Migrations
                     b.Property<int?>("FkCliente")
                         .HasColumnType("int");
 
-                    b.Property<int?>("FkVendedor")
-                        .HasColumnType("int");
-
                     b.HasKey("PkCompra");
 
                     b.HasIndex("FkCliente");
 
-                    b.HasIndex("FkVendedor");
-
                     b.ToTable("Ventas");
+                });
+
+            modelBuilder.Entity("ProductoVenta", b =>
+                {
+                    b.HasOne("TestProyecto.Entities.Producto", null)
+                        .WithMany()
+                        .HasForeignKey("ProductosPkProducto")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TestProyecto.Entities.Venta", null)
+                        .WithMany()
+                        .HasForeignKey("VentasPkCompra")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("TestProyecto.Entities.Cliente", b =>
@@ -394,6 +443,25 @@ namespace TestProyecto.Migrations
                         .IsRequired();
 
                     b.Navigation("Roles");
+                });
+
+            modelBuilder.Entity("TestProyecto.Entities.DetalleVenta", b =>
+                {
+                    b.HasOne("TestProyecto.Entities.Producto", "Producto")
+                        .WithMany("ProductosVenta")
+                        .HasForeignKey("FkProducto")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TestProyecto.Entities.Venta", "Venta")
+                        .WithMany("ProductosVenta")
+                        .HasForeignKey("FkVenta")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Producto");
+
+                    b.Navigation("Venta");
                 });
 
             modelBuilder.Entity("TestProyecto.Entities.Producto", b =>
@@ -453,13 +521,17 @@ namespace TestProyecto.Migrations
                         .WithMany()
                         .HasForeignKey("FkCliente");
 
-                    b.HasOne("TestProyecto.Entities.Vendedor", "Vendedores")
-                        .WithMany()
-                        .HasForeignKey("FkVendedor");
-
                     b.Navigation("Clientes");
+                });
 
-                    b.Navigation("Vendedores");
+            modelBuilder.Entity("TestProyecto.Entities.Producto", b =>
+                {
+                    b.Navigation("ProductosVenta");
+                });
+
+            modelBuilder.Entity("TestProyecto.Entities.Venta", b =>
+                {
+                    b.Navigation("ProductosVenta");
                 });
 #pragma warning restore 612, 618
         }

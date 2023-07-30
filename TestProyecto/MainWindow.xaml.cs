@@ -33,9 +33,9 @@ namespace TestProyecto
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-
+            MenuCliente ne = new MenuCliente();
            // MenuVendedor ne = new MenuVendedor();
-            MenuAdminSA ne = new MenuAdminSA();
+           // MenuAdminSA ne = new MenuAdminSA();
             //
             ne.Show();
 

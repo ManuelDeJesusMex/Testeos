@@ -9,17 +9,22 @@ namespace TestProyecto.Entities
 {
     public class DetalleVenta
     {
-        //public DateTime
+        public DateTime FechaCompra { get; set; }
 
-        [ForeignKey(("Productos"))]            
+        public double Subtotal { get; set; }
+        public double Total { get; set; }
 
-        public int FkProductos { get;set; }
-        public Producto Productos { get; set; }
+       
+
+        [ForeignKey(("Producto"))]            
+
+        public int FkProducto { get;set; }
+        public Producto Producto { get; set; }
 
 
-        [ForeignKey(("DetalleVentas"))]
+        [ForeignKey(("Venta"))]
 
-        public int FkDetalleVenta { get; set; } 
-        public DetalleVenta DetalleVentas { get; set; }
+        public int FkVenta { get; set; } 
+        public Venta Venta { get; set; }
     }
 }

@@ -32,7 +32,7 @@ namespace TestProyecto.Context
 
         public DbSet<Sabor> Sabores { get; set; }
 
-        public DbSet<Tamano> Tamaños { get; set; }
+        public DbSet<Tamano> Tamanos { get; set; }
 
         public DbSet<Lote> Lotes { get; set; }
 
@@ -43,6 +43,17 @@ namespace TestProyecto.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<DetalleVenta>().HasKey(x => new { x.FkProducto, x.FkVenta });
+
+            modelBuilder.Entity<DetalleVenta>().
+                HasOne(x => x.Producto)
+                .WithMany(y => y.ProductosVenta).
+                HasForeignKey(x => x.FkProducto);
+            modelBuilder.Entity<DetalleVenta>().
+                HasOne(x => x.Venta).
+                WithMany(y => y.ProductosVenta).
+                HasForeignKey(x => x.FkVenta);
+
             modelBuilder.Entity<Cliente>().HasData(
                 new Cliente
                 {
