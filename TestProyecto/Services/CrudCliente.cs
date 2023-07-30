@@ -164,5 +164,9 @@ namespace TestProyecto.Services
 				throw new Exception("Error: "+ex.Message);
 			}
 		}
+		public void Compra ()
+		{
+
+		}
     }
 }

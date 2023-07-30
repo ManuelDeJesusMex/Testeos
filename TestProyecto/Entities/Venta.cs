@@ -37,10 +37,10 @@ namespace TestProyecto.Entities
         
 
 
-        [ForeignKey(("Vendedores"))]
+        //[ForeignKey(("Vendedores"))]
 
-        public int? FkVendedor { get; set; }
+        //public int? FkVendedor { get; set; }
 
-        public Vendedor Vendedores { get; set; }
+        //public Vendedor Vendedores { get; set; }
     }
 }
