@@ -177,7 +177,9 @@ namespace TestProyecto.Services
 
 
 					Producto CompraP = _context.Productos.Find(request);
-					Cliente ClienteCompra = _context.Clientes.Find(IDCliente);
+					DetalleVenta NuevoDetalleVenta = new DetalleVenta();
+
+                    Cliente ClienteCompra = _context.Clientes.Find(IDCliente);
 
 					if (ClienteCompra != null)
 					{
@@ -200,8 +202,15 @@ namespace TestProyecto.Services
 									CompraP.Cantidad = NuevaCantidad;
 									ClienteCompra.SaldoCliente = NuevoSaldo;
 
+									
+									{
+										NuevoDetalleVenta.FkVenta = NuevaCompra.PkCompra;
+										NuevoDetalleVenta.Subtotal = Subtotal;
+										NuevoDetalleVenta.Total = total;
+										NuevoDetalleVenta.FkProducto = CompraP.PkProducto;
+									};
 
-
+									
 									_context.Ventas.Add(NuevaCompra);
 									_context.Clientes.Update(ClienteCompra);
 									_context.Productos.Update(CompraP);

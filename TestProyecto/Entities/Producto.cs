@@ -16,8 +16,7 @@ namespace TestProyecto.Entities
 
         }
 
-        public List<Venta> Ventas { get; set; }
-        public ICollection<DetalleVenta> ProductosVenta { get; set; }
+       
 
         [Key]
 
@@ -27,6 +26,8 @@ namespace TestProyecto.Entities
 
         public int Cantidad { get; set; }
         public double PrecioUnitario { get; set; }
+        public List<Venta> Ventas { get; set; }
+        public ICollection<DetalleVenta> ProductosVenta { get; set; }
 
         [ForeignKey(("Vendedores"))]
 
