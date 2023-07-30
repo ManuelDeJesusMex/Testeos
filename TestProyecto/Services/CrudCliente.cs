@@ -209,7 +209,7 @@ namespace TestProyecto.Services
 										NuevoDetalleVenta.Total = total;
 										NuevoDetalleVenta.FkProducto = CompraP.PkProducto;
 									};
-
+									//
 									
 									_context.Ventas.Add(NuevaCompra);
 									_context.Clientes.Update(ClienteCompra);
