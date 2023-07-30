@@ -8,10 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Views\cerrar-sesion.png" />
-    <None Remove="Views\grupo-de-usuarios.png" />
-    <None Remove="Views\PalmerasRetro2.jpg" />
-    <None Remove="Views\refresco.png" />
+    <None Remove="Views\FondoNegro.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,10 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Views\cerrar-sesion.png" />
-    <Resource Include="Views\grupo-de-usuarios.png" />
-    <Resource Include="Views\PalmerasRetro2.jpg" />
-    <Resource Include="Views\refresco.png" />
+    <Resource Include="Views\FondoNegro.jpg" />
   </ItemGroup>
 
 </Project>

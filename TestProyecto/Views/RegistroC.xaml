@@ -6,23 +6,26 @@
         xmlns:local="clr-namespace:TestProyecto.Views"
         mc:Ignorable="d"
         Title="RegistroC" Height="450" Width="800">
-    <Grid>
+    <Grid RenderTransformOrigin="0.5,0.5">
         <Grid.Background>
-            <ImageBrush ImageSource="/Views/PalmerasRetro2.jpg"/>
+            <RadialGradientBrush>
+                <GradientStop Color="#FF1F2465" Offset="0.303"/>
+                <GradientStop Color="#FF040033" Offset="0.857"/>
+            </RadialGradientBrush>
         </Grid.Background>
-        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="40" Margin="38,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" Background="#FFF3D0EC"/>
-        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="40" Margin="40,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" Background="#FFF3D0EC"/>
-        <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Height="40" Margin="390,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" Background="#FFF3D0EC"/>
-        <TextBox x:Name="txtSaldo" HorizontalAlignment="Left" Height="40" Margin="391,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" RenderTransformOrigin="1.284,1.654" Background="#FFF3D0EC"/>
-        <TextBox x:Name="txtApellido" HorizontalAlignment="Left" Height="40" Margin="38,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" Background="#FFF3D0EC"/>
-        <Button x:Name="btnAdd" Content="Registrar" HorizontalAlignment="Left" Margin="128,346,0,0" VerticalAlignment="Top" Height="34" Width="135" Click="btnAdd_Click"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="40" Margin="38,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181"/>
+        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="40" Margin="38,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181"/>
+        <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Height="40" Margin="386,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181"/>
+        <TextBox x:Name="txtSaldo" HorizontalAlignment="Left" Height="40" Margin="386,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" RenderTransformOrigin="1.284,1.654"/>
+        <TextBox x:Name="txtApellido" HorizontalAlignment="Left" Height="40" Margin="38,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181"/>
+        <Button x:Name="btnAdd" Content="Registrar" HorizontalAlignment="Left" Margin="245,351,0,0" VerticalAlignment="Top" Height="34" Width="136" Click="btnAdd_Click"/>
         <Button x:Name="btnCancel" Content="Regresar" HorizontalAlignment="Left" Margin="22,26,0,0" VerticalAlignment="Top" Height="35" Width="65" Click="btnCancel_Click"/>
-        <Button x:Name="btnReset" Content="Borrar todo" HorizontalAlignment="Left" Margin="386,345,0,0" VerticalAlignment="Top" Height="34" Width="135" Click="btnReset_Click"/>
-        <Label x:Name="lbName" Content="Nombre" HorizontalAlignment="Left" Height="32" Margin="47,86,0,0" VerticalAlignment="Top" Width="131"/>
-        <Label x:Name="lbApellido" Content="Apellido" HorizontalAlignment="Left" Height="32" Margin="43,164,0,0" VerticalAlignment="Top" Width="131"/>
-        <Label x:Name="lbCorreo" Content="Correo" HorizontalAlignment="Left" Height="32" Margin="43,223,0,0" VerticalAlignment="Top" Width="131"/>
-        <Label x:Name="lbPassword" Content="Contraseña" HorizontalAlignment="Left" Height="32" Margin="392,83,0,0" VerticalAlignment="Top" Width="131"/>
-        <Label x:Name="lbSaldo" Content="Saldo" HorizontalAlignment="Left" Height="32" Margin="388,165,0,0" VerticalAlignment="Top" Width="131"/>
+        <Button x:Name="btnReset" Content="Borrar todo" HorizontalAlignment="Left" Margin="433,351,0,0" VerticalAlignment="Top" Height="34" Width="134" Click="btnReset_Click"/>
+        <Label x:Name="lbName" Content="Nombre" HorizontalAlignment="Left" Height="32" Margin="40,83,0,0" VerticalAlignment="Top" Width="131" Foreground="White"/>
+        <Label x:Name="lbApellido" Content="Apellido" HorizontalAlignment="Left" Height="32" Margin="38,161,0,0" VerticalAlignment="Top" Width="131" Foreground="White"/>
+        <Label x:Name="lbCorreo" Content="Correo" HorizontalAlignment="Left" Height="32" Margin="38,240,0,0" VerticalAlignment="Top" Width="131" Foreground="White"/>
+        <Label x:Name="lbPassword" Content="Contraseña" HorizontalAlignment="Left" Height="32" Margin="386,84,0,0" VerticalAlignment="Top" Width="131" Foreground="White"/>
+        <Label x:Name="lbSaldo" Content="Saldo" HorizontalAlignment="Left" Height="32" Margin="386,161,0,0" VerticalAlignment="Top" Width="131" Foreground="White"/>
 
     </Grid>
 </Window>

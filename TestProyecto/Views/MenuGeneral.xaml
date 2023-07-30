@@ -7,9 +7,24 @@
         mc:Ignorable="d"
         Title="MenuGeneral" Height="450" Width="800">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <LinearGradientBrush.RelativeTransform>
+                    <TransformGroup>
+                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                        <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                        <RotateTransform Angle="45" CenterX="0.5" CenterY="0.5"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </LinearGradientBrush.RelativeTransform>
+                <GradientStop Color="#FF030054" Offset="0"/>
+                <GradientStop Color="#FF0F6CA7" Offset="1"/>
+                <GradientStop Color="#FF12EDD4" Offset="0.503"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Button x:Name="btnUpdateProductos" Content="Administrar productos" HorizontalAlignment="Left" Height="59" Margin="70,158,0,0" VerticalAlignment="Top" Width="137" Visibility="Hidden"/>
         <Button x:Name="btnWatchProductos" Content="Ver productos" HorizontalAlignment="Left" Height="59" Margin="319,159,0,0" VerticalAlignment="Top" Width="137" Visibility="Hidden"/>
-        <Button x:Name="btnAdminUsers" Content="Administrar usuarios" HorizontalAlignment="Left" Height="64" Margin="562,160,0,0" VerticalAlignment="Top" Width="137" Click="btnAdminUsers_Click" Background="{x:Null}"/>
+        <Button x:Name="btnAdminUsers" Content="Administrar usuarios" HorizontalAlignment="Left" Height="64" Margin="562,160,0,0" VerticalAlignment="Top" Width="137" Click="btnAdminUsers_Click" Background="#FFDED7D7"/>
         <Button x:Name="btnLogOut" Content="Cerrar sesión" HorizontalAlignment="Left" Height="32" Margin="26,374,0,0" VerticalAlignment="Top" Width="137" Click="btnLogOut_Click"/>
         <Button x:Name="btnWatchProducts" Content="Ver productos" HorizontalAlignment="Left" Height="63" Margin="326,156,0,0" VerticalAlignment="Top" Width="143"/>
         <Button x:Name="btnProductsVendedor" Content="Administrar productos" HorizontalAlignment="Left" Height="63" Margin="79,156,0,0" VerticalAlignment="Top" Width="143"/>

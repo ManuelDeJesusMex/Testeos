@@ -8,7 +8,7 @@
         Title="MenuAdminSA" Height="486" Width="863">
     <Grid Margin="0,0,0,-2" Width="NaN">
         <Grid.Background>
-            <ImageBrush/>
+            <ImageBrush ImageSource="/Views/FondoNegro.jpg"/>
         </Grid.Background>
         <ComboBox x:Name="cboptionsUsers" HorizontalAlignment="Left" Height="25" Margin="14,25,0,0" VerticalAlignment="Top" Width="160" SelectionChanged="cboptionsUsers_SelectionChanged"/>
         <DataGrid x:Name="ClienteTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="205,17,11,169" Visibility="Hidden">
@@ -120,18 +120,18 @@
         <ComboBox x:Name="cbSabor" HorizontalAlignment="Left" Margin="317,415,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden" SelectedValuePath="PkSabor" DisplayMemberPath="NameSabor"/>
         <ComboBox x:Name="cbTamaño" HorizontalAlignment="Left" Margin="480,414,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden" SelectedValuePath="PkTamaño" DisplayMemberPath="TamañoP"/>
         <ComboBox x:Name="cbRol" HorizontalAlignment="Left" Margin="660,414,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden" DisplayMemberPath="RolName" SelectedValuePath="PkRold"/>
-        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="14,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Height="26" Background="#FFE8D4DF" />
-        <TextBox x:Name="txtApellido" HorizontalAlignment="Left" Margin="14,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Height="26" Background="#FFE8D4DF" />
-        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Margin="14,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" RenderTransformOrigin="0.482,-9.019" Height="29" Background="#FFE8D4DF" />
-        <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="14,286,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="27" Background="#FFE8D4DF" />
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="14,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Height="26" />
+        <TextBox x:Name="txtApellido" HorizontalAlignment="Left" Margin="14,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Height="26" />
+        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Margin="14,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" RenderTransformOrigin="0.482,-9.019" Height="29" />
+        <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="14,286,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="27" />
         <TextBox x:Name="txtSaldo" HorizontalAlignment="Left" Margin="203,336,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="23" Visibility="Hidden" />
-        <TextBox x:Name="txtPkUser" HorizontalAlignment="Left" Margin="14,335,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" Height="27" IsEnabled="False" Background="White"/>
+        <TextBox x:Name="txtPkUser" HorizontalAlignment="Left" Margin="15,348,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" Height="26"/>
 
-        <Label x:Name="lblnombre" Content="Nombre" HorizontalAlignment="Left" Margin="39,65,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbApellido" Content="Apellido" HorizontalAlignment="Left" Margin="32,136,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbCorreo" Content="Correo" HorizontalAlignment="Left" Margin="27,198,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbPassword" Content="Contraseña" HorizontalAlignment="Left" Margin="34,259,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbPK" Content="ID" HorizontalAlignment="Left" Margin="85,335,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblnombre" Content="Nombre" HorizontalAlignment="Left" Margin="15,82,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label x:Name="lbApellido" Content="Apellido" HorizontalAlignment="Left" Margin="15,138,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label x:Name="lbCorreo" Content="Correo" HorizontalAlignment="Left" Margin="15,199,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label x:Name="lbPassword" Content="Contraseña" HorizontalAlignment="Left" Margin="15,260,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label x:Name="lbPK" Content="ID" HorizontalAlignment="Left" Margin="15,322,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label x:Name="lbSaldo" Content="Saldo" HorizontalAlignment="Left" Margin="230,303,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
         <Label x:Name="lblote" Content="Lote" HorizontalAlignment="Left" Margin="206,389,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.202,0.906" Width="47" Visibility="Hidden"/>
         <Label x:Name="lbsabor" Content="Sabor" HorizontalAlignment="Left" Margin="363,385,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.202,0.906" Width="47" Visibility="Hidden"/>
