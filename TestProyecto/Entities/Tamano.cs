@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace TestProyecto.Entities
 {
-    public class Tamaño
+    public class Tamano
     {
         [Key]
 
-        public int PkTamaño { get; set; }
+        public int PkTamano { get; set; }
 
-        public string TamañoP {  get; set; }
+        public string TamanoP {  get; set; }
 
 
 

@@ -270,7 +270,7 @@ namespace TestProyecto.Views
             txtPkUser.Text = productoc.PkProducto.ToString();
             cbLote.SelectedValue = productoc.FkLote;
             cbSabor.SelectedValue = productoc.FkSabor;
-            cbTamaño.SelectedValue = productoc.FkTamaño;
+            cbTamaño.SelectedValue = productoc.FkTamano;
             txtCorreo.IsEnabled = false;
 
         }
@@ -485,7 +485,7 @@ namespace TestProyecto.Views
                    ProductoF.PrecioUnitario = double.Parse(txtSaldo.Text);
                     ProductoF.FkVendedor = int.Parse(txtCorreo.Text); //Tener en cuenta que esto es para asignar un vendedor al producto
                     ProductoF.FkLote = int.Parse(cbLote.Text.ToString());
-                    ProductoF.FkTamaño = int.Parse(cbTamaño.SelectedValue.ToString());
+                    ProductoF.FkTamano = int.Parse(cbTamaño.SelectedValue.ToString());
                     ProductoF.FkSabor = int.Parse(cbTamaño.SelectedValue.ToString());
 
                     //Al tratarse de un superadmin, tendrá que ingresar el id de Superadmin
@@ -509,7 +509,7 @@ namespace TestProyecto.Views
                     ProductoF.Cantidad = int.Parse(txtApellido.Text);
                     ProductoF.PrecioUnitario = double.Parse(txtSaldo.Text);
                     ProductoF.FkLote = int.Parse(cbLote.SelectedValue.ToString());
-                    ProductoF.FkTamaño = int.Parse(cbTamaño.SelectedValue.ToString());
+                    ProductoF.FkTamano = int.Parse(cbTamaño.SelectedValue.ToString());
                     ProductoF.FkSabor = int.Parse(cbTamaño.SelectedValue.ToString());
 
                     modProducto.UpdateProducto(ProductoF);

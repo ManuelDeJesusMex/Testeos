@@ -4,7 +4,7 @@ using MySql.EntityFrameworkCore.Metadata;
 
 namespace TestProyecto.Migrations
 {
-    public partial class PruebaPCP1 : Migration
+    public partial class TestP : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -51,13 +51,13 @@ namespace TestProyecto.Migrations
                 name: "Tamaños",
                 columns: table => new
                 {
-                    PkTamaño = table.Column<int>(type: "int", nullable: false)
+                    PkTamano = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    TamañoP = table.Column<string>(type: "text", nullable: false)
+                    TamanoP = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Tamaños", x => x.PkTamaño);
+                    table.PrimaryKey("PK_Tamaños", x => x.PkTamano);
                 });
 
             migrationBuilder.CreateTable(
@@ -142,7 +142,7 @@ namespace TestProyecto.Migrations
                     FkVendedor = table.Column<int>(type: "int", nullable: false),
                     FkLote = table.Column<int>(type: "int", nullable: true),
                     FkSabor = table.Column<int>(type: "int", nullable: false),
-                    FkTamaño = table.Column<int>(type: "int", nullable: false)
+                    FkTamano = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -160,10 +160,10 @@ namespace TestProyecto.Migrations
                         principalColumn: "PkSabor",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Productos_Tamaños_FkTamaño",
-                        column: x => x.FkTamaño,
+                        name: "FK_Productos_Tamaños_FkTamano",
+                        column: x => x.FkTamano,
                         principalTable: "Tamaños",
-                        principalColumn: "PkTamaño",
+                        principalColumn: "PkTamano",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Productos_Vendedores_FkVendedor",
@@ -200,6 +200,63 @@ namespace TestProyecto.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Lotes",
+                columns: new[] { "PkLote", "NomLote" },
+                values: new object[,]
+                {
+                    { 1, 1 },
+                    { 2, 2 },
+                    { 3, 3 },
+                    { 4, 4 },
+                    { 5, 5 },
+                    { 6, 6 },
+                    { 7, 7 },
+                    { 8, 8 },
+                    { 9, 9 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Roles",
+                columns: new[] { "PkRol", "RolName" },
+                values: new object[,]
+                {
+                    { 2, "Vendedor" },
+                    { 3, "SA" },
+                    { 1, "Cliente" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Sabores",
+                columns: new[] { "PkSabor", "NameSabor" },
+                values: new object[,]
+                {
+                    { 1, "Natural" },
+                    { 2, "Cola" },
+                    { 3, "Naranja" },
+                    { 4, "Limon" },
+                    { 5, "Negro" },
+                    { 6, "Lager" },
+                    { 7, "Fresa" },
+                    { 8, "Merlot" },
+                    { 9, "Pina" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Tamaños",
+                columns: new[] { "PkTamano", "TamanoP" },
+                values: new object[,]
+                {
+                    { 2, "Mediano" },
+                    { 1, "Chico" },
+                    { 3, "Grande" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Clientes",
+                columns: new[] { "PkCliente", "ApellidoCliente", "CorreoCliente", "FkRol", "NombreCliente", "PasswordCliente", "SaldoCliente" },
+                values: new object[] { 1, "Perez", "arriba@gmail.com", 1, "Juan", "123", 0.0 });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Clientes_FkRol",
                 table: "Clientes",
@@ -216,9 +273,9 @@ namespace TestProyecto.Migrations
                 column: "FkSabor");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Productos_FkTamaño",
+                name: "IX_Productos_FkTamano",
                 table: "Productos",
-                column: "FkTamaño");
+                column: "FkTamano");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Productos_FkVendedor",

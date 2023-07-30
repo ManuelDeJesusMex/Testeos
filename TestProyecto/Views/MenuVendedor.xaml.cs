@@ -67,7 +67,7 @@ namespace TestProyecto.Views
             txtPrecioUnitario.Text = producto.PrecioUnitario.ToString();
             txtCantidad.Text = producto.Cantidad.ToString();
             cbLote.SelectedValue = producto.FkLote;
-            cbTamaño.SelectedValue = producto.FkTamaño;
+            cbTamaño.SelectedValue = producto.FkTamano;
             cbSabor.SelectedValue = producto.FkSabor;
             txtIDVendedor.IsEnabled = false;
         }
@@ -93,7 +93,7 @@ namespace TestProyecto.Views
                 productoF.Cantidad = int.Parse(txtCantidad.Text);
                 productoF.FkVendedor = int.Parse(txtIDVendedor.Text);
                 productoF.PrecioUnitario = double.Parse(txtPrecioUnitario.Text);
-                productoF.FkTamaño = int.Parse(cbTamaño.SelectedValue.ToString());
+                productoF.FkTamano = int.Parse(cbTamaño.SelectedValue.ToString());
                 productoF.FkSabor = int.Parse(cbSabor.SelectedValue.ToString());
                 productoF.FkLote = int.Parse(cbLote.SelectedValue.ToString());
                 txtIDVendedor.IsEnabled = true;
@@ -119,7 +119,7 @@ namespace TestProyecto.Views
                 productoF.PrecioUnitario = double.Parse(txtPrecioUnitario.Text);
                 productoF.FkLote = int.Parse(cbLote.SelectedValue.ToString());
                 productoF.FkSabor = int.Parse(cbSabor.SelectedValue.ToString());
-                productoF.FkTamaño = int.Parse(cbTamaño.SelectedValue.ToString());
+                productoF.FkTamano = int.Parse(cbTamaño.SelectedValue.ToString());
 
                 modproducto.UpdateProducto(productoF);
 

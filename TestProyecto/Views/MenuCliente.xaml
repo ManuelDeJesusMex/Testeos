@@ -31,7 +31,7 @@
                 <DataGridTextColumn Header="Precio Unitario" Binding="{Binding PrecioUnitario}"/>
                 <DataGridTextColumn Header="Vendido por" Binding="{Binding Vendedores.NombreVendedor}"/>
                 <DataGridTextColumn Header="Sabor" Binding="{Binding Sabores.NameSabor}"/>
-                <DataGridTextColumn Header="Tamaño" Binding="{Binding Tamaños.TamañoP}"/>
+                <DataGridTextColumn Header="Tamaño" Binding="{Binding Tamanos.TamanoP}"/>
                 <DataGridTextColumn Header="Lote" Binding="{Binding Lotes.NomLote}"/>
                 <DataGridTemplateColumn Header="">
                     <DataGridTemplateColumn.CellTemplate>

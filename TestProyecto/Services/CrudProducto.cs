@@ -36,7 +36,7 @@ namespace TestProyecto.Services
                             NewProduct.FkLote = request.FkLote;
                             NewProduct.FkVendedor = request.FkVendedor;
                             NewProduct.FkSabor = request.FkSabor;
-                            NewProduct.FkTamaño = request.FkTamaño;
+                            NewProduct.FkTamano = request.FkTamano;
 
                             _context.Productos.Add(NewProduct);
                             _context.SaveChanges();
@@ -82,7 +82,7 @@ namespace TestProyecto.Services
 				using (var _context = new ApplicationDbContext())
 				{
 					List<Producto> Productos = new List<Producto>();
-					Productos = _context.Productos.Include(x => x.Sabores).Include(y => y.Tamaños).Include(e => e.Lotes).Include(o => o.Vendedores).ToList();
+					Productos = _context.Productos.Include(x => x.Sabores).Include(y => y.Tamanos).Include(e => e.Lotes).Include(o => o.Vendedores).ToList();
 					
 
                     return Productos;
@@ -94,13 +94,13 @@ namespace TestProyecto.Services
 				throw new Exception("Error: "+ex.Message);
 			}
 		}
-		public List<Tamaño> GetTamaños ()
+		public List<Tamano> GetTamaños ()
 		{
 			try
 			{
 				using (var _context = new ApplicationDbContext())
 				{
-					List<Tamaño> tamaños = _context.Tamaños.ToList();
+					List<Tamano> tamaños = _context.Tamaños.ToList();
 					
 
 					return tamaños;

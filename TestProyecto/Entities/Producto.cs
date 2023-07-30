@@ -46,11 +46,11 @@ namespace TestProyecto.Entities
 
         public Sabor Sabores { get; set; }
 
-        [ForeignKey(("Tamaños"))]
+        [ForeignKey(("Tamanos"))]
 
-        public int FkTamaño { get; set; }
+        public int FkTamano { get; set; }
 
-        public Tamaño Tamaños { get; set; }
+        public Tamano Tamanos { get; set; }
 
         
 

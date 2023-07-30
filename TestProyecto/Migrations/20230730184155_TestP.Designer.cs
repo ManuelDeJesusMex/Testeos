@@ -9,8 +9,8 @@ using TestProyecto.Context;
 namespace TestProyecto.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230727144514_PruebaPCP1")]
-    partial class PruebaPCP1
+    [Migration("20230730184155_TestP")]
+    partial class TestP
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,6 +53,18 @@ namespace TestProyecto.Migrations
                     b.HasIndex("FkRol");
 
                     b.ToTable("Clientes");
+
+                    b.HasData(
+                        new
+                        {
+                            PkCliente = 1,
+                            ApellidoCliente = "Perez",
+                            CorreoCliente = "arriba@gmail.com",
+                            FkRol = 1,
+                            NombreCliente = "Juan",
+                            PasswordCliente = "123",
+                            SaldoCliente = 0.0
+                        });
                 });
 
             modelBuilder.Entity("TestProyecto.Entities.Lote", b =>
@@ -67,6 +79,53 @@ namespace TestProyecto.Migrations
                     b.HasKey("PkLote");
 
                     b.ToTable("Lotes");
+
+                    b.HasData(
+                        new
+                        {
+                            PkLote = 1,
+                            NomLote = 1
+                        },
+                        new
+                        {
+                            PkLote = 2,
+                            NomLote = 2
+                        },
+                        new
+                        {
+                            PkLote = 3,
+                            NomLote = 3
+                        },
+                        new
+                        {
+                            PkLote = 4,
+                            NomLote = 4
+                        },
+                        new
+                        {
+                            PkLote = 5,
+                            NomLote = 5
+                        },
+                        new
+                        {
+                            PkLote = 6,
+                            NomLote = 6
+                        },
+                        new
+                        {
+                            PkLote = 7,
+                            NomLote = 7
+                        },
+                        new
+                        {
+                            PkLote = 8,
+                            NomLote = 8
+                        },
+                        new
+                        {
+                            PkLote = 9,
+                            NomLote = 9
+                        });
                 });
 
             modelBuilder.Entity("TestProyecto.Entities.Producto", b =>
@@ -85,7 +144,7 @@ namespace TestProyecto.Migrations
                         .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<int>("FkTamaño")
+                    b.Property<int>("FkTamano")
                         .HasColumnType("int");
 
                     b.Property<int?>("FkVendedor")
@@ -105,7 +164,7 @@ namespace TestProyecto.Migrations
 
                     b.HasIndex("FkSabor");
 
-                    b.HasIndex("FkTamaño");
+                    b.HasIndex("FkTamano");
 
                     b.HasIndex("FkVendedor");
 
@@ -125,6 +184,23 @@ namespace TestProyecto.Migrations
                     b.HasKey("PkRol");
 
                     b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            PkRol = 1,
+                            RolName = "Cliente"
+                        },
+                        new
+                        {
+                            PkRol = 2,
+                            RolName = "Vendedor"
+                        },
+                        new
+                        {
+                            PkRol = 3,
+                            RolName = "SA"
+                        });
                 });
 
             modelBuilder.Entity("TestProyecto.Entities.Sabor", b =>
@@ -140,6 +216,53 @@ namespace TestProyecto.Migrations
                     b.HasKey("PkSabor");
 
                     b.ToTable("Sabores");
+
+                    b.HasData(
+                        new
+                        {
+                            PkSabor = 1,
+                            NameSabor = "Natural"
+                        },
+                        new
+                        {
+                            PkSabor = 2,
+                            NameSabor = "Cola"
+                        },
+                        new
+                        {
+                            PkSabor = 3,
+                            NameSabor = "Naranja"
+                        },
+                        new
+                        {
+                            PkSabor = 4,
+                            NameSabor = "Limon"
+                        },
+                        new
+                        {
+                            PkSabor = 5,
+                            NameSabor = "Negro"
+                        },
+                        new
+                        {
+                            PkSabor = 6,
+                            NameSabor = "Lager"
+                        },
+                        new
+                        {
+                            PkSabor = 7,
+                            NameSabor = "Fresa"
+                        },
+                        new
+                        {
+                            PkSabor = 8,
+                            NameSabor = "Merlot"
+                        },
+                        new
+                        {
+                            PkSabor = 9,
+                            NameSabor = "Pina"
+                        });
                 });
 
             modelBuilder.Entity("TestProyecto.Entities.SuperAdmin", b =>
@@ -174,19 +297,36 @@ namespace TestProyecto.Migrations
                     b.ToTable("SuperAdministradores");
                 });
 
-            modelBuilder.Entity("TestProyecto.Entities.Tamaño", b =>
+            modelBuilder.Entity("TestProyecto.Entities.Tamano", b =>
                 {
-                    b.Property<int>("PkTamaño")
+                    b.Property<int>("PkTamano")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("TamañoP")
+                    b.Property<string>("TamanoP")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("PkTamaño");
+                    b.HasKey("PkTamano");
 
                     b.ToTable("Tamaños");
+
+                    b.HasData(
+                        new
+                        {
+                            PkTamano = 1,
+                            TamanoP = "Chico"
+                        },
+                        new
+                        {
+                            PkTamano = 2,
+                            TamanoP = "Mediano"
+                        },
+                        new
+                        {
+                            PkTamano = 3,
+                            TamanoP = "Grande"
+                        });
                 });
 
             modelBuilder.Entity("TestProyecto.Entities.Vendedor", b =>
@@ -268,9 +408,9 @@ namespace TestProyecto.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TestProyecto.Entities.Tamaño", "Tamaños")
+                    b.HasOne("TestProyecto.Entities.Tamano", "Tamanos")
                         .WithMany()
-                        .HasForeignKey("FkTamaño")
+                        .HasForeignKey("FkTamano")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -284,7 +424,7 @@ namespace TestProyecto.Migrations
 
                     b.Navigation("Sabores");
 
-                    b.Navigation("Tamaños");
+                    b.Navigation("Tamanos");
 
                     b.Navigation("Vendedores");
                 });
