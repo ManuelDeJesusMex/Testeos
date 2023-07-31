@@ -115,6 +115,69 @@
             </DataGrid.Columns>
 
         </DataGrid>
+        <DataGrid x:Name="LotesTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="222,30,227,279" Visibility="Hidden">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding PkLote}" />
+                <DataGridTextColumn Header="Nom Lote" Binding="{Binding NomLote}" />
+                <DataGridTemplateColumn Header="Editar">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Edit" Background="AliceBlue" Click="EditItemLote"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Delete">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Background="#FA4D4D" Content="Delete" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="SaboresTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="220,32,229,272" Visibility="Hidden">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding PkSabor}" />
+                <DataGridTextColumn Header="Sabor" Binding="{Binding NameSabor}" />
+                <DataGridTemplateColumn Header="Editar">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Edit" Background="AliceBlue" Click="EditItemSabor"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Delete">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Background="#FA4D4D" Content="Delete"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="TamañosTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="222,29,230,274" Visibility="Hidden">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding PkTamano}" />
+                <DataGridTextColumn Header="Tamano" Binding="{Binding TamanoP}" />
+                <DataGridTemplateColumn Header="Editar">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Edit" Background="AliceBlue" Click="EditItemTamano"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Delete">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Background="#FA4D4D" Content="Delete"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
         <DataGrid x:Name="DetalleVentaTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="205,17,11,169" Visibility="Hidden">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nom " Binding="{Binding FkProducto}" />
@@ -136,7 +199,7 @@
         <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Margin="14,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" RenderTransformOrigin="0.482,-9.019" Height="29" />
         <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="14,286,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="27" />
         <TextBox x:Name="txtSaldo" HorizontalAlignment="Left" Margin="203,336,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" Height="23" Visibility="Hidden" />
-        <TextBox x:Name="txtPkUser" HorizontalAlignment="Left" Margin="15,348,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" Height="26"/>
+        <TextBox x:Name="txtPkUser" HorizontalAlignment="Left" Margin="15,348,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" Height="26" IsEnabled="False"/>
 
         <Label x:Name="lblnombre" Content="Nombre" HorizontalAlignment="Left" Margin="15,82,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label x:Name="lbApellido" Content="Apellido" HorizontalAlignment="Left" Margin="15,138,0,0" VerticalAlignment="Top" Foreground="White"/>

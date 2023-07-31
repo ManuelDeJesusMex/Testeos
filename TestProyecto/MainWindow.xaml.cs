@@ -48,7 +48,7 @@ namespace TestProyecto
             if (txtPassword.Text != "" && txtUser.Text != "")
             {
 
-                MessageBox.Show("AAAAAAAAAAAAAAAAAA");
+               
                 var cliente = _context.Clientes.FirstOrDefault(c => c.CorreoCliente == correo && c.PasswordCliente == contraseña);
                 if (cliente != null)
                 {
