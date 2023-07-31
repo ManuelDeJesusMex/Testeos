@@ -168,5 +168,91 @@ namespace TestProyecto.Services
 				throw new Exception ("Error: "+ex.Message);
 			}
 		}
+		public void CreateSabor (Sabor request)
+		{
+			try
+			{
+				using (var  _context = new ApplicationDbContext()) {
+					if (request != null)
+					{
+						Sabor Nuevo = new Sabor();
+						Nuevo.NameSabor = request.NameSabor;
+
+						_context.Sabores.Add(request);
+						_context.SaveChanges();
+
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+
+				throw new Exception ("Error: "+ex.Message);
+			}
+		}
+		public void CreateTamaño (Tamano request)
+		{
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+					if (request != null)
+					{
+						Tamano nuevo = new Tamano();
+						nuevo.TamanoP = request.TamanoP;
+
+						_context.Tamanos.Add(nuevo);
+						_context.SaveChanges();
+					}
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error: " + ex.Message);
+            }
+        }
+		public void CreateLote (Lote request)
+		{
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+					if (request != null)
+					{
+						Lote nuevo = new Lote();
+						nuevo.NomLote = request.NomLote;
+
+						_context.Lotes.Add(nuevo);
+						_context.SaveChanges();
+					}
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error: " + ex.Message);
+            }
+        }
+
+		public List<DetalleVenta> GetDetalleVentas () {
+			try
+			{
+				using (var _context = new ApplicationDbContext())
+				{
+					//List<DetalleVenta> dv = new List<DetalleVenta>();
+
+					Venta Lista = new Venta();
+					var Hola = Lista.ProductosVenta.ToList();
+
+					return Hola;
+				}
+			}
+			catch (Exception ex)
+			{
+
+				throw new Exception ("Error: "+ex.Message);
+			}
+		}
     }
 }

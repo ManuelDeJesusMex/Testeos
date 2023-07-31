@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TestProyecto.Context;
 using TestProyecto.Services;
 using TestProyecto.Views;
 
@@ -26,76 +28,68 @@ namespace TestProyecto
         {
             InitializeComponent();
         }
-
+        private ApplicationDbContext _context = new ApplicationDbContext();
         CrudCliente logC = new CrudCliente();
         CrudVendedor logV = new CrudVendedor();
         CrudSA logSA = new CrudSA();
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            MenuCliente ne = new MenuCliente();
-           // MenuVendedor ne = new MenuVendedor();
-           // MenuAdminSA ne = new MenuAdminSA();
+            MenuCliente pc = new MenuCliente();
+         //   MenuVendedor pv = new MenuVendedor();
+            MenuAdminSA psa = new MenuAdminSA();
             //
-            ne.Show();
+           // ne.Show();
 
-            Close();
-            //string nombre = txtUser.Text;
-            //string contraseña = txtPassword.Text;
+          //  Close();
+            string correo = txtUser.Text;
+            string contraseña = txtPassword.Text;
 
-            //if (nombre == "" || contraseña == "")
-            //{
-            //    MessageBox.Show("Faltan campos");
-            //}
-            //else
-            //{
-            //    var responser = logC.LoginC(nombre, contraseña);
-            //    var responserV = logV.LoginV(nombre, contraseña);
-            //    var responserSA = logSA.LogSA(nombre, contraseña);
+            if (txtPassword.Text != "" && txtUser.Text != "")
+            {
 
-                //if (responser.Roles.RolName == "Cliente")
+                MessageBox.Show("AAAAAAAAAAAAAAAAAA");
+                var cliente = _context.Clientes.FirstOrDefault(c => c.CorreoCliente == correo && c.PasswordCliente == contraseña);
+                if (cliente != null)
+                {
+                    MessageBox.Show("Sesión iniciada como Cliente");
 
-                //{
-                //    MessageBox.Show("Sesión iniciada");
+                    pc.Show();
 
-                //    MenuCliente nuevo = new MenuCliente();
-                //  //  MenuGeneral nuevo = new MenuGeneral();
+                    this.Close();
+                    return;
+                }
 
-                //    nuevo.Show();
+                var vendedor = _context.Vendedores.FirstOrDefault(v => v.CorreoV == correo && v.ContraseñaVendedor == contraseña);
+                if (vendedor != null)
+                {
+                    MessageBox.Show("Sesión iniciada como Vendedor");
 
-                //    Close();
-                //    //return "SA";
-                //}
-                //else
-                //if (responserSA.Roles.RolName == "SA")
-               // {
-                //    MessageBox.Show("Sesión iniciada");
-                 //   MenuAdminSA sa = new MenuAdminSA();
+                    MenuVendedor men = new MenuVendedor();
+                    men.Show();
+                    this.Close();
+                    return;
+                }
 
-                  // sa.Show();
+                var superAdmin = _context.SuperAdministradores.FirstOrDefault(sa => sa.CorreoSuperAdmin == correo && sa.ContraseñaSuperAdmin == contraseña);
+                if (superAdmin != null)
+                {
+                    MessageBox.Show("Sesión iniciada como Super Administrador");
 
-                  // Close();
-
-               // }
-                //else 
-            //    if (responserV.Roles.RolName == "Vendedor")
-            //    {
-            //        MessageBox.Show("Sesión iniciada");
-
-            //        MenuVendedor nuevo = new MenuVendedor();
-            //        nuevo.Show();
-            //        Close();
-
-            //    }
-            //    else if (responser.Roles.RolName == null)
-            //    {
-            //        MessageBox.Show("No hay usuario");
-            //        //  return "";
-            //    }
-
-          // }                  
+                    psa.Show();
+                    this.Close();
+                    return;
+                }
+            } else
+            {
+                MessageBox.Show("Correo o contraseña incorrectos");
+            }
 
             
+
+           
+
+
         }
 
         private void btnRegistrer_Click(object sender, RoutedEventArgs e)

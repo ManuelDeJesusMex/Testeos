@@ -36,6 +36,7 @@ namespace TestProyecto.Views
             cboptionsUsers.Items.Add("Vendedor");
             cboptionsUsers.Items.Add("SA");
             cboptionsUsers.Items.Add("Producto");
+            cboptionsUsers.Items.Add("Opciones de bebidas");
             cboptionsUsers.Items.Add("Detalle de ventas");
             
         }
@@ -167,6 +168,10 @@ namespace TestProyecto.Views
                 txtPkUser.Clear();
                 txtSaldo.Clear();
 
+            } else if (cboptionsUsers.SelectedItem == "Detalle de ventas")
+            {
+                DetalleVentaTable.Visibility = Visibility.Visible;
+                GetDetalleVentaTable();
             }
         }
         public void GetRoles()
@@ -209,6 +214,10 @@ namespace TestProyecto.Views
         public void GetSuperAdminTable()
         {
             SuperAdminTable.ItemsSource = modSA.GetSuperAdmins();
+        }
+        public void GetDetalleVentaTable ()
+        {
+            DetalleVentaTable.ItemsSource = modProducto.GetDetalleVentas();
         }
         public void EditItemCliente(Object sender, RoutedEventArgs e)
         {

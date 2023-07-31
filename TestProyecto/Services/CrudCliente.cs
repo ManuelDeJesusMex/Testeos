@@ -14,8 +14,8 @@ namespace TestProyecto.Services
 	{
 		public void CreateCliente(Cliente request) //Función para que cliente se registre y SA lo agregue
 		{
-			//try
-			//{
+			try
+			{
 			if (request != null)
 			{
 
@@ -38,12 +38,12 @@ namespace TestProyecto.Services
 					_context.SaveChanges();
 				}
 			}
-			//}
-			//catch (Exception ex)
-			//{
+			}
+			catch (Exception ex)
+			{
 
-			//	throw new Exception ("Error: "+ex.Message);
-			//}
+				throw new Exception ("Error: "+ex.Message);
+			}
 		}
 
 
@@ -211,6 +211,7 @@ namespace TestProyecto.Services
 									};
 									//
 									
+									NuevaCompra.ProductosVenta.Add(NuevoDetalleVenta);
 									_context.Ventas.Add(NuevaCompra);
 									_context.Clientes.Update(ClienteCompra);
 									_context.Productos.Update(CompraP);
