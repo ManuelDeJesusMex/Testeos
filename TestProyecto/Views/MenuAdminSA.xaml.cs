@@ -206,7 +206,7 @@ namespace TestProyecto.Views
                 GetDetalleVentaTable();
             } else if (cboptionsUsers.SelectedItem == "Sabores")
             {
-                GetSabores();
+                
                 lbApellido.Visibility = Visibility.Hidden;
                 lbPassword.Visibility = Visibility.Hidden;
                 lbCorreo.Visibility = Visibility.Hidden;
@@ -653,6 +653,7 @@ namespace TestProyecto.Views
                     txtApellido.Clear();
                     txtCorreo.Clear();
                     txtNombre.Clear();
+                    //
                     GetProductosTable();
 
                 }
@@ -722,7 +723,7 @@ namespace TestProyecto.Views
                         txtPkUser.Clear();
                         txtNombre.Clear();
                         GetSaboresTables();
-
+                        GetSabores();
                     } else
                     {
                         MessageBox.Show("Hay datos vacíos");
@@ -737,6 +738,7 @@ namespace TestProyecto.Views
                     txtPkUser.Clear();
                     txtNombre.Clear();
                     GetSaboresTables();
+                    GetSabores();
                 }
 
             } else if (cboptionsUsers.SelectedItem == "Lotes")
