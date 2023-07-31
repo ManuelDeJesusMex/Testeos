@@ -9,8 +9,8 @@ using TestProyecto.Context;
 namespace TestProyecto.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230730213646_testp3")]
-    partial class testp3
+    [Migration("20230731203427_PruebaPCC1")]
+    partial class PruebaPCC1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -234,14 +234,79 @@ namespace TestProyecto.Services
                 throw new Exception("Error: " + ex.Message);
             }
         }
+		public void UpdateTamano (string NombreP, int IDP)
+		{
+			try
+			{
+				using (var _context = new ApplicationDbContext())
+				{
+					Tamano tamanoc = _context.Tamanos.Find(IDP);
 
+					if (tamanoc != null)
+					{
+						tamanoc.TamanoP = NombreP;
+						_context.Tamanos.Update(tamanoc);
+						_context.SaveChanges ();
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+
+				throw new Exception ("Error: "+ex.Message);
+			}
+		}
+		public void UpdateSabor (string NombreS, int IDS)
+		{
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+					Sabor saborc = _context.Sabores.Find(IDS);
+
+					if (saborc != null)
+					{
+						saborc.NameSabor = NombreS;
+						_context.Sabores.Update(saborc);
+						_context.SaveChanges ();
+					}
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error: " + ex.Message);
+            }
+        }
+		public void UpdateLote (int NomLote, int IDL)
+		{
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+					Lote lotec = _context.Lotes.Find(IDL);
+					if (lotec != null)
+					{
+						lotec.NomLote = NomLote;
+						_context.Lotes.Update(lotec); _context.SaveChanges ();
+					}
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error: " + ex.Message);
+            }
+        }
 		public List<DetalleVenta> GetDetalleVentas () {
 			try
 			{
 				using (var _context = new ApplicationDbContext())
 				{
-					//List<DetalleVenta> dv = new List<DetalleVenta>();
+					List<DetalleVenta> dv = new List<DetalleVenta>();
 
+					
+			//		dv = _context.
 					Venta Lista = new Venta();
 					var Hola = Lista.ProductosVenta.ToList();
 

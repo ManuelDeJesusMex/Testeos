@@ -206,6 +206,7 @@ namespace TestProyecto.Views
                 GetDetalleVentaTable();
             } else if (cboptionsUsers.SelectedItem == "Sabores")
             {
+                GetSabores();
                 lbApellido.Visibility = Visibility.Hidden;
                 lbPassword.Visibility = Visibility.Hidden;
                 lbCorreo.Visibility = Visibility.Hidden;
@@ -517,39 +518,39 @@ namespace TestProyecto.Views
                     txtCorreo.Clear();
                     txtNombre.Clear();
                     GetClientesTable();
-                    
+
                 }
                 else if (txtPkUser.Text != "")
-                {                                      
-                        ClienteF.PkCliente = int.Parse(txtPkUser.Text);
-                        ClienteF.NombreCliente = txtNombre.Text;
-                        ClienteF.ApellidoCliente = txtApellido.Text;
-                        ClienteF.CorreoCliente = txtCorreo.Text;
-                        ClienteF.PasswordCliente = txtPassword.Text;
-                        ClienteF.SaldoCliente = double.Parse(txtSaldo.Text);
+                {
+                    ClienteF.PkCliente = int.Parse(txtPkUser.Text);
+                    ClienteF.NombreCliente = txtNombre.Text;
+                    ClienteF.ApellidoCliente = txtApellido.Text;
+                    ClienteF.CorreoCliente = txtCorreo.Text;
+                    ClienteF.PasswordCliente = txtPassword.Text;
+                    ClienteF.SaldoCliente = double.Parse(txtSaldo.Text);
                     ClienteF.FkRol = int.Parse(cbRol.SelectedValue.ToString());
-                        modcliente.UCliente(ClienteF);
-                        MessageBox.Show("Se editó correctamente");
-                        txtPkUser.Clear();
-                        txtPassword.Clear();
-                        txtSaldo.Clear();
-                        txtApellido.Clear();
-                        txtCorreo.Clear();
-                        txtNombre.Clear();
-                        GetClientesTable();
-                        //Hacer función de update                   
+                    modcliente.UCliente(ClienteF);
+                    MessageBox.Show("Se editó correctamente");
+                    txtPkUser.Clear();
+                    txtPassword.Clear();
+                    txtSaldo.Clear();
+                    txtApellido.Clear();
+                    txtCorreo.Clear();
+                    txtNombre.Clear();
+                    GetClientesTable();
+                    //Hacer función de update                   
                 }
-            } 
+            }
             else if (cboptionsUsers.SelectedItem == "Vendedor")
             {
                 Vendedor vendedorF = new Vendedor();
-                 if (txtPkUser.Text == "")
+                if (txtPkUser.Text == "")
                 {
                     vendedorF.NombreVendedor = txtNombre.Text;
                     vendedorF.ApellidoVendedor = txtApellido.Text;
                     vendedorF.CorreoV = txtCorreo.Text;
                     vendedorF.ContraseñaVendedor = txtPassword.Text;
-                   
+
                     vendedorF.FkRol = 2;
 
                     modVendedor.CreateVendedor(vendedorF);
@@ -616,7 +617,7 @@ namespace TestProyecto.Views
 
                     superAdminF.FkRol = int.Parse(cbRol.SelectedValue.ToString());
                     modSA.UpdateSA(superAdminF);
-                    MessageBox.Show("Se editó con exito");                 
+                    MessageBox.Show("Se editó con exito");
                     txtPkUser.Clear();
                     txtPassword.Clear();
                     txtSaldo.Clear();
@@ -635,7 +636,7 @@ namespace TestProyecto.Views
                     //Pendiente por pedir fk de vendedor
                     ProductoF.Nombre = txtNombre.Text;
                     ProductoF.Cantidad = int.Parse(txtApellido.Text);
-                   ProductoF.PrecioUnitario = double.Parse(txtSaldo.Text);
+                    ProductoF.PrecioUnitario = double.Parse(txtSaldo.Text);
                     ProductoF.FkVendedor = int.Parse(txtCorreo.Text); //Tener en cuenta que esto es para asignar un vendedor al producto
                     ProductoF.FkLote = int.Parse(cbLote.Text.ToString());
                     ProductoF.FkTamano = int.Parse(cbTamaño.SelectedValue.ToString());
@@ -654,7 +655,8 @@ namespace TestProyecto.Views
                     txtNombre.Clear();
                     GetProductosTable();
 
-                } else if (txtPkUser.Text != "")
+                }
+                else if (txtPkUser.Text != "")
                 {
                     ProductoF.FkVendedor = int.Parse(txtCorreo.Text);
                     ProductoF.PkProducto = int.Parse(txtPkUser.Text);
@@ -676,9 +678,100 @@ namespace TestProyecto.Views
                     txtApellido.Clear();
                     txtCorreo.Clear();
                     txtNombre.Clear();
-                    
+
                 }
-            } else if (cboptionsUsers.SelectedItem == null)
+            }
+            else if (cboptionsUsers.SelectedItem == "Tamanos") {
+                Tamano tamanoc = new Tamano();
+                if (txtPkUser.Text == "")
+                {
+                    if (txtNombre.Text != "")
+                    {
+                        tamanoc.TamanoP = txtNombre.Text;
+                        modProducto.CreateTamaño(tamanoc);
+
+                        MessageBox.Show("Agregado");
+                        txtPkUser.Clear();
+                        txtNombre.Clear();
+                        GetTamanosTable();
+                    } else
+                    {
+                        MessageBox.Show("Hay datos vacíos");
+                    }
+                }
+                else {
+                    int IDT = int.Parse(txtPkUser.Text);
+                    tamanoc.TamanoP = txtNombre.Text;
+                    modProducto.UpdateTamano(tamanoc.TamanoP, IDT);
+                    MessageBox.Show("Actualizado");
+                    GetTamanosTable();
+                }
+                
+            } else if (cboptionsUsers.SelectedItem == "Sabores")
+            {
+                Sabor sabor = new Sabor();
+                if (txtPkUser.Text == "")
+                {
+                    if (txtNombre.Text != "")
+                    {
+                        //int IDS = int.Parse(txtPkUser.Text);
+                        sabor.NameSabor = txtNombre.Text;
+
+                        modProducto.CreateSabor(sabor);
+                        MessageBox.Show("Agregado");
+                        txtPkUser.Clear();
+                        txtNombre.Clear();
+                        GetSaboresTables();
+
+                    } else
+                    {
+                        MessageBox.Show("Hay datos vacíos");
+                    }
+                } else
+                {
+                    int ids = int.Parse(txtPkUser.Text);
+                    sabor.NameSabor = txtNombre.Text;
+
+                    modProducto.UpdateSabor(sabor.NameSabor, ids);
+                    MessageBox.Show("Actualizado");
+                    txtPkUser.Clear();
+                    txtNombre.Clear();
+                    GetSaboresTables();
+                }
+
+            } else if (cboptionsUsers.SelectedItem == "Lotes")
+            {
+                Lote lotec = new Lote();
+                if (txtPkUser.Text == "")
+                {
+                    if (txtNombre.Text != "")
+                    {
+                       
+                        lotec.NomLote = int.Parse(txtNombre.Text);
+                        modProducto.CreateLote(lotec);
+                        MessageBox.Show("Agregado");
+                        txtPkUser.Clear();
+                        txtNombre.Clear();
+                        GetLotesTable();
+                    } else
+                    {
+                        MessageBox.Show("Hay datos vacíos");
+                    }
+                } else
+                {
+                    int IDL = int.Parse(txtPkUser.Text);
+                    lotec.NomLote = int.Parse(txtNombre.Text);
+
+                    modProducto.UpdateLote(lotec.NomLote, IDL);
+                    MessageBox.Show("Actualizado");
+                    txtPkUser.Clear();
+                    txtNombre.Clear();
+                    GetLotesTable();
+                }
+            }
+            
+            
+            else if (cboptionsUsers.SelectedItem == null)
             {
                 MessageBox.Show("No has seleccionado el tipo de usuario");
             }

@@ -56,7 +56,7 @@ namespace TestProyecto.Views
                 int IDP = int.Parse(txtIDProducto.Text);
                 int Cantidad = int.Parse(txtCantidad.Text);
 
-                Compra.Compra(IDC, IDP, Cantidad);
+                Compra.Compra(IDP, Cantidad, IDC);
 
                 
 
