@@ -180,11 +180,11 @@
         </DataGrid>
         <DataGrid x:Name="DetalleVentaTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="205,17,11,169" Visibility="Hidden">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Nom " Binding="{Binding FkProducto}" />
-                <DataGridTextColumn Header="Nombre" Binding="{Binding FkVenta}" />
-                <DataGridTextColumn Header="Cantidad" Binding="{Binding FechaCompra}" />
-                <DataGridTextColumn Header="Precio Unitario" Binding="{Binding Subtotal}"/>
-                <DataGridTextColumn Header="Vendedor" Binding="{Binding Total}"/>
+                <DataGridTextColumn Header="NomProducto " Binding="{Binding FkProducto}" />
+                <DataGridTextColumn Header="NomVenta" Binding="{Binding FkVenta}" />
+                <DataGridTextColumn Header="Fecha" Binding="{Binding FechaCompra}" />
+                <DataGridTextColumn Header="Subtotal" Binding="{Binding Subtotal}"/>
+                <DataGridTextColumn Header="Total" Binding="{Binding Total}"/>
 
             </DataGrid.Columns>
 

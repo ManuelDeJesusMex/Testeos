@@ -310,6 +310,8 @@ namespace TestProyecto.Services
 					Venta Lista = new Venta();
 					var Hola = Lista.ProductosVenta.ToList();
 
+					
+
 					return Hola;
 				}
 			}
@@ -319,5 +321,6 @@ namespace TestProyecto.Services
 				throw new Exception ("Error: "+ex.Message);
 			}
 		}
+		
     }
 }

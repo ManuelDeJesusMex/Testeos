@@ -58,7 +58,7 @@ namespace TestProyecto.Views
 
                 Compra.Compra(IDP, Cantidad, IDC);
 
-                
+                GetProductos();
 
             } else
             {

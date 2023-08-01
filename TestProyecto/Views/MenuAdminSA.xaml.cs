@@ -32,6 +32,7 @@ namespace TestProyecto.Views
             GetClientesTable();
             GetVendedoresTable();
             GetSuperAdminTable();
+            GetDetalleVentaTable();
             cboptionsUsers.Items.Add("Cliente");
             cboptionsUsers.Items.Add("Vendedor");
             cboptionsUsers.Items.Add("SA");
@@ -356,6 +357,7 @@ namespace TestProyecto.Views
             cbRol.SelectedValue = modC.FkRol;
             txtCorreo.IsEnabled = true;
             cbRol.Visibility = Visibility.Visible;
+            GetRoles();
         }
         public void EditItemVendedor(object sender, RoutedEventArgs e)
         {
@@ -371,6 +373,7 @@ namespace TestProyecto.Views
             cbRol.SelectedValue = vendedorc.FkRol;
             txtCorreo.IsEnabled = true;
             cbRol.Visibility = Visibility.Visible;
+            GetRoles();
 
         }
         public void EditItemSA(object sender, RoutedEventArgs e)
@@ -388,6 +391,7 @@ namespace TestProyecto.Views
             cbRol.SelectedValue = sac.FkRol;
             txtCorreo.IsEnabled = true;
             cbRol.Visibility = Visibility.Visible;
+            GetRoles();
         }
         public void EditItemProducto(object sender, RoutedEventArgs e)
         {
@@ -574,7 +578,7 @@ namespace TestProyecto.Views
                     vendedorF.ContraseñaVendedor = txtPassword.Text;
                     vendedorF.FkRol = int.Parse(cbRol.SelectedValue.ToString());
 
-                    modSA.UpdateVendedores(vendedorF);
+                    modVendedor.UpdateVendedor(vendedorF);
 
                     MessageBox.Show("Se editó con éxito");
 

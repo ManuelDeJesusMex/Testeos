@@ -208,16 +208,22 @@ namespace TestProyecto.Services
 										NuevoDetalleVenta.Subtotal = Subtotal;
 										NuevoDetalleVenta.Total = total;
 										NuevoDetalleVenta.FkProducto = CompraP.PkProducto;
+										NuevoDetalleVenta.FechaCompra = FechadeCompr;
 									};
 									//
-									
+
+
+									MessageBox.Show($"----------Ticket-------\n" +
+													$"-Total: {total}\n"+
+													$"Subtotal: {Subtotal}\n"+
+													$"Fecha: {FechadeCompr}");
 									NuevaCompra.ProductosVenta.Add(NuevoDetalleVenta);
 									_context.Ventas.Add(NuevaCompra);
 									_context.Clientes.Update(ClienteCompra);
 									_context.Productos.Update(CompraP);
 									_context.SaveChanges();
 
-									MessageBox.Show("Producot comprado");
+									MessageBox.Show("Producto comprado");
 
 								} else
 								{

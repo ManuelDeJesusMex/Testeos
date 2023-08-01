@@ -65,7 +65,7 @@ namespace TestProyecto.Services
                 throw new Exception ("Error: "+ex.Message);
             }
         }
-       public void UpdateCliente (Vendedor request)
+       public void UpdateVendedor (Vendedor request)
         {
             try
             {

@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Renci.SshNet.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using TestProyecto.Context;
 using TestProyecto.Entities;
 
@@ -40,30 +42,64 @@ namespace TestProyecto.Services
         }
         public void UpdateSA (SuperAdmin request)
         {
-            try
-            {
+           // try
+          //  {
                 using (var _context = new ApplicationDbContext())
                 {
                     SuperAdmin sau = _context.SuperAdministradores.Find(request.PkSuperAdmin);
+                    Cliente NuevoCliente = new Cliente();
+                    Vendedor NuevoVendedor = new Vendedor();
 
                     if (sau != null)
                     {
-                        sau.NombreSuperAdmin = request.NombreSuperAdmin;
-                        sau.ApellidoSuperAdmin = request.ApellidoSuperAdmin;
-                        sau.CorreoSuperAdmin = request.CorreoSuperAdmin;
-                        sau.ContraseñaSuperAdmin = request.ContraseñaSuperAdmin;
-                        // sau.FkRol = request.FkrRol;
+                        if (request.FkRol == 1)
+                        {
+                            NuevoCliente.NombreCliente = request.NombreSuperAdmin;
+                            NuevoCliente.ApellidoCliente = request.ApellidoSuperAdmin;
+                            NuevoCliente.CorreoCliente = request.CorreoSuperAdmin;
+                            NuevoCliente.PasswordCliente = request.ContraseñaSuperAdmin;
+                            NuevoCliente.SaldoCliente = 0;
+                        NuevoCliente.FkRol = request.FkRol;
 
-                        _context.SuperAdministradores.Update(sau);
-                        _context.SaveChanges();
+                            _context.Clientes.Add(NuevoCliente);
+                            _context.SuperAdministradores.Remove(sau);
+                            _context.SaveChanges();
+                        }
+                        else if (request.FkRol == 2)
+                        {
+                           NuevoVendedor.NombreVendedor = request.NombreSuperAdmin;
+                            NuevoVendedor.ApellidoVendedor = request.ApellidoSuperAdmin;
+                            NuevoVendedor.CorreoV = request.CorreoSuperAdmin;
+                            NuevoVendedor.ContraseñaVendedor = request.ContraseñaSuperAdmin;
+                            NuevoVendedor.FkRol = request.FkRol;
+
+                            _context.Vendedores.Add(NuevoVendedor);
+                            _context.SuperAdministradores.Remove(sau);
+                            _context.SaveChanges();
+                        }
+                        else if (request.FkRol == 3)
+                        {
+                            sau.NombreSuperAdmin = request.NombreSuperAdmin;
+                            sau.ApellidoSuperAdmin = request.ApellidoSuperAdmin;
+                            sau.CorreoSuperAdmin = request.CorreoSuperAdmin;
+                            sau.ContraseñaSuperAdmin = request.ContraseñaSuperAdmin;
+                            sau.FkRol = request.FkRol;
+
+                            _context.SuperAdministradores.Update(sau);
+                            _context.SaveChanges();
+                        }
+                        
+                    } else
+                    {
+                        MessageBox.Show("Los datos fueron nulos");
                     }
                 }
-            }
-            catch (Exception ex)
-            {
+            //}
+           // catch (Exception ex)
+            //{
 
-                throw new Exception ("Error: "+ex.Message);
-            }
+            //    throw new Exception ("Error: "+ex.Message);
+            //}
         }
 
         public void DeleteSA (SuperAdmin request)
@@ -84,35 +120,6 @@ namespace TestProyecto.Services
             {
 
                 throw new Exception ("Error: "+ex.Message);
-            }
-        }
-        public void UpdateVendedores (Vendedor request)
-        {
-            try
-            {
-                using (var _context = new ApplicationDbContext())
-                {
-                    Vendedor vendedoru = _context.Vendedores.Find(request.PkVendedor);
-
-                    if (vendedoru != null)
-                    {
-                        vendedoru.NombreVendedor = request.NombreVendedor;
-                        vendedoru.ApellidoVendedor = request.ApellidoVendedor;
-                        vendedoru.CorreoV = request.CorreoV;
-                        vendedoru.ContraseñaVendedor = request.ContraseñaVendedor;
-                        // vendedoru.FkRol = request.FkRol;
-
-                        _context.Vendedores.Update(vendedoru);
-                        _context.SaveChanges();
-                    }
-                }
-
-                
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception ("Error: " + ex.Message);
             }
         }
         public List<Rol> GetRoles()
