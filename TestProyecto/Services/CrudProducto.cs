@@ -303,14 +303,15 @@ namespace TestProyecto.Services
 			{
 				using (var _context = new ApplicationDbContext())
 				{
-					List<DetalleVenta> dv = new List<DetalleVenta>();
 
-					
-			//		dv = _context.
+					//return _context.Ventas.Include(x => x.ProductosVenta).ThenInclude(y => y.Producto).ToList();
+
 					Venta Lista = new Venta();
-					var Hola = Lista.ProductosVenta.ToList();
 
-					
+					// List<Venta> Lista = new List<Venta>();
+
+					var Hola = Lista.ProductosVenta.ToList();
+					//
 
 					return Hola;
 				}
