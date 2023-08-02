@@ -46,8 +46,8 @@ namespace TestProyecto.Views
         public void GetTamaños()
         {
             cbTamaño.ItemsSource = modproducto.GetTamaños();
-            cbTamaño.DisplayMemberPath = "TamañoP";
-            cbTamaño.SelectedValuePath = "PkTamaño";
+            cbTamaño.DisplayMemberPath = "TamanoP";
+            cbTamaño.SelectedValuePath = "PkTamano";
         }
         public void GetLotes ()
         {

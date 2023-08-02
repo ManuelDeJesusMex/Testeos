@@ -210,5 +210,6 @@
         <Label x:Name="lblote" Content="Lote" HorizontalAlignment="Left" Margin="206,389,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.202,0.906" Width="47" Visibility="Hidden"/>
         <Label x:Name="lbsabor" Content="Sabor" HorizontalAlignment="Left" Margin="363,385,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.202,0.906" Width="47" Visibility="Hidden"/>
         <Label x:Name="lbtamaño" Content="Tamaño" HorizontalAlignment="Left" Margin="498,388,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.202,0.906" Width="84" Visibility="Hidden"/>
+        <Button x:Name="btnLogOut" Content="Cerrar sesión" HorizontalAlignment="Left" Margin="778,335,0,0" VerticalAlignment="Top" Height="28" Width="74" Click="btnLogOut_Click"/>
     </Grid>
 </Window>

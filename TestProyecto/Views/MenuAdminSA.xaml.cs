@@ -781,6 +781,15 @@ namespace TestProyecto.Views
             {
                 MessageBox.Show("No has seleccionado el tipo de usuario");
             }
-        }       
+        }
+
+        private void btnLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow nueva = new MainWindow();
+            nueva.Show();
+            Hide();
+
+            MessageBox.Show("Sesión cerrada");
+        }
     }
 }
