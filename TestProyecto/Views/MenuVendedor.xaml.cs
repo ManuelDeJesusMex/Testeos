@@ -88,53 +88,67 @@ namespace TestProyecto.Views
             Producto productoF = new Producto();
             if (txtPkProducto.Text == "")
             {
-                int IDV = int.Parse(txtIDVendedor.Text);
-                productoF.Nombre = txtNombre.Text;
-                productoF.Cantidad = int.Parse(txtCantidad.Text);
-                productoF.FkVendedor = int.Parse(txtIDVendedor.Text);
-                productoF.PrecioUnitario = double.Parse(txtPrecioUnitario.Text);
-                productoF.FkTamano = int.Parse(cbTamaño.SelectedValue.ToString());
-                productoF.FkSabor = int.Parse(cbSabor.SelectedValue.ToString());
-                productoF.FkLote = int.Parse(cbLote.SelectedValue.ToString());
-                txtIDVendedor.IsEnabled = true;
-                modproducto.CreateProducto(productoF, IDV);
+                if (txtNombre.Text != "" && txtCantidad.Text != "" && txtIDVendedor.Text != "" && txtPrecioUnitario.Text != "")
+                {
+                    int IDV = int.Parse(txtIDVendedor.Text);
+                    productoF.Nombre = txtNombre.Text;
+                    productoF.Cantidad = int.Parse(txtCantidad.Text);
+                    productoF.FkVendedor = int.Parse(txtIDVendedor.Text);
+                    productoF.PrecioUnitario = double.Parse(txtPrecioUnitario.Text);
+                    productoF.FkTamano = int.Parse(cbTamaño.SelectedValue.ToString());
+                    productoF.FkSabor = int.Parse(cbSabor.SelectedValue.ToString());
+                    productoF.FkLote = int.Parse(cbLote.SelectedValue.ToString());
+                    txtIDVendedor.IsEnabled = true;
+                    modproducto.CreateProducto(productoF, IDV);
 
-                MessageBox.Show("Producto agregado");
+                    MessageBox.Show("Producto agregado");
 
-                txtCantidad.Clear();
-                txtIDVendedor.Clear();
-                txtNombre.Clear();
-                txtPrecioUnitario.Clear();
-                cbLote.SelectedItem = null;
-                cbTamaño.SelectedItem = null;
-                cbSabor.SelectedItem = null;
-                GetProductosU();
+                    txtCantidad.Clear();
+                    txtIDVendedor.Clear();
+                    txtNombre.Clear();
+                    txtPrecioUnitario.Clear();
+                    cbLote.SelectedItem = null;
+                    cbTamaño.SelectedItem = null;
+                    cbSabor.SelectedItem = null;
+                    GetProductosU();
+                } else
+                {
+                    MessageBox.Show("No hay datos suficientes");
+                }
+                
 
             } else if (txtPkProducto.Text != "")
             {
-                productoF.FkVendedor = int.Parse(txtIDVendedor.Text);
-                productoF.Nombre = txtNombre.Text;
-                productoF.PkProducto = int.Parse(txtPkProducto.Text);
-                productoF.Cantidad = int.Parse(txtCantidad.Text);
-                productoF.PrecioUnitario = double.Parse(txtPrecioUnitario.Text);
-                productoF.FkLote = int.Parse(cbLote.SelectedValue.ToString());
-                productoF.FkSabor = int.Parse(cbSabor.SelectedValue.ToString());
-                productoF.FkTamano = int.Parse(cbTamaño.SelectedValue.ToString());
+                if (txtNombre.Text != "" && txtCantidad.Text != "" && txtIDVendedor.Text != "" && txtPrecioUnitario.Text != "")
+                {
+                    productoF.FkVendedor = int.Parse(txtIDVendedor.Text);
+                    productoF.Nombre = txtNombre.Text;
+                    productoF.PkProducto = int.Parse(txtPkProducto.Text);
+                    productoF.Cantidad = int.Parse(txtCantidad.Text);
+                    productoF.PrecioUnitario = double.Parse(txtPrecioUnitario.Text);
+                    productoF.FkLote = int.Parse(cbLote.SelectedValue.ToString());
+                    productoF.FkSabor = int.Parse(cbSabor.SelectedValue.ToString());
+                    productoF.FkTamano = int.Parse(cbTamaño.SelectedValue.ToString());
 
-                modproducto.UpdateProducto(productoF);
+                    modproducto.UpdateProducto(productoF);
 
-                MessageBox.Show("Producto actualizado");
+                    MessageBox.Show("Producto actualizado");
 
-                txtCantidad.Clear();
-                txtIDVendedor.Clear();
-                txtNombre.Clear();
-                txtPrecioUnitario.Clear();
-                cbLote.SelectedItem = null;
-                cbTamaño.SelectedItem = null;
-                cbSabor.SelectedItem = null;
-                txtIDVendedor.IsEnabled = true;
-                GetProductosU();
-                 //JJJ
+                    txtCantidad.Clear();
+                    txtIDVendedor.Clear();
+                    txtNombre.Clear();
+                    txtPrecioUnitario.Clear();
+                    cbLote.SelectedItem = null;
+                    cbTamaño.SelectedItem = null;
+                    cbSabor.SelectedItem = null;
+                    txtIDVendedor.IsEnabled = true;
+                    GetProductosU();
+                    //JJJ
+                } else
+                {
+                    MessageBox.Show("No has rellenado todos los datos");
+                }
+
 
             }
         }

@@ -504,45 +504,60 @@ namespace TestProyecto.Views
 
                 if (txtPkUser.Text == "")
                 {
-                    ClienteF.NombreCliente = txtNombre.Text;
-                    ClienteF.ApellidoCliente = txtApellido.Text;
-                    ClienteF.CorreoCliente = txtCorreo.Text;
-                    ClienteF.PasswordCliente = txtPassword.Text;
-                    ClienteF.SaldoCliente = double.Parse(txtSaldo.Text);
-                    ClienteF.FkRol = 1;
+                    if (txtNombre.Text != "" && txtCorreo.Text != "" && txtApellido.Text != "" && txtSaldo.Text != "" && txtPassword.Text != "")
+                    {
+                        ClienteF.NombreCliente = txtNombre.Text;
+                        ClienteF.ApellidoCliente = txtApellido.Text;
+                        ClienteF.CorreoCliente = txtCorreo.Text;
+                        ClienteF.PasswordCliente = txtPassword.Text;
+                        ClienteF.SaldoCliente = double.Parse(txtSaldo.Text);
+                        ClienteF.FkRol = 1;
 
-                    modcliente.CreateCliente(ClienteF);
+                        modcliente.CreateCliente(ClienteF);
 
-                    MessageBox.Show("Agregado con éxito");
+                        MessageBox.Show("Agregado con éxito");
 
-                    txtPkUser.Clear();
-                    txtPassword.Clear();
-                    txtSaldo.Clear();
-                    txtApellido.Clear();
-                    txtCorreo.Clear();
-                    txtNombre.Clear();
-                    GetClientesTable();
+                        txtPkUser.Clear();
+                        txtPassword.Clear();
+                        txtSaldo.Clear();
+                        txtApellido.Clear();
+                        txtCorreo.Clear();
+                        txtNombre.Clear();
+                        GetClientesTable();
+                    } else
+                    {
+                        MessageBox.Show("No has rellenado todos los datos");
+                    }
+                    
 
                 }
                 else if (txtPkUser.Text != "")
                 {
-                    ClienteF.PkCliente = int.Parse(txtPkUser.Text);
-                    ClienteF.NombreCliente = txtNombre.Text;
-                    ClienteF.ApellidoCliente = txtApellido.Text;
-                    ClienteF.CorreoCliente = txtCorreo.Text;
-                    ClienteF.PasswordCliente = txtPassword.Text;
-                    ClienteF.SaldoCliente = double.Parse(txtSaldo.Text);
-                    ClienteF.FkRol = int.Parse(cbRol.SelectedValue.ToString());
-                    modcliente.UCliente(ClienteF);
-                    MessageBox.Show("Se editó correctamente");
-                    txtPkUser.Clear();
-                    txtPassword.Clear();
-                    txtSaldo.Clear();
-                    txtApellido.Clear();
-                    txtCorreo.Clear();
-                    txtNombre.Clear();
-                    GetClientesTable();
-                    //Hacer función de update                   
+                    if (cbRol.SelectedValue != null && txtNombre.Text != "" && txtCorreo.Text != "" && txtApellido.Text != "" && txtSaldo.Text != "" && txtPassword.Text != "")
+                    {
+
+                        ClienteF.PkCliente = int.Parse(txtPkUser.Text);
+                        ClienteF.NombreCliente = txtNombre.Text;
+                        ClienteF.ApellidoCliente = txtApellido.Text;
+                        ClienteF.CorreoCliente = txtCorreo.Text;
+                        ClienteF.PasswordCliente = txtPassword.Text;
+                        ClienteF.SaldoCliente = double.Parse(txtSaldo.Text);
+                        ClienteF.FkRol = int.Parse(cbRol.SelectedValue.ToString());
+                        modcliente.UCliente(ClienteF);
+                        MessageBox.Show("Se editó correctamente");
+                        txtPkUser.Clear();
+                        txtPassword.Clear();
+                        txtSaldo.Clear();
+                        txtApellido.Clear();
+                        txtCorreo.Clear();
+                        txtNombre.Clear();
+                        GetClientesTable();
+                        //Hacer función de update   
+                    } else
+                    {
+                        MessageBox.Show("No has rellenado todos los datos");
+                    }
+
                 }
             }
             else if (cboptionsUsers.SelectedItem == "Vendedor")
@@ -550,45 +565,59 @@ namespace TestProyecto.Views
                 Vendedor vendedorF = new Vendedor();
                 if (txtPkUser.Text == "")
                 {
-                    vendedorF.NombreVendedor = txtNombre.Text;
-                    vendedorF.ApellidoVendedor = txtApellido.Text;
-                    vendedorF.CorreoV = txtCorreo.Text;
-                    vendedorF.ContraseñaVendedor = txtPassword.Text;
+                    if (txtNombre.Text != "" && txtCorreo.Text != "" && txtApellido.Text != "" && txtPassword.Text != "")
+                    {
+                        vendedorF.NombreVendedor = txtNombre.Text;
+                        vendedorF.ApellidoVendedor = txtApellido.Text;
+                        vendedorF.CorreoV = txtCorreo.Text;
+                        vendedorF.ContraseñaVendedor = txtPassword.Text;
 
-                    vendedorF.FkRol = 2;
+                        vendedorF.FkRol = 2;
 
-                    modVendedor.CreateVendedor(vendedorF);
+                        modVendedor.CreateVendedor(vendedorF);
 
 
-                    MessageBox.Show("Agregado con éxito");
+                        MessageBox.Show("Agregado con éxito");
 
-                    txtPkUser.Clear();
-                    txtPassword.Clear();
-                    txtSaldo.Clear();
-                    txtApellido.Clear();
-                    txtCorreo.Clear();
-                    txtNombre.Clear();
-                    GetVendedoresTable();
+                        txtPkUser.Clear();
+                        txtPassword.Clear();
+                        txtSaldo.Clear();
+                        txtApellido.Clear();
+                        txtCorreo.Clear();
+                        txtNombre.Clear();
+                        GetVendedoresTable();
+                    } else
+                    {
+                        MessageBox.Show("No has rellenado todos los datos");
+                    }
+                    
                 } else if (txtPkUser.Text != "")
                 {
-                    vendedorF.PkVendedor = int.Parse(txtPkUser.Text);
-                    vendedorF.NombreVendedor = txtNombre.Text;
-                    vendedorF.ApellidoVendedor = txtApellido.Text;
-                    vendedorF.CorreoV = txtCorreo.Text;
-                    vendedorF.ContraseñaVendedor = txtPassword.Text;
-                    vendedorF.FkRol = int.Parse(cbRol.SelectedValue.ToString());
+                    if (cbRol.SelectedValue != null && txtNombre.Text != "" && txtCorreo.Text != "" && txtApellido.Text != "" && txtPassword.Text != "")
+                    {
+                        vendedorF.PkVendedor = int.Parse(txtPkUser.Text);
+                        vendedorF.NombreVendedor = txtNombre.Text;
+                        vendedorF.ApellidoVendedor = txtApellido.Text;
+                        vendedorF.CorreoV = txtCorreo.Text;
+                        vendedorF.ContraseñaVendedor = txtPassword.Text;
+                        vendedorF.FkRol = int.Parse(cbRol.SelectedValue.ToString());
 
-                    modVendedor.UpdateVendedor(vendedorF);
+                        modVendedor.UpdateVendedor(vendedorF);
 
-                    MessageBox.Show("Se editó con éxito");
+                        MessageBox.Show("Se editó con éxito");
 
-                    txtPkUser.Clear();
-                    txtPassword.Clear();
-                    txtSaldo.Clear();
-                    txtApellido.Clear();
-                    txtCorreo.Clear();
-                    txtNombre.Clear();
-                    GetVendedoresTable();
+                        txtPkUser.Clear();
+                        txtPassword.Clear();
+                        txtSaldo.Clear();
+                        txtApellido.Clear();
+                        txtCorreo.Clear();
+                        txtNombre.Clear();
+                        GetVendedoresTable();
+                    } else
+                    {
+                        MessageBox.Show("No has rellenado todos los datos");
+                    }
+                    
                 }
             }
             else if (cboptionsUsers.SelectedItem == "SA")
@@ -596,39 +625,53 @@ namespace TestProyecto.Views
                 SuperAdmin superAdminF = new SuperAdmin();
                 if (txtPkUser.Text == "")
                 {
-                    superAdminF.NombreSuperAdmin = txtNombre.Text;
-                    superAdminF.ApellidoSuperAdmin = txtApellido.Text;
-                    superAdminF.CorreoSuperAdmin = txtCorreo.Text;
-                    superAdminF.ContraseñaSuperAdmin = txtCorreo.Text;
-                    superAdminF.FkRol = 3; //Se le asigna directamente 3 porque estamos registrando directamente
-                    modSA.CreateAdmin(superAdminF);
-                    MessageBox.Show("Agregado con éxito");
-                    txtPkUser.Clear();
-                    txtPassword.Clear();
-                    txtSaldo.Clear();
-                    txtApellido.Clear();
-                    txtCorreo.Clear();
-                    txtNombre.Clear();
-                    GetSuperAdminTable();
+                    if (txtNombre.Text != "" && txtCorreo.Text != "" && txtApellido.Text != "" && txtPassword.Text != "")
+                    {
+                        superAdminF.NombreSuperAdmin = txtNombre.Text;
+                        superAdminF.ApellidoSuperAdmin = txtApellido.Text;
+                        superAdminF.CorreoSuperAdmin = txtCorreo.Text;
+                        superAdminF.ContraseñaSuperAdmin = txtCorreo.Text;
+                        superAdminF.FkRol = 3; //Se le asigna directamente 3 porque estamos registrando directamente
+                        modSA.CreateAdmin(superAdminF);
+                        MessageBox.Show("Agregado con éxito");
+                        txtPkUser.Clear();
+                        txtPassword.Clear();
+                        txtSaldo.Clear();
+                        txtApellido.Clear();
+                        txtCorreo.Clear();
+                        txtNombre.Clear();
+                        GetSuperAdminTable();
+                    } else
+                    {
+                        MessageBox.Show("No has seleccionado todos los datos");
+                    }
+                    
                 }
                 else if (txtPkUser.Text != "")
                 {
-                    superAdminF.PkSuperAdmin = int.Parse(txtPkUser.Text);
-                    superAdminF.NombreSuperAdmin = txtNombre.Text;
-                    superAdminF.ApellidoSuperAdmin = txtApellido.Text;
-                    superAdminF.CorreoSuperAdmin = txtCorreo.Text;
-                    superAdminF.ContraseñaSuperAdmin = txtCorreo.Text;
+                    if (cbRol.SelectedValue != null && txtNombre.Text != "" && txtCorreo.Text != "" && txtApellido.Text != "" && txtPassword.Text != "")
+                    {
+                        superAdminF.PkSuperAdmin = int.Parse(txtPkUser.Text);
+                        superAdminF.NombreSuperAdmin = txtNombre.Text;
+                        superAdminF.ApellidoSuperAdmin = txtApellido.Text;
+                        superAdminF.CorreoSuperAdmin = txtCorreo.Text;
+                        superAdminF.ContraseñaSuperAdmin = txtCorreo.Text;
 
-                    superAdminF.FkRol = int.Parse(cbRol.SelectedValue.ToString());
-                    modSA.UpdateSA(superAdminF);
-                    MessageBox.Show("Se editó con exito");
-                    txtPkUser.Clear();
-                    txtPassword.Clear();
-                    txtSaldo.Clear();
-                    txtApellido.Clear();
-                    txtCorreo.Clear();
-                    txtNombre.Clear();
-                    GetSuperAdminTable();
+                        superAdminF.FkRol = int.Parse(cbRol.SelectedValue.ToString());
+                        modSA.UpdateSA(superAdminF);
+                        MessageBox.Show("Se editó con exito");
+                        txtPkUser.Clear();
+                        txtPassword.Clear();
+                        txtSaldo.Clear();
+                        txtApellido.Clear();
+                        txtCorreo.Clear();
+                        txtNombre.Clear();
+                        GetSuperAdminTable();
+                    } else
+                    {
+                        MessageBox.Show("No has rellenado todos los datos");
+                    }
+                    
                 }
             }
             else if (cboptionsUsers.SelectedItem == "Producto")
@@ -636,53 +679,67 @@ namespace TestProyecto.Views
                 Producto ProductoF = new Producto();
                 if (txtPkUser.Text == "")
                 {
-                    int IDSA = int.Parse(txtCorreo.Text);
-                    //Pendiente por pedir fk de vendedor
-                    ProductoF.Nombre = txtNombre.Text;
-                    ProductoF.Cantidad = int.Parse(txtApellido.Text);
-                    ProductoF.PrecioUnitario = double.Parse(txtSaldo.Text);
-                    ProductoF.FkVendedor = int.Parse(txtCorreo.Text); //Tener en cuenta que esto es para asignar un vendedor al producto
-                    ProductoF.FkLote = int.Parse(cbLote.Text.ToString());
-                    ProductoF.FkTamano = int.Parse(cbTamaño.SelectedValue.ToString());
-                    ProductoF.FkSabor = int.Parse(cbTamaño.SelectedValue.ToString());
+                    if (txtNombre.Text != "" && txtCorreo.Text != "" && txtApellido.Text != "" && txtSaldo.Text != "" && cbTamaño.SelectedValue != null && cbSabor.SelectedValue != null && cbLote.SelectedValue != null)
+                    {
+                        int IDSA = int.Parse(txtCorreo.Text);
+                        //Pendiente por pedir fk de vendedor
+                        ProductoF.Nombre = txtNombre.Text;
+                        ProductoF.Cantidad = int.Parse(txtApellido.Text);
+                        ProductoF.PrecioUnitario = double.Parse(txtSaldo.Text);
+                        ProductoF.FkVendedor = int.Parse(txtCorreo.Text); //Tener en cuenta que esto es para asignar un vendedor al producto
+                        ProductoF.FkLote = int.Parse(cbLote.Text.ToString());
+                        ProductoF.FkTamano = int.Parse(cbTamaño.SelectedValue.ToString());
+                        ProductoF.FkSabor = int.Parse(cbTamaño.SelectedValue.ToString());
 
-                    //Al tratarse de un superadmin, tendrá que ingresar el id de Superadmin
+                        //Al tratarse de un superadmin, tendrá que ingresar el id de Superadmin
 
-                    modProducto.CreateProducto(ProductoF, IDSA);
+                        modProducto.CreateProducto(ProductoF, IDSA);
 
-                    MessageBox.Show("Producto agregado");
-                    txtPkUser.Clear();
-                    txtPassword.Clear();
-                    txtSaldo.Clear();
-                    txtApellido.Clear();
-                    txtCorreo.Clear();
-                    txtNombre.Clear();
-                    //
-                    GetProductosTable();
+                        MessageBox.Show("Producto agregado");
+                        txtPkUser.Clear();
+                        txtPassword.Clear();
+                        txtSaldo.Clear();
+                        txtApellido.Clear();
+                        txtCorreo.Clear();
+                        txtNombre.Clear();
+                        //
+                        GetProductosTable();
+                    } else
+                    {
+                        MessageBox.Show("Hay datos que no has ingresado");
+                    }
+                    
 
                 }
                 else if (txtPkUser.Text != "")
                 {
-                    ProductoF.FkVendedor = int.Parse(txtCorreo.Text);
-                    ProductoF.PkProducto = int.Parse(txtPkUser.Text);
-                    ProductoF.Nombre = txtNombre.Text;
-                    ProductoF.Cantidad = int.Parse(txtApellido.Text);
-                    ProductoF.PrecioUnitario = double.Parse(txtSaldo.Text);
-                    ProductoF.FkLote = int.Parse(cbLote.SelectedValue.ToString());
-                    ProductoF.FkTamano = int.Parse(cbTamaño.SelectedValue.ToString());
-                    ProductoF.FkSabor = int.Parse(cbTamaño.SelectedValue.ToString());
+                    if (txtNombre.Text != "" && txtCorreo.Text != "" && txtApellido.Text != "" && txtSaldo.Text != "" && cbTamaño.SelectedValue != null && cbSabor.SelectedValue != null && cbLote.SelectedValue != null)
+                    {
+                        ProductoF.FkVendedor = int.Parse(txtCorreo.Text);
+                        ProductoF.PkProducto = int.Parse(txtPkUser.Text);
+                        ProductoF.Nombre = txtNombre.Text;
+                        ProductoF.Cantidad = int.Parse(txtApellido.Text);
+                        ProductoF.PrecioUnitario = double.Parse(txtSaldo.Text);
+                        ProductoF.FkLote = int.Parse(cbLote.SelectedValue.ToString());
+                        ProductoF.FkTamano = int.Parse(cbTamaño.SelectedValue.ToString());
+                        ProductoF.FkSabor = int.Parse(cbTamaño.SelectedValue.ToString());
 
-                    modProducto.UpdateProducto(ProductoF);
+                        modProducto.UpdateProducto(ProductoF);
 
-                    MessageBox.Show("Producto actualizado");
-                    GetProductosTable();
-                    txtCorreo.IsEnabled = true;
-                    txtPkUser.Clear();
-                    txtPassword.Clear();
-                    txtSaldo.Clear();
-                    txtApellido.Clear();
-                    txtCorreo.Clear();
-                    txtNombre.Clear();
+                        MessageBox.Show("Producto actualizado");
+                        GetProductosTable();
+                        txtCorreo.IsEnabled = true;
+                        txtPkUser.Clear();
+                        txtPassword.Clear();
+                        txtSaldo.Clear();
+                        txtApellido.Clear();
+                        txtCorreo.Clear();
+                        txtNombre.Clear();
+                    } else
+                    {
+                        MessageBox.Show("No has seleccionado los datos correspondientes a lote, sabor o tamaño");
+                    }
+                   
 
                 }
             }
@@ -733,7 +790,7 @@ namespace TestProyecto.Views
                         MessageBox.Show("Hay datos vacíos");
                     }
                 } else
-                {
+                { 
                     int ids = int.Parse(txtPkUser.Text);
                     sabor.NameSabor = txtNombre.Text;
 
