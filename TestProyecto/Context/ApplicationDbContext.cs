@@ -19,10 +19,6 @@ namespace TestProyecto.Context
 
         }
 
-        //public DbSet<Rol> Roles { get; set; }
-
-        //public DbSet<Usuario> Usuarios { get; set; }
-
         public DbSet<Cliente> Clientes { get; set; }
 
         public DbSet<Vendedor> Vendedores { get; set; }
