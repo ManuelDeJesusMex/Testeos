@@ -41,6 +41,7 @@ namespace TestProyecto.Views
             cboptionsUsers.Items.Add("Lotes");
             cboptionsUsers.Items.Add("Tamanos");
             cboptionsUsers.Items.Add("Detalle de ventas");
+            cboptionsUsers.Items.Add("Roles");
 
         }
         CrudCliente modcliente = new CrudCliente();
@@ -78,6 +79,7 @@ namespace TestProyecto.Views
                 SuperAdminTable.Visibility = Visibility.Hidden;
                 ClienteTable.Visibility = Visibility.Visible;
                 DetalleVentaTable.Visibility = Visibility.Hidden;
+                RolesTable.Visibility = Visibility.Hidden;
                 TamañosTable.Visibility = Visibility.Hidden;
                 SaboresTable.Visibility = Visibility.Hidden;
                 LotesTable.Visibility = Visibility.Hidden;
@@ -117,6 +119,7 @@ namespace TestProyecto.Views
                 SuperAdminTable.Visibility = Visibility.Hidden;
                 VendedorTable.Visibility = Visibility.Visible;
                 DetalleVentaTable.Visibility = Visibility.Hidden;
+                RolesTable.Visibility = Visibility.Hidden;
                 TamañosTable.Visibility = Visibility.Hidden;
                 SaboresTable.Visibility = Visibility.Hidden;
                 LotesTable.Visibility = Visibility.Hidden;
@@ -152,6 +155,7 @@ namespace TestProyecto.Views
                 VendedorTable.Visibility = Visibility.Hidden;
                 ProductosTable.Visibility = Visibility.Visible;
                 DetalleVentaTable.Visibility = Visibility.Hidden;
+                RolesTable.Visibility = Visibility.Hidden;
                 TamañosTable.Visibility = Visibility.Hidden;
                 SaboresTable.Visibility = Visibility.Hidden;
                 LotesTable.Visibility = Visibility.Hidden;
@@ -191,6 +195,7 @@ namespace TestProyecto.Views
                 ProductosTable.Visibility = Visibility.Hidden;
                 SuperAdminTable.Visibility = Visibility.Visible;
                 DetalleVentaTable.Visibility = Visibility.Hidden;
+                RolesTable.Visibility = Visibility.Hidden;
                 SaboresTable.Visibility = Visibility.Hidden;
                 TamañosTable.Visibility = Visibility.Hidden;
                 LotesTable.Visibility = Visibility.Hidden;
@@ -221,6 +226,7 @@ namespace TestProyecto.Views
                 ProductosTable.Visibility = Visibility.Hidden;
                 SuperAdminTable.Visibility = Visibility.Hidden;
                 DetalleVentaTable.Visibility = Visibility.Hidden;
+                RolesTable.Visibility = Visibility.Hidden;
                 TamañosTable.Visibility = Visibility.Hidden;
                 LotesTable.Visibility = Visibility.Hidden;
                 cbLote.Visibility = Visibility.Hidden;
@@ -247,6 +253,7 @@ namespace TestProyecto.Views
                 ProductosTable.Visibility = Visibility.Hidden;
                 SuperAdminTable.Visibility = Visibility.Hidden;
                 DetalleVentaTable.Visibility = Visibility.Hidden;
+                RolesTable.Visibility = Visibility.Hidden;
                 SaboresTable.Visibility = Visibility.Hidden;
                 LotesTable.Visibility = Visibility.Hidden;
                 cbLote.Visibility = Visibility.Hidden;
@@ -274,6 +281,7 @@ namespace TestProyecto.Views
                 DetalleVentaTable.Visibility = Visibility.Hidden;
                 SaboresTable.Visibility = Visibility.Hidden;
                 TamañosTable.Visibility = Visibility.Hidden;
+                RolesTable.Visibility = Visibility.Hidden;
                 cbLote.Visibility = Visibility.Hidden;
                 cbSabor.Visibility = Visibility.Hidden;
                 cbTamaño.Visibility = Visibility.Hidden;
@@ -283,6 +291,32 @@ namespace TestProyecto.Views
                 lbSaldo.Visibility = Visibility.Hidden;
 
                 GetLotesTable();
+            } else if (cboptionsUsers.SelectedItem == "Roles")
+            {
+                lbApellido.Visibility = Visibility.Hidden;
+                lbPassword.Visibility = Visibility.Hidden;
+                lbCorreo.Visibility = Visibility.Hidden;
+                txtApellido.Visibility = Visibility.Hidden;
+                txtCorreo.Visibility = Visibility.Hidden;
+                txtPassword.Visibility = Visibility.Hidden;
+                txtSaldo.Visibility = Visibility.Hidden;
+                LotesTable.Visibility = Visibility.Hidden;
+                ClienteTable.Visibility = Visibility.Hidden;
+                VendedorTable.Visibility = Visibility.Hidden;
+                ProductosTable.Visibility = Visibility.Hidden;
+                SuperAdminTable.Visibility = Visibility.Hidden;
+                DetalleVentaTable.Visibility = Visibility.Hidden;
+                SaboresTable.Visibility = Visibility.Hidden;
+                TamañosTable.Visibility = Visibility.Hidden;
+                RolesTable.Visibility = Visibility.Visible;
+                cbLote.Visibility = Visibility.Hidden;
+                cbSabor.Visibility = Visibility.Hidden;
+                cbTamaño.Visibility = Visibility.Hidden;
+                lbtamaño.Visibility = Visibility.Hidden;
+                lblote.Visibility = Visibility.Hidden;
+                lbsabor.Visibility = Visibility.Hidden;
+                lbSaldo.Visibility = Visibility.Hidden;
+
             }
         }
         public void GetRoles()

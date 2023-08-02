@@ -157,6 +157,7 @@
 
             </DataGrid.Columns>
         </DataGrid>
+        
         <DataGrid x:Name="TamañosTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="222,29,230,274" Visibility="Hidden">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding PkTamano}" />
@@ -165,6 +166,27 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Content="Edit" Background="AliceBlue" Click="EditItemTamano"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Delete">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Background="#FA4D4D" Content="Delete"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="RolesTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="222,29,230,274" Visibility="Hidden">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding PkRol}" />
+                <DataGridTextColumn Header="Tamano" Binding="{Binding RolName}" />
+                <DataGridTemplateColumn Header="Editar">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Edit" Background="AliceBlue" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -189,6 +211,7 @@
             </DataGrid.Columns>
 
         </DataGrid>
+        
         <Button x:Name="btnUpdate" Content="Agregar" HorizontalAlignment="Left" Margin="14,398,0,0" VerticalAlignment="Top" Height="49" Width="110" Click="btnUpdate_Click"/>
         <ComboBox x:Name="cbLote" HorizontalAlignment="Left" Margin="161,416,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
         <ComboBox x:Name="cbSabor" HorizontalAlignment="Left" Margin="317,415,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden" SelectedValuePath="PkSabor" DisplayMemberPath="NameSabor"/>
