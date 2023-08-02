@@ -217,6 +217,7 @@ namespace TestProyecto.Services
 													$"-Total: {total}\n"+
 													$"Subtotal: {Subtotal}\n"+
 													$"Fecha: {FechadeCompr}");
+
 									NuevaCompra.ProductosVenta.Add(NuevoDetalleVenta);
 									_context.Ventas.Add(NuevaCompra);
 									_context.Clientes.Update(ClienteCompra);

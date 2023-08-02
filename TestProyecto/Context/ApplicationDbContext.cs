@@ -65,6 +65,46 @@ namespace TestProyecto.Context
                     FkRol = 1
                 }
                 );
+            modelBuilder.Entity<Vendedor>().HasData(
+                new Vendedor
+                {
+                    PkVendedor = 1,
+                    NombreVendedor = "Juan",
+                    ApellidoVendedor = "Gonzalez",
+                    CorreoV = "juan.gonzalez@gmail.com",
+                    ContraseñaVendedor = "546546",
+                    FkRol = 2
+                },
+                new Vendedor
+                {
+                    PkVendedor = 2,
+                    NombreVendedor = "Maria",
+                    ApellidoVendedor = "Silva",
+                    CorreoV = "maria.silva@gmail.com",
+                    ContraseñaVendedor = "564643",
+                    FkRol = 2
+                },
+                new Vendedor
+                {
+                    PkVendedor = 3,
+                    NombreVendedor = "Cristian",
+                    ApellidoVendedor = "Rojas",
+                    CorreoV = "cristian.rojas@gmail.com",
+                    ContraseñaVendedor = "234324",
+                    FkRol = 2
+                },
+                
+                ) ;
+            modelBuilder.Entity<SuperAdmin>().HasData(
+                new SuperAdmin
+                {
+                    PkSuperAdmin = 1,
+                    NombreSuperAdmin = "Felipe",
+                    ApellidoSuperAdmin = "Gutierrez",
+                    CorreoSuperAdmin = "Felipe@gmail.com",
+                    ContraseñaSuperAdmin = "123",
+                    FkRol = 3
+                });
             modelBuilder.Entity<Rol>().HasData(
                 new Rol {
                     PkRol = 1,
