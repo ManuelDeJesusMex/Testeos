@@ -92,8 +92,8 @@ namespace TestProyecto.Context
                     CorreoV = "cristian.rojas@gmail.com",
                     ContraseñaVendedor = "234324",
                     FkRol = 2
-                },
-                
+                }
+                //AAa
                 ) ;
             modelBuilder.Entity<SuperAdmin>().HasData(
                 new SuperAdmin
