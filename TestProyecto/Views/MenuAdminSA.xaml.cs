@@ -293,6 +293,7 @@ namespace TestProyecto.Views
                 GetLotesTable();
             } else if (cboptionsUsers.SelectedItem == "Roles")
             {
+                //s
                 lbApellido.Visibility = Visibility.Hidden;
                 lbPassword.Visibility = Visibility.Hidden;
                 lbCorreo.Visibility = Visibility.Hidden;
