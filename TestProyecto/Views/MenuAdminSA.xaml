@@ -186,14 +186,14 @@
                 <DataGridTemplateColumn Header="Editar">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Edit" Background="AliceBlue" />
+                            <Button Content="Edit" Background="AliceBlue" Click="EditItemRol" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="Delete">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button  Background="#FA4D4D" Content="Delete"/>
+                            <Button  Background="#FA4D4D" Content="Delete" Click="DeleteItemRol"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

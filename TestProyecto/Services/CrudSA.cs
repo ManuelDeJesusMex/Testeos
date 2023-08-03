@@ -87,7 +87,17 @@ namespace TestProyecto.Services
 
                             _context.SuperAdministradores.Update(sau);
                             _context.SaveChanges();
-                        }
+                        } else
+                    {
+                        sau.NombreSuperAdmin = request.NombreSuperAdmin;
+                        sau.ApellidoSuperAdmin = request.ApellidoSuperAdmin;
+                        sau.CorreoSuperAdmin = request.CorreoSuperAdmin;
+                        sau.ContraseñaSuperAdmin = request.ContraseñaSuperAdmin;
+                        sau.FkRol = request.FkRol;
+
+                        _context.SuperAdministradores.Update(sau);
+                        _context.SaveChanges();
+                    }
                         
                     } else
                     {
@@ -212,6 +222,87 @@ namespace TestProyecto.Services
             {
 
                 throw new Exception("Error: "+ex.Message);
+            }
+        }
+        public void CreateRol (Rol request)
+        {
+            try
+            {
+                if (request != null)
+                {
+                    using (var _context = new ApplicationDbContext())
+                    {
+                        Rol rolc = new Rol();
+
+                        rolc.RolName = request.RolName;
+
+                        _context.Roles.Add(rolc);
+                        _context.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception ("Error: "+ex.Message);
+            }
+        }
+        public void UpdateRol (Rol request)
+        {
+            try
+            {
+                if (request != null)
+                {
+                    using (var _context = new ApplicationDbContext())
+                    {
+                        Rol rolu = _context.Roles.Find(request.PkRol);
+
+                        if (rolu != null)
+                        {
+                            rolu.RolName = request.RolName;
+
+                            _context.Roles.Update(rolu);
+                            _context.SaveChanges();
+                        } else
+                        {
+                            MessageBox.Show("No se encontró el rol");
+                        }
+                       
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception ("Error: "+ex.Message);
+            }
+        }
+        public void DeleteRol (Rol request)
+        {
+            try
+            {
+                if (request != null)
+                {
+                    using (var _context = new ApplicationDbContext())
+                    {
+                        Rol rold = _context.Roles.Find (request.PkRol);
+
+                        if (rold != null)
+                        {
+                            _context.Roles.Remove(rold);
+                            _context.SaveChanges();
+                        } else
+                        {
+                            MessageBox.Show("No se encontró el rol");
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception ("Error: "+ex.Message);
             }
         }
     }

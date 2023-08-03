@@ -33,6 +33,7 @@ namespace TestProyecto.Views
             GetVendedoresTable();
             GetSuperAdminTable();
             GetDetalleVentaTable();
+            GetRolesTable();
             cboptionsUsers.Items.Add("Cliente");
             cboptionsUsers.Items.Add("Vendedor");
             cboptionsUsers.Items.Add("SA");
@@ -377,6 +378,10 @@ namespace TestProyecto.Views
         {
             TamañosTable.ItemsSource = modProducto.GetTamaños();
         }
+        public void GetRolesTable ()
+        {
+            RolesTable.ItemsSource = modSA.GetRoles();
+        }
         public void EditItemCliente(Object sender, RoutedEventArgs e)
         {
             Cliente modC = new Cliente();
@@ -467,6 +472,13 @@ namespace TestProyecto.Views
             txtNombre.Text = lotec.NomLote.ToString();
             txtPkUser.Text = lotec.PkLote.ToString();
         }
+        public void EditItemRol (object sender, RoutedEventArgs e)
+        {
+            Rol rolc = new Rol();
+            rolc = (sender as FrameworkElement).DataContext as Rol;
+            txtNombre.Text = rolc.RolName;
+            txtPkUser.Text = rolc.PkRol.ToString();
+        }
         public void DeleteItemCliente(object sender, RoutedEventArgs e)
         {
             
@@ -530,6 +542,15 @@ namespace TestProyecto.Views
                 txtSaldo.Clear();
                 GetVendedoresTable();
             
+        }
+        public void DeleteItemRol (object sender, RoutedEventArgs e)
+        {
+            Rol rold = (sender as FrameworkElement).DataContext as Rol;
+            modSA.DeleteRol(rold);
+            MessageBox.Show("Eliminado");
+            txtNombre.Clear();
+            txtPkUser.Clear();
+            GetRolesTable();
         }
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
@@ -865,6 +886,42 @@ namespace TestProyecto.Views
                     txtPkUser.Clear();
                     txtNombre.Clear();
                     GetLotesTable();
+                }
+            } else if (cboptionsUsers.SelectedItem == "Roles")
+            {
+                Rol rolc = new Rol();
+                if (txtPkUser.Text == "")
+                {
+                    if (txtNombre.Text != "")
+                    {
+                        rolc.RolName = txtNombre.Text;
+                        modSA.CreateRol(rolc);
+                        MessageBox.Show("Agregado");
+                        txtPkUser.Clear();
+                        txtNombre.Clear();
+                        GetRolesTable();
+                    }
+                   else
+                    {
+                        MessageBox.Show("Hay datos vacíos");
+                    }
+
+                } else if (txtPkUser.Text != "")
+                {
+                    if ( txtNombre.Text != "")
+                    {
+                        rolc.PkRol = int.Parse(txtPkUser.Text);
+                        rolc.RolName = txtNombre.Text;
+
+                        modSA.UpdateRol(rolc);
+                        MessageBox.Show("Actualizado");
+                        txtPkUser.Clear();
+                        txtNombre.Clear();
+                        GetRolesTable();
+                    } else
+                    {
+                        MessageBox.Show("Hay datos vacíos");
+                    }
                 }
             }
             

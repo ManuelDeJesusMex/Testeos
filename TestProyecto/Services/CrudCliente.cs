@@ -108,7 +108,21 @@ namespace TestProyecto.Services
 							_context.Clientes.Remove(updatec);
 							_context.SaveChanges();
 						}
-					} 
+					} else
+					{
+						if (updatec != null)
+						{
+                            updatec.NombreCliente = request.NombreCliente;
+                            updatec.ApellidoCliente = request.ApellidoCliente;
+                            updatec.CorreoCliente = request.CorreoCliente;
+                            updatec.PasswordCliente = request.PasswordCliente;
+                            updatec.SaldoCliente = request.SaldoCliente;
+                            updatec.FkRol = request.FkRol;
+
+                            _context.Clientes.Update(updatec);
+                            _context.SaveChanges();
+                        }
+					}
 					
 				}
 			}

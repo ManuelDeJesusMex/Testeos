@@ -110,6 +110,16 @@ namespace TestProyecto.Services
                         _context.SuperAdministradores.Add(samod);
                         _context.Vendedores.Remove(vendeMod);
                         _context.SaveChanges();
+                    } else
+                    {
+                        vendeMod.NombreVendedor = request.NombreVendedor;
+                        vendeMod.ApellidoVendedor = request.ApellidoVendedor;
+                        vendeMod.ContraseñaVendedor = request.ContraseñaVendedor;
+                        vendeMod.CorreoV = request.CorreoV;
+                        vendeMod.FkRol = request.FkRol;
+
+                        _context.Vendedores.Update(vendeMod);
+                        _context.SaveChanges();
                     }
                 }
             }
