@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Views\cerrar-sesion %281%29.png" />
+    <None Remove="Views\compra-en-linea.png" />
     <None Remove="Views\FondoNegro.jpg" />
   </ItemGroup>
 
@@ -21,6 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Views\cerrar-sesion (1).png" />
+    <Resource Include="Views\compra-en-linea.png" />
     <Resource Include="Views\FondoNegro.jpg" />
   </ItemGroup>
 

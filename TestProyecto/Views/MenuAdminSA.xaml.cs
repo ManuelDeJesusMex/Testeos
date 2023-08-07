@@ -43,6 +43,7 @@ namespace TestProyecto.Views
             cboptionsUsers.Items.Add("Tamanos");
             cboptionsUsers.Items.Add("Detalle de ventas");
             cboptionsUsers.Items.Add("Roles");
+            cboptionsUsers.Items.Add("Consultas");
 
         }
         CrudCliente modcliente = new CrudCliente();

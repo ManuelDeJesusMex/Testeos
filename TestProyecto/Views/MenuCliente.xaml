@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestProyecto.Views"
         mc:Ignorable="d"
-        Title="MenuCliente" Height="450" Width="800">
-    <Grid>
+        Title="MenuCliente" Height="459" Width="800">
+    <Grid Margin="0,0,0,-18">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <LinearGradientBrush.RelativeTransform>
@@ -21,11 +21,20 @@
                 <GradientStop Color="#FFDC5405" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Button x:Name="btnLogOut" Content="Cerrar sesión" HorizontalAlignment="Left" Height="40" Margin="615,70,0,0" VerticalAlignment="Top" Width="167" Click="btnLogOut_Click"/>
-        <Button x:Name="btnCarritoCompra" Content="Carrito de compras" HorizontalAlignment="Left" Height="39" Margin="615,11,0,0" VerticalAlignment="Top" Width="167" Click="btnCarritoCompra_Click"/>
-        <DataGrid x:Name="ProductosTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="10,10,206,176">
+        <Button x:Name="btnLogOut" Content="" HorizontalAlignment="Left" Margin="716,20,0,377" Width="66" Click="btnLogOut_Click">
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <ImageBrush ImageSource="/Views/cerrar-sesion (1).png"/>
+            </Button.Background>
+        </Button>
+        <DataGrid x:Name="ProductosTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="9,80,207,149" Background="Beige">
+            <DataGrid.CellStyle>
+                <Style/>
+            </DataGrid.CellStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="NomProducto" Binding="{Binding PkProducto}" />
+                <DataGridTextColumn Header="NomProducto" Binding="{Binding PkProducto}"/>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
                 <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" />
                 <DataGridTextColumn Header="Precio Unitario" Binding="{Binding PrecioUnitario}"/>
@@ -44,12 +53,23 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <TextBox x:Name="txtIDCliente" HorizontalAlignment="Left" Margin="36,326,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtIDProducto" HorizontalAlignment="Left" Margin="191,326,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtCantidad" HorizontalAlignment="Left" Margin="335,327,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnComprar" Content="Comprar" HorizontalAlignment="Left" Margin="35,380,0,0" VerticalAlignment="Top" Height="35" Width="104" RenderTransformOrigin="0.026,0.469" Click="btnComprar_Click"/>
-        <Label x:Name="lbIDCliente" Content="Coloque su ID (Cliente)" HorizontalAlignment="Left" Margin="32,298,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbIDProducto" Content="Coloque su ID (Producto)" HorizontalAlignment="Left" Margin="186,299,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbIDProducto_Copy" Content="Coloque la cantidad a comprar" HorizontalAlignment="Left" Margin="333,301,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtIDCliente" HorizontalAlignment="Left" Margin="14,359,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtIDProducto" HorizontalAlignment="Left" Margin="169,359,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtCantidad" HorizontalAlignment="Left" Margin="313,360,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnComprar" Content="" HorizontalAlignment="Left" Margin="523,343,0,0" VerticalAlignment="Top" Height="76" Width="93" RenderTransformOrigin="0.026,0.469" Click="btnComprar_Click" >
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <ImageBrush ImageSource="/Views/compra-en-linea.png"/>
+            </Button.Background>
+        </Button>
+        <Label x:Name="lbIDCliente" Content="Coloque su ID (Cliente)" HorizontalAlignment="Left" Margin="10,331,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbIDProducto" Content="Coloque su ID (Producto)" HorizontalAlignment="Left" Margin="164,332,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbIDProducto_Copy" Content="Coloque la cantidad a comprar" HorizontalAlignment="Left" Margin="311,334,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Margin="13,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" Height="32"/>
+        <Button x:Name="btnSearch" Content="Buscar" HorizontalAlignment="Left" Margin="441,26,0,0" VerticalAlignment="Top" Height="32" Width="44" RenderTransformOrigin="-0.068,0.658" Click="btnSearch_Click"/>
+        <ComboBox x:Name="cbSearchOptions" HorizontalAlignment="Left" Margin="147,28,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbSearchOptions_SelectionChanged"/>
+        <ComboBox x:Name="cbOptionsConditions" HorizontalAlignment="Left" Margin="292,31,0,0" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>
