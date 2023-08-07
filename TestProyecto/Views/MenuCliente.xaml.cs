@@ -94,10 +94,10 @@ namespace TestProyecto.Views
 
                         if (cbOptionsConditions.SelectedItem == "Específico")
                         {
-                            var a = _context.Productos.Where(id => id.PkProducto == ID).ToList();
+                            
                             var Busqueda = _context.Productos.Where(x => x.PkProducto == ID).ToList();
                           //  var BusquedaFk = _context.Productos.Where(x => x.PkProducto == ID).Include(y => y.FkLote.ToString()).ToList();
-                            ProductosTable.ItemsSource = a;
+                            ProductosTable.ItemsSource = Busqueda;
                             }
                             else if (cbOptionsConditions.SelectedItem == "Mayor que")
                             {
@@ -258,6 +258,7 @@ namespace TestProyecto.Views
                             var Busqueda = _context.Productos.Where(x => x.FkLote != ID).ToList();
                             ProductosTable.ItemsSource = Busqueda;
                         }
+                        //AAAAAA
                         else
                         {
                             MessageBox.Show("Aún no seleccionas una condicional");
