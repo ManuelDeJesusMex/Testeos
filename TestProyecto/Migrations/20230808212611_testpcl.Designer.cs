@@ -9,8 +9,8 @@ using TestProyecto.Context;
 namespace TestProyecto.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230802191825_TestAula15")]
-    partial class TestAula15
+    [Migration("20230808212611_testpcl")]
+    partial class testpcl
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -103,7 +103,7 @@ namespace TestProyecto.Migrations
 
                     b.HasIndex("FkVenta");
 
-                    b.ToTable("DetalleVenta");
+                    b.ToTable("detalleVentas");
                 });
 
             modelBuilder.Entity("TestProyecto.Entities.Lote", b =>

@@ -46,10 +46,10 @@ namespace TestProyecto.Views
 
         private void btnCarritoCompra_Click(object sender, RoutedEventArgs e)
         {
-            CarritodeCompra carroCliente = new CarritodeCompra();
+            //CarritodeCompra carroCliente = new CarritodeCompra();
 
-            carroCliente.Show();
-            Close();
+            //carroCliente.Show();
+            //Close();
         }
 
         private void btnLogOut_Click(object sender, RoutedEventArgs e)

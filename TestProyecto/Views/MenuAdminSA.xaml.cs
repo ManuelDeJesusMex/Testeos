@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,7 +45,7 @@ namespace TestProyecto.Views
             cboptionsUsers.Items.Add("Tamanos");
             cboptionsUsers.Items.Add("Detalle de ventas");
             cboptionsUsers.Items.Add("Roles");
-            
+
 
         }
         CrudCliente modcliente = new CrudCliente();
@@ -277,6 +278,12 @@ namespace TestProyecto.Views
             {
                 DetalleVentaTable.Visibility = Visibility.Visible;
                 GetDetalleVentaTable();
+                cbDataType.Items.Clear();
+                cbDataType.Items.Add("Nom Venta");
+                cbDataType.Items.Add("Nom Producto");
+                cbDataType.Items.Add("Fecha");
+                cbDataType.Items.Add("Total");
+                cbDataType.Items.Add("Subtotal");
                 btnSearch.Visibility = Visibility.Visible;
                 txtSearch.Visibility = Visibility.Visible;
                 cbConditional.Visibility = Visibility.Visible;
@@ -311,6 +318,9 @@ namespace TestProyecto.Views
                 lbsabor.Visibility = Visibility.Hidden;
                 lbSaldo.Visibility = Visibility.Hidden;
                 GetSaboresTables();
+                cbDataType.Items.Clear();
+                cbDataType.Items.Add("ID");
+                cbDataType.Items.Add("Sabor");
                 btnSearch.Visibility = Visibility.Visible;
                 txtSearch.Visibility = Visibility.Visible;
                 cbConditional.Visibility = Visibility.Visible;
@@ -382,7 +392,7 @@ namespace TestProyecto.Views
                 lbSaldo.Visibility = Visibility.Hidden;
                 cbDataType.Items.Clear();
                 cbDataType.Items.Add("ID");
-                cbDataType.Items.Add("Nom sabor");
+                cbDataType.Items.Add("Nom Lote");
                 btnSearch.Visibility = Visibility.Visible;
                 txtSearch.Visibility = Visibility.Visible;
                 cbConditional.Visibility = Visibility.Visible;
@@ -474,7 +484,7 @@ namespace TestProyecto.Views
         {
             DetalleVentaTable.ItemsSource = modProducto.GetDetalleVentas();
 
-            
+
         }
         public void GetSaboresTables()
         {
@@ -488,7 +498,7 @@ namespace TestProyecto.Views
         {
             TamañosTable.ItemsSource = modProducto.GetTamaños();
         }
-        public void GetRolesTable ()
+        public void GetRolesTable()
         {
             RolesTable.ItemsSource = modSA.GetRoles();
         }
@@ -582,7 +592,7 @@ namespace TestProyecto.Views
             txtNombre.Text = lotec.NomLote.ToString();
             txtPkUser.Text = lotec.PkLote.ToString();
         }
-        public void EditItemRol (object sender, RoutedEventArgs e)
+        public void EditItemRol(object sender, RoutedEventArgs e)
         {
             Rol rolc = new Rol();
             rolc = (sender as FrameworkElement).DataContext as Rol;
@@ -591,69 +601,69 @@ namespace TestProyecto.Views
         }
         public void DeleteItemCliente(object sender, RoutedEventArgs e)
         {
-            
-                Cliente deleteC = (sender as FrameworkElement).DataContext as Cliente;
 
-                modcliente.DeleteCliente(deleteC);
+            Cliente deleteC = (sender as FrameworkElement).DataContext as Cliente;
 
-                MessageBox.Show("Eliminado");
-                GetClientesTable();
-                txtNombre.Clear();
-                txtCorreo.Clear();
-                txtApellido.Clear();
-                txtPassword.Clear();
-                txtPkUser.Clear();
-                txtSaldo.Clear();
+            modcliente.DeleteCliente(deleteC);
+
+            MessageBox.Show("Eliminado");
+            GetClientesTable();
+            txtNombre.Clear();
+            txtCorreo.Clear();
+            txtApellido.Clear();
+            txtPassword.Clear();
+            txtPkUser.Clear();
+            txtSaldo.Clear();
         }
         public void DeteleItemVendedor(object sender, RoutedEventArgs e)
         {
-            
-                Vendedor deletev = (sender as FrameworkElement).DataContext as Vendedor;              
-                modVendedor.DeleteVendedor(deletev);
-                MessageBox.Show("Eliminado");
-                GetVendedoresTable();
-                txtNombre.Clear();
-                txtCorreo.Clear();
-                txtApellido.Clear();
-                txtPassword.Clear();
-                txtPkUser.Clear();
-                txtSaldo.Clear();            
-        }
-        public void DeleteItemSA (object sender, RoutedEventArgs e)
-        {
-            
-                SuperAdmin deleteSA = (sender as FrameworkElement).DataContext as SuperAdmin;
-                
 
-                modSA.DeleteSA(deleteSA);
-                MessageBox.Show("Eliminado");
-                GetSuperAdminTable();
-                txtNombre.Clear();
-                txtCorreo.Clear();
-                txtApellido.Clear();
-                txtPassword.Clear();
-                txtPkUser.Clear();
-                txtSaldo.Clear();
-            
+            Vendedor deletev = (sender as FrameworkElement).DataContext as Vendedor;
+            modVendedor.DeleteVendedor(deletev);
+            MessageBox.Show("Eliminado");
+            GetVendedoresTable();
+            txtNombre.Clear();
+            txtCorreo.Clear();
+            txtApellido.Clear();
+            txtPassword.Clear();
+            txtPkUser.Clear();
+            txtSaldo.Clear();
         }
-        public void DeleteItemProducto (object sender, RoutedEventArgs e)
+        public void DeleteItemSA(object sender, RoutedEventArgs e)
         {
-            
-                Producto DeleteP = (sender as FrameworkElement).DataContext as Producto;
 
-                modProducto.DeleteProducto(DeleteP);
-                MessageBox.Show("Eliminado");
+            SuperAdmin deleteSA = (sender as FrameworkElement).DataContext as SuperAdmin;
+
+
+            modSA.DeleteSA(deleteSA);
+            MessageBox.Show("Eliminado");
+            GetSuperAdminTable();
+            txtNombre.Clear();
+            txtCorreo.Clear();
+            txtApellido.Clear();
+            txtPassword.Clear();
+            txtPkUser.Clear();
+            txtSaldo.Clear();
+
+        }
+        public void DeleteItemProducto(object sender, RoutedEventArgs e)
+        {
+
+            Producto DeleteP = (sender as FrameworkElement).DataContext as Producto;
+
+            modProducto.DeleteProducto(DeleteP);
+            MessageBox.Show("Eliminado");
             GetProductosTable();
-                txtNombre.Clear();
-                txtCorreo.Clear();
-                txtApellido.Clear();
-                txtPassword.Clear();
-                txtPkUser.Clear();
-                txtSaldo.Clear();
-                GetVendedoresTable();
-            
+            txtNombre.Clear();
+            txtCorreo.Clear();
+            txtApellido.Clear();
+            txtPassword.Clear();
+            txtPkUser.Clear();
+            txtSaldo.Clear();
+            GetVendedoresTable();
+
         }
-        public void DeleteItemRol (object sender, RoutedEventArgs e)
+        public void DeleteItemRol(object sender, RoutedEventArgs e)
         {
             Rol rold = (sender as FrameworkElement).DataContext as Rol;
             modSA.DeleteRol(rold);
@@ -694,7 +704,7 @@ namespace TestProyecto.Views
                     {
                         MessageBox.Show("No has rellenado todos los datos");
                     }
-                    
+
 
                 }
                 else if (txtPkUser.Text != "")
@@ -756,7 +766,7 @@ namespace TestProyecto.Views
                     {
                         MessageBox.Show("No has rellenado todos los datos");
                     }
-                    
+
                 } else if (txtPkUser.Text != "")
                 {
                     if (cbRol.SelectedValue != null && txtNombre.Text != "" && txtCorreo.Text != "" && txtApellido.Text != "" && txtPassword.Text != "")
@@ -783,7 +793,7 @@ namespace TestProyecto.Views
                     {
                         MessageBox.Show("No has rellenado todos los datos");
                     }
-                    
+
                 }
             }
             else if (cboptionsUsers.SelectedItem == "SA")
@@ -811,7 +821,7 @@ namespace TestProyecto.Views
                     {
                         MessageBox.Show("No has seleccionado todos los datos");
                     }
-                    
+
                 }
                 else if (txtPkUser.Text != "")
                 {
@@ -837,7 +847,7 @@ namespace TestProyecto.Views
                     {
                         MessageBox.Show("No has rellenado todos los datos");
                     }
-                    
+
                 }
             }
             else if (cboptionsUsers.SelectedItem == "Producto")
@@ -874,7 +884,7 @@ namespace TestProyecto.Views
                     {
                         MessageBox.Show("Hay datos que no has ingresado");
                     }
-                    
+
 
                 }
                 else if (txtPkUser.Text != "")
@@ -905,7 +915,7 @@ namespace TestProyecto.Views
                     {
                         MessageBox.Show("No has seleccionado los datos correspondientes a lote, sabor o tamaño");
                     }
-                   
+
 
                 }
             }
@@ -934,7 +944,7 @@ namespace TestProyecto.Views
                     MessageBox.Show("Actualizado");
                     GetTamanosTable();
                 }
-                
+
             } else if (cboptionsUsers.SelectedItem == "Sabores")
             {
                 Sabor sabor = new Sabor();
@@ -956,7 +966,7 @@ namespace TestProyecto.Views
                         MessageBox.Show("Hay datos vacíos");
                     }
                 } else
-                { 
+                {
                     int ids = int.Parse(txtPkUser.Text);
                     sabor.NameSabor = txtNombre.Text;
 
@@ -975,7 +985,7 @@ namespace TestProyecto.Views
                 {
                     if (txtNombre.Text != "")
                     {
-                       
+
                         lotec.NomLote = int.Parse(txtNombre.Text);
                         modProducto.CreateLote(lotec);
                         MessageBox.Show("Agregado");
@@ -1011,14 +1021,14 @@ namespace TestProyecto.Views
                         txtNombre.Clear();
                         GetRolesTable();
                     }
-                   else
+                    else
                     {
                         MessageBox.Show("Hay datos vacíos");
                     }
 
                 } else if (txtPkUser.Text != "")
                 {
-                    if ( txtNombre.Text != "")
+                    if (txtNombre.Text != "")
                     {
                         rolc.PkRol = int.Parse(txtPkUser.Text);
                         rolc.RolName = txtNombre.Text;
@@ -1034,8 +1044,8 @@ namespace TestProyecto.Views
                     }
                 }
             }
-            
-            
+
+
             else if (cboptionsUsers.SelectedItem == null)
             {
                 MessageBox.Show("No has seleccionado el tipo de usuario");
@@ -1053,124 +1063,320 @@ namespace TestProyecto.Views
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            if (cboptionsUsers.SelectedItem == "Cliente")
+            using (var _context = new ApplicationDbContext())
             {
-                if (cbDataType.SelectedItem == "ID")
+                if (cboptionsUsers.SelectedItem == "Cliente")
                 {
-                    if (cbConditional.SelectedItem == "Igual")
+                    if (cbDataType.SelectedItem == "ID")
                     {
 
-                    } else if (cbConditional.SelectedItem == "Mayor que")
-                    {
-
-                    } else if (cbConditional.SelectedItem == "Menor que")
-                    {
-
-                    } else if ( cbConditional.SelectedItem == "Diferente que") 
-                    {
-
-                    } else
-                    {
-                        MessageBox.Show("No has seleccionado todos los campos");
-                    }
-                } else if (cbDataType.SelectedItem == "Nombre")
-                {
-                    if (cbConditional.SelectedItem == "Igual")
-                    {
-
-                    }
-                    else if (cbConditional.SelectedItem == "Diferente que")
-                    {
-
-                    }
-                    else if (cbDataType.SelectedItem == "Apellido")
-                    {
                         if (cbConditional.SelectedItem == "Igual")
                         {
-
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Clientes.Where(x => x.PkCliente == ID).ToList();
+                            ClienteTable.ItemsSource = Busqueda;
+                        }
+                        else if (cbConditional.SelectedItem == "Mayor que")
+                        {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Clientes.Where(x => x.PkCliente > ID).ToList();
+                            ClienteTable.ItemsSource = Busqueda;
+                        }
+                        else if (cbConditional.SelectedItem == "Menor que")
+                        {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Clientes.Where(x => x.PkCliente < ID).ToList();
+                            ClienteTable.ItemsSource = Busqueda;
                         }
                         else if (cbConditional.SelectedItem == "Diferente que")
                         {
-
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Clientes.Where(x => x.PkCliente != ID).ToList();
+                            ClienteTable.ItemsSource = Busqueda;
                         }
                         else
                         {
                             MessageBox.Show("No has seleccionado todos los campos");
                         }
                     }
-                } else if (cbDataType.SelectedItem == "Correo")
-                {
-                    if (cbConditional.SelectedItem == "Igual")
+                    else if (cbDataType.SelectedItem == "Nombre")
                     {
-
+                        if (cbConditional.SelectedItem == "Igual")
+                        {
+                            string Dato = txtSearch.Text;
+                            var Busqueda = _context.Clientes.Where(x => x.NombreCliente == Dato).ToList();
+                            ClienteTable.ItemsSource = Busqueda;
+                        }
+                        else if (cbConditional.SelectedItem == "Diferente que")
+                        {
+                            string Dato = txtSearch.Text;
+                            var Busqueda = _context.Clientes.Where(x => x.NombreCliente != Dato).ToList();
+                            ClienteTable.ItemsSource = Busqueda;
+                        }
+                        else if (cbDataType.SelectedItem == "Apellido")
+                        {
+                            if (cbConditional.SelectedItem == "Igual")
+                            {
+                                string Dato = txtSearch.Text;
+                                var Busqueda = _context.Clientes.Where(x => x.ApellidoCliente == Dato).ToList();
+                                ClienteTable.ItemsSource = Busqueda;
+                            }
+                            else if (cbConditional.SelectedItem == "Diferente que")
+                            {
+                                string Dato = txtSearch.Text;
+                                var Busqueda = _context.Clientes.Where(x => x.ApellidoCliente != Dato).ToList();
+                                ClienteTable.ItemsSource = Busqueda;
+                            }
+                            else
+                            {
+                                MessageBox.Show("No has seleccionado todos los campos");
+                            }
+                        }
                     }
-                    else if (cbConditional.SelectedItem == "Diferente que")
+                    else if (cbDataType.SelectedItem == "Correo")
                     {
-
+                        if (cbConditional.SelectedItem == "Igual")
+                        {
+                            string Dato = txtSearch.Text;
+                            var Busqueda = _context.Clientes.Where(x => x.CorreoCliente == Dato).ToList();
+                            ClienteTable.ItemsSource = Busqueda;
+                        }
+                        else if (cbConditional.SelectedItem == "Diferente que")
+                        {
+                            string Dato = txtSearch.Text;
+                            var Busqueda = _context.Clientes.Where(x => x.CorreoCliente != Dato).ToList();
+                            ClienteTable.ItemsSource = Busqueda;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No has seleccionado todos los campos");
+                        }
+                    }
+                    else if (cbDataType.SelectedItem == "Contraseña")
+                    {
+                        if (cbConditional.SelectedItem == "Igual")
+                        {
+                            string Dato = txtSearch.Text;
+                            var Busqueda = _context.Clientes.Where(x => x.PasswordCliente == Dato).ToList();
+                            ClienteTable.ItemsSource = Busqueda;
+                        }
+                        else if (cbConditional.SelectedItem == "Diferente que")
+                        {
+                            string Dato = txtSearch.Text;
+                            var Busqueda = _context.Clientes.Where(x => x.PasswordCliente != Dato).ToList();
+                            ClienteTable.ItemsSource = Busqueda;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No has seleccionado todos los campos");
+                        }
+                    }
+                    else if (cbDataType.SelectedItem == "Rol")
+                    {
+                        if (cbConditional.SelectedItem == "Igual")
+                        {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Clientes.Where(x => x.FkRol == ID).ToList();
+                            ClienteTable.ItemsSource = Busqueda;
+                        }
+                        else if (cbConditional.SelectedItem == "Mayor que")
+                        {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Clientes.Where(x => x.FkRol == ID).ToList();
+                            ClienteTable.ItemsSource = Busqueda;
+                        }
+                        else if (cbConditional.SelectedItem == "Menor que")
+                        {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Clientes.Where(x => x.FkRol == ID).ToList();
+                            ClienteTable.ItemsSource = Busqueda;
+                        }
+                        else if (cbConditional.SelectedItem == "Diferente que")
+                        {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Clientes.Where(x => x.FkRol == ID).ToList();
+                            ClienteTable.ItemsSource = Busqueda;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No has seleccionado todos los campos");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("No has seleccionado todos los campos");
+                        MessageBox.Show("Selecciona los demás campos, no pueden ser nulos");
                     }
-                } else if (cbDataType.SelectedItem == "Contraseña")
-                {
-                    if (cbConditional.SelectedItem == "Igual")
-                    {
-
-                    }
-                    else if (cbConditional.SelectedItem == "Diferente que")
-                    {
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("No has seleccionado todos los campos");
-                    }
-                } else if (cbDataType.SelectedItem == "Rol")
-                {
-                    if (cbConditional.SelectedItem == "Igual")
-                    {
-
-                    }
-                    else if (cbConditional.SelectedItem == "Mayor que")
-                    {
-
-                    }
-                    else if (cbConditional.SelectedItem == "Menor que")
-                    {
-
-                    }
-                    else if (cbConditional.SelectedItem == "Diferente que")
-                    {
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("No has seleccionado todos los campos");
-                    }
-                } else
-                {
-                    MessageBox.Show("Selecciona los demás campos, no pueden ser nulos");
                 }
-            } else if (cboptionsUsers.SelectedItem == "Vendedor")
-            {
-                if (cbDataType.SelectedItem == "ID")
+                else if (cboptionsUsers.SelectedItem == "Vendedor")
                 {
-                    if (cbConditional.SelectedItem == "Igual")
+                    if (cbDataType.SelectedItem == "ID")
                     {
-
+                        if (cbConditional.SelectedItem == "Igual")
+                        {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Vendedores.Where(x => x.PkVendedor == ID).ToList();
+                            VendedorTable.ItemsSource = Busqueda;
+                        }
+                        else if (cbConditional.SelectedItem == "Mayor que")
+                        {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Vendedores.Where(x => x.PkVendedor > ID).ToList();
+                            VendedorTable.ItemsSource = Busqueda;
+                        }
+                        else if (cbConditional.SelectedItem == "Menor que")
+                        {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Vendedores.Where(x => x.PkVendedor < ID).ToList();
+                            VendedorTable.ItemsSource = Busqueda;
+                        }
+                        else if (cbConditional.SelectedItem == "Diferente que")
+                        {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Vendedores.Where(x => x.PkVendedor != ID).ToList();
+                            VendedorTable.ItemsSource = Busqueda;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No has seleccionado todos los campos");
+                        }
+                    }
+                    else if (cbDataType.SelectedItem == "Nombre")
+                    {
+                        if (cbConditional.SelectedItem == "Igual")
+                        {
+                            string Dato = txtSearch.Text;
+                            var Busqueda = _context.Vendedores.Where(x => x.NombreVendedor == Dato).ToList();
+                            VendedorTable.ItemsSource = Busqueda;
+                        }
+                        else if (cbConditional.SelectedItem == "Diferente que")
+                        {
+                            string Dato = txtSearch.Text;
+                            var Busqueda = _context.Vendedores.Where(x => x.NombreVendedor != Dato).ToList();
+                            VendedorTable.ItemsSource = Busqueda;
+                        }
+                        else if (cbDataType.SelectedItem == "Apellido")
+                        {
+                            
+                            if (cbConditional.SelectedItem == "Igual")
+                            {
+                                string Dato = txtSearch.Text;
+                                var Busqueda = _context.Vendedores.Where(x => x.ApellidoVendedor == Dato).ToList();
+                                VendedorTable.ItemsSource = Busqueda;
+                            }
+                            else if (cbConditional.SelectedItem == "Diferente que")
+                            {
+                                string Dato = txtSearch.Text;
+                                var Busqueda = _context.Vendedores.Where(x => x.ApellidoVendedor != Dato).ToList();
+                                VendedorTable.ItemsSource = Busqueda;
+                            }
+                            else
+                            {
+                                MessageBox.Show("No has seleccionado todos los campos");
+                            }
+                        }
+                    }
+                    else if (cbDataType.SelectedItem == "Correo")
+                    {
+                        if (cbConditional.SelectedItem == "Igual")
+                        {
+                            string Dato = txtSearch.Text;
+                            var Busqueda = _context.Vendedores.Where(x => x.CorreoV == Dato).ToList();
+                            VendedorTable.ItemsSource = Busqueda;
+                        }
+                        else if (cbConditional.SelectedItem == "Diferente que")
+                        {
+                            string Dato = txtSearch.Text;
+                            var Busqueda = _context.Vendedores.Where(x => x.CorreoV != Dato).ToList();
+                            VendedorTable.ItemsSource = Busqueda;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No has seleccionado todos los campos");
+                        }
+                    }
+                    else if (cbDataType.SelectedItem == "Contraseña")
+                    {
+                        if (cbConditional.SelectedItem == "Igual")
+                        {
+                            string Dato = txtSearch.Text;
+                            var Busqueda = _context.Vendedores.Where(x => x.ContraseñaVendedor == Dato).ToList();
+                            VendedorTable.ItemsSource = Busqueda;
+                        }
+                        else if (cbConditional.SelectedItem == "Diferente que")
+                        {
+                            string Dato = txtSearch.Text;
+                            var Busqueda = _context.Vendedores.Where(x => x.ContraseñaVendedor != Dato).ToList();
+                            VendedorTable.ItemsSource = Busqueda;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No has seleccionado todos los campos");
+                        }
+                    }
+                    else if (cbDataType.SelectedItem == "Rol")
+                    {
+                        if (cbConditional.SelectedItem == "Igual")
+                        {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Roles.Where(x => x.PkRol == ID).ToList();
+                            VendedorTable.ItemsSource = Busqueda;
+                        }
+                        else if (cbConditional.SelectedItem == "Mayor que")
+                        {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Roles.Where(x => x.PkRol > ID).ToList();
+                            VendedorTable.ItemsSource = Busqueda;
+                        }
+                        else if (cbConditional.SelectedItem == "Menor que")
+                        {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Roles.Where(x => x.PkRol < ID).ToList();
+                            VendedorTable.ItemsSource = Busqueda;
+                        }
+                        else if (cbConditional.SelectedItem == "Diferente que")
+                        {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Roles.Where(x => x.PkRol != ID).ToList();
+                            VendedorTable.ItemsSource = Busqueda;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No has seleccionado todos los campos");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Selecciona los demás campos, no pueden ser nulos");
+                    }
+                }
+                else if (cboptionsUsers.SelectedItem == "SA")
+                {
+                    if (cbDataType.SelectedItem == "ID")
+                    {
+                        if (cbConditional.SelectedItem == "Igual")
+                        {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.SuperAdministradores.Where(x => x.PkSuperAdmin == ID).ToList();
+                            SuperAdminTable.ItemsSource = Busqueda;
+                        }
                     }
                     else if (cbConditional.SelectedItem == "Mayor que")
                     {
-
+                        int ID = int.Parse(txtSearch.Text);
+                        var Busqueda = _context.SuperAdministradores.Where(x => x.PkSuperAdmin > ID).ToList();
+                        SuperAdminTable.ItemsSource = Busqueda;
                     }
                     else if (cbConditional.SelectedItem == "Menor que")
                     {
-
+                        int ID = int.Parse(txtSearch.Text);
+                        var Busqueda = _context.SuperAdministradores.Where(x => x.PkSuperAdmin < ID).ToList();
+                        SuperAdminTable.ItemsSource = Busqueda;
                     }
                     else if (cbConditional.SelectedItem == "Diferente que")
                     {
-
+                        int ID = int.Parse(txtSearch.Text);
+                        var Busqueda = _context.SuperAdministradores.Where(x => x.PkSuperAdmin != ID).ToList();
+                        SuperAdminTable.ItemsSource = Busqueda;
                     }
                     else
                     {
@@ -1181,21 +1387,29 @@ namespace TestProyecto.Views
                 {
                     if (cbConditional.SelectedItem == "Igual")
                     {
-
+                        string Dato = txtSearch.Text;
+                        var Busqueda = _context.SuperAdministradores.Where(x => x.NombreSuperAdmin == Dato).ToList();
+                        SuperAdminTable.ItemsSource = Busqueda;
                     }
                     else if (cbConditional.SelectedItem == "Diferente que")
                     {
-
+                        string Dato = txtSearch.Text;
+                        var Busqueda = _context.SuperAdministradores.Where(x => x.NombreSuperAdmin != Dato).ToList();
+                        SuperAdminTable.ItemsSource = Busqueda;
                     }
                     else if (cbDataType.SelectedItem == "Apellido")
                     {
                         if (cbConditional.SelectedItem == "Igual")
                         {
-
+                            string Dato = txtSearch.Text;
+                            var Busqueda = _context.SuperAdministradores.Where(x => x.ApellidoSuperAdmin == Dato).ToList();
+                            SuperAdminTable.ItemsSource = Busqueda;
                         }
                         else if (cbConditional.SelectedItem == "Diferente que")
                         {
-
+                            string Dato = txtSearch.Text;
+                            var Busqueda = _context.SuperAdministradores.Where(x => x.ApellidoSuperAdmin != Dato).ToList();
+                            SuperAdminTable.ItemsSource = Busqueda;
                         }
                         else
                         {
@@ -1256,140 +1470,401 @@ namespace TestProyecto.Views
                         MessageBox.Show("No has seleccionado todos los campos");
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Selecciona los demás campos, no pueden ser nulos");
-                }
-            } else if (cboptionsUsers.SelectedItem == "SA")
+           
+            
+                else if (cboptionsUsers.SelectedItem == "Producto")
             {
                 if (cbDataType.SelectedItem == "ID")
                 {
-                    if (cbConditional.SelectedItem == "Igual")
-                    {
 
-                    }
-                    else if (cbConditional.SelectedItem == "Mayor que")
-                    {
-
-                    }
-                    else if (cbConditional.SelectedItem == "Menor que")
-                    {
-
-                    }
-                    else if (cbConditional.SelectedItem == "Diferente que")
-                    {
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("No has seleccionado todos los campos");
-                    }
                 }
-                else if (cbDataType.SelectedItem == "Nombre")
+                else if (cbDataType.SelectedItem == "")
                 {
-                    if (cbConditional.SelectedItem == "Igual")
-                    {
 
-                    }
-                    else if (cbConditional.SelectedItem == "Diferente que")
-                    {
-
-                    }
-                    else if (cbDataType.SelectedItem == "Apellido")
-                    {
-                        if (cbConditional.SelectedItem == "Igual")
-                        {
-
-                        }
-                        else if (cbConditional.SelectedItem == "Diferente que")
-                        {
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("No has seleccionado todos los campos");
-                        }
-                    }
                 }
-                else if (cbDataType.SelectedItem == "Correo")
+            }
+            else if (cboptionsUsers.SelectedItem == "Sabores")
+            {
+                if (cbDataType.SelectedItem == "ID")
                 {
-                    if (cbConditional.SelectedItem == "Igual")
-                    {
 
-                    }
-                    else if (cbConditional.SelectedItem == "Diferente que")
-                    {
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("No has seleccionado todos los campos");
-                    }
                 }
-                else if (cbDataType.SelectedItem == "Contraseña")
+                else if (cbDataType.SelectedItem == "Sabor")
                 {
-                    if (cbConditional.SelectedItem == "Igual")
-                    {
 
-                    }
-                    else if (cbConditional.SelectedItem == "Diferente que")
-                    {
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("No has seleccionado todos los campos");
-                    }
-                }
-                else if (cbDataType.SelectedItem == "Rol")
-                {
-                    if (cbConditional.SelectedItem == "Igual")
-                    {
-
-                    }
-                    else if (cbConditional.SelectedItem == "Mayor que")
-                    {
-
-                    }
-                    else if (cbConditional.SelectedItem == "Menor que")
-                    {
-
-                    }
-                    else if (cbConditional.SelectedItem == "Diferente que")
-                    {
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("No has seleccionado todos los campos");
-                    }
                 }
                 else
                 {
-                    MessageBox.Show("Selecciona los demás campos, no pueden ser nulos");
+                    MessageBox.Show("No has seleccionado el tipo de dato");
                 }
-            } else if (cboptionsUsers.SelectedItem == "Producto")
+            }
+            else if (cboptionsUsers.SelectedItem == "Lotes")
+            {
+                if (cbDataType.SelectedItem == "ID")
+                {
+
+                }
+                else if (cbDataType.SelectedItem == "Nom Lote")
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("No has seleccionado el tipo de dato");
+                }
+            }
+            else if (cboptionsUsers.SelectedItem == "Tamanos")
+            {
+                if (cbDataType.SelectedItem == "ID")
+                {
+
+                }
+                else if (cbDataType.SelectedItem == "Tamano")
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("No has seleccionado el tipo de dato");
+                }
+            }
+            else if (cbDataType.SelectedItem == "Detalle de ventas")
             {
 
-            } else if (cboptionsUsers.SelectedItem == "Sabores")
+            }
+            else if (cbDataType.SelectedItem == "Roles")
             {
+                if (cbDataType.SelectedItem == "ID")
+                {
+                        if (cbConditional.SelectedItem == "Igual que")
+                        {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Roles.Where(x => x.PkRol == ID).ToList();
+                            RolesTable.ItemsSource = Busqueda;
+                        } else if (cbConditional.SelectedItem == "Diferente que") {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Roles.Where(x => x.PkRol != ID).ToList();
+                            VendedorTable.ItemsSource = Busqueda;
+                        }
+                }
+                else if (cbDataType.SelectedItem == "Rol")
+                {
 
-            } else if (cboptionsUsers.SelectedItem == "Lotes")
-            {
-
-            } else if (cboptionsUsers.SelectedItem == "Tamanos")
-            {
-
-            } else if (cbDataType.SelectedItem == "Detalle de ventas")
-            {
-
-            } else if (cbDataType.SelectedItem == "Roles")
-            {
-
-            } else
+                }
+                else
+                {
+                    MessageBox.Show("No has seleccionado el tipo de dato");
+                }
+            }
+            else
             {
                 MessageBox.Show("No has seleccionado ningún tipo de entidad para buscar");
             }
         }
     }
+        private void cbDataType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cboptionsUsers.SelectedItem == "Cliente")
+            {
+                if (cbDataType.SelectedItem == "ID")
+                {
+                    cbConditional.Items.Clear();
+                    cbConditional.Items.Add("Igual");
+                    cbConditional.Items.Add("Mayor que");
+                    cbConditional.Items.Add("Menor que");
+                    cbConditional.Items.Add("Diferente que");
+                }
+                else if (cbDataType.SelectedItem == "Nombre")
+                {
+                    cbConditional.Items.Clear();
+                    cbConditional.Items.Add("Igual");
+                    cbConditional.Items.Add("Diferente que");
+                }
+                else if (cbDataType.SelectedItem == "Apellido")
+                {
+                    cbConditional.Items.Clear();
+                    cbConditional.Items.Add("Igual");
+                    cbConditional.Items.Add("Diferente que");
+                }
+            }
+            else if (cbDataType.SelectedItem == "Correo")
+            {
+                cbConditional.Items.Clear();
+                cbConditional.Items.Add("Igual");
+                cbConditional.Items.Add("Diferente que");
+
+            }
+            else if (cbDataType.SelectedItem == "Contraseña")
+            {
+                cbConditional.Items.Clear();
+                cbConditional.Items.Add("Igual");
+                cbConditional.Items.Add("Diferente que");
+            }
+            else if (cbDataType.SelectedItem == "Rol")
+            {
+                cbConditional.Items.Clear();
+                cbConditional.Items.Add("Igual");
+                cbConditional.Items.Add("Mayor que");
+                cbConditional.Items.Add("Menor que");
+                cbConditional.Items.Add("Diferente que");
+            }
+            else if (cboptionsUsers.SelectedItem == "Vendedor")
+            {
+                if (cbDataType.SelectedItem == "ID")
+                {
+                    cbConditional.Items.Clear();
+                    cbConditional.Items.Add("Igual");
+                    cbConditional.Items.Add("Mayor que");
+                    cbConditional.Items.Add("Menor que");
+                    cbConditional.Items.Add("Diferente que");
+                }
+                else if (cbDataType.SelectedItem == "Nombre")
+                {
+                    cbConditional.Items.Clear();
+                    cbConditional.Items.Add("Igual");
+                    cbConditional.Items.Add("Diferente que");
+                }
+                else if (cbDataType.SelectedItem == "Correo")
+                {
+                    cbConditional.Items.Clear();
+                    cbConditional.Items.Add("Igual");
+                    cbConditional.Items.Add("Diferente que");
+                }
+                else if (cbDataType.SelectedItem == "Contraseña")
+                {
+                    cbConditional.Items.Clear();
+                    cbConditional.Items.Add("Igual");
+                    cbConditional.Items.Add("Diferente que");
+                }
+                else if (cbDataType.SelectedItem == "Rol")
+                {
+                    cbConditional.Items.Clear();
+                    cbConditional.Items.Add("Igual");
+                    cbConditional.Items.Add("Mayor que");
+                    cbConditional.Items.Add("Menor que");
+                    cbConditional.Items.Add("Diferente que");
+                }
+
+            }
+            else if (cboptionsUsers.SelectedItem == "SA")
+            {
+                if (cbDataType.SelectedItem == "ID")
+                {
+                    cbConditional.Items.Clear();
+                    cbConditional.Items.Add("Igual");
+                    cbConditional.Items.Add("Mayor que");
+                    cbConditional.Items.Add("Menor que");
+                    cbConditional.Items.Add("Diferente que");
+
+                }
+                else if (cbDataType.SelectedItem == "Nombre")
+                {
+                    cbConditional.Items.Clear();
+                    cbConditional.Items.Add("Igual");
+                    cbConditional.Items.Add("Diferente que");
+                }
+                else if (cbDataType.SelectedItem == "Correo")
+                {
+                    cbConditional.Items.Clear();
+                    cbConditional.Items.Add("Igual");
+                    cbConditional.Items.Add("Diferente que");
+                }
+                else if (cbDataType.SelectedItem == "Contraseña")
+                {
+                    cbConditional.Items.Clear();
+                    cbConditional.Items.Add("Igual");
+                    cbConditional.Items.Add("Diferente que");
+                }
+                else if (cbDataType.SelectedItem == "Rol")
+                {
+                    cbConditional.Items.Clear();
+                    cbConditional.Items.Add("Igual");
+                    cbConditional.Items.Add("Mayor que");
+                    cbConditional.Items.Add("Menor que");
+                    cbConditional.Items.Add("Diferente que");
+                }
+                else if (cboptionsUsers.SelectedItem == "Producto")
+                {
+                    if (cbDataType.SelectedItem == "ID")
+                    {
+                        cbConditional.Items.Clear();
+                        cbConditional.Items.Add("Igual");
+                        cbConditional.Items.Add("Mayor que");
+                        cbConditional.Items.Add("Menor que");
+                        cbConditional.Items.Add("Diferente que");
+                    }
+                    else if (cbDataType.SelectedItem == "Nombre")
+                    {
+                        cbConditional.Items.Clear();
+                        cbConditional.Items.Add("Igual");
+                        cbConditional.Items.Add("Diferente que");
+                    }
+                    else if (cbDataType.SelectedItem == "Cantidad")
+                    {
+                        cbConditional.Items.Clear();
+                        cbConditional.Items.Add("Igual");
+                        cbConditional.Items.Add("Mayor que");
+                        cbConditional.Items.Add("Menor que");
+                        cbConditional.Items.Add("Diferente que");
+                    }
+                    else if (cbDataType.SelectedItem == "Precio Unitario")
+                    {
+                        cbConditional.Items.Clear();
+                        cbConditional.Items.Add("Igual");
+                        cbConditional.Items.Add("Mayor que");
+                        cbConditional.Items.Add("Menor que");
+                        cbConditional.Items.Add("Diferente que");
+                    }
+                    else if (cbDataType.SelectedItem == "Nom Vendedor")
+                    {
+                        cbConditional.Items.Clear();
+                        cbConditional.Items.Add("Igual");
+                        cbConditional.Items.Add("Mayor que");
+                        cbConditional.Items.Add("Menor que");
+                        cbConditional.Items.Add("Diferente que");
+                    }
+                    else if (cbDataType.SelectedItem == "Nom Lote")
+                    {
+                        cbConditional.Items.Clear();
+                        cbConditional.Items.Add("Igual");
+                        cbConditional.Items.Add("Mayor que");
+                        cbConditional.Items.Add("Menor que");
+                        cbConditional.Items.Add("Diferente que");
+                    }
+                    else if (cbDataType.SelectedItem == "Nom Sabor")
+                    {
+                        cbConditional.Items.Clear();
+                        cbConditional.Items.Add("Igual");
+                        cbConditional.Items.Add("Mayor que");
+                        cbConditional.Items.Add("Menor que");
+                        cbConditional.Items.Add("Diferente que");
+                    }
+                    else if (cbDataType.SelectedItem == "Nom Tamano")
+                    {
+                        cbConditional.Items.Clear();
+                        cbConditional.Items.Add("Igual");
+                        cbConditional.Items.Add("Mayor que");
+                        cbConditional.Items.Add("Menor que");
+                        cbConditional.Items.Add("Diferente que");
+                    }
+                }
+                else if (cboptionsUsers.SelectedItem == "Sabores")
+                {
+                    if (cbDataType.SelectedItem == "ID")
+                    {
+                        cbConditional.Items.Clear();
+                        cbConditional.Items.Add("Igual");
+                        cbConditional.Items.Add("Mayor que");
+                        cbConditional.Items.Add("Menor que");
+                        cbConditional.Items.Add("Diferente que");
+                    }
+                    else if (cbDataType.SelectedItem == "Sabor")
+                    {
+                        cbConditional.Items.Clear();
+                        cbConditional.Items.Add("Igual");
+                        cbConditional.Items.Add("Diferente que");
+                    }
+                }
+                else if (cboptionsUsers.SelectedItem == "Lotes")
+                {
+                    if (cbDataType.SelectedItem == "ID")
+                    {
+                        cbConditional.Items.Clear();
+                        cbConditional.Items.Add("Igual");
+                        cbConditional.Items.Add("Mayor que");
+                        cbConditional.Items.Add("Menor que");
+                        cbConditional.Items.Add("Diferente que");
+                    }
+                    else if (cbDataType.SelectedItem == "Nom Lote")
+                    {
+                        cbConditional.Items.Clear();
+                        cbConditional.Items.Add("Igual");
+                        cbConditional.Items.Add("Diferente que");
+                    }
+                }
+                else if (cboptionsUsers.SelectedItem == "Tamanos")
+                {
+                    if (cbDataType.SelectedItem == "ID")
+                    {
+                        cbConditional.Items.Clear();
+                        cbConditional.Items.Add("Igual");
+                        cbConditional.Items.Add("Mayor que");
+                        cbConditional.Items.Add("Menor que");
+                        cbConditional.Items.Add("Diferente que");
+                    }
+                    else if (cbDataType.SelectedItem == "Tamano")
+                    {
+                        cbConditional.Items.Clear();
+                        cbConditional.Items.Add("Igual");
+                        cbConditional.Items.Add("Diferente que");
+                    }
+
+                }
+                else if (cboptionsUsers.SelectedItem == "Detalle de ventas")
+                {
+                    if (cbDataType.SelectedItem == "Nom Venta")
+                    {
+                        cbConditional.Items.Clear();
+                        cbConditional.Items.Add("Igual");
+                        cbConditional.Items.Add("Mayor que");
+                        cbConditional.Items.Add("Menor que");
+                        cbConditional.Items.Add("Diferente que");
+                    }
+                    else if (cbDataType.SelectedItem == "Nom Producto")
+                    {
+                        cbConditional.Items.Clear();
+                        cbConditional.Items.Add("Igual");
+                        cbConditional.Items.Add("Mayor que");
+                        cbConditional.Items.Add("Menor que");
+                        cbConditional.Items.Add("Diferente que");
+                    }
+                    else if (cbDataType.SelectedItem == "Fecha")
+                    {
+                        cbConditional.Items.Clear();
+                        cbConditional.Items.Add("Igual");
+                        cbConditional.Items.Add("Mayor que");
+                        cbConditional.Items.Add("Menor que");
+                        cbConditional.Items.Add("Diferente que");
+                    }
+                    else if (cbDataType.SelectedItem == "Total")
+                    {
+                        cbConditional.Items.Clear();
+                        cbConditional.Items.Add("Igual");
+                        cbConditional.Items.Add("Mayor que");
+                        cbConditional.Items.Add("Menor que");
+                        cbConditional.Items.Add("Diferente que");
+
+                    }
+                    else if (cbDataType.SelectedItem == "Subtotal")
+                    {
+                        cbConditional.Items.Clear();
+                        cbConditional.Items.Add("Igual");
+                        cbConditional.Items.Add("Mayor que");
+                        cbConditional.Items.Add("Menor que");
+                        cbConditional.Items.Add("Diferente que");
+
+                    }
+                }
+                else if (cboptionsUsers.SelectedItem == "Roles")
+                {
+                    if (cbDataType.SelectedItem == "ID")
+                    {
+                        cbConditional.Items.Clear();
+                        cbConditional.Items.Add("Igual");
+                        cbConditional.Items.Add("Mayor que");
+                        cbConditional.Items.Add("Menor que");
+                        cbConditional.Items.Add("Diferente que");
+                    }
+                    else if (cbDataType.SelectedItem == "Rol")
+                    {
+                        cbConditional.Items.Clear();
+                        cbConditional.Items.Add("Igual");
+                        cbConditional.Items.Add("Diferente que");
+                    }
+
+                }
+            }
+        }
+    }
 }
+

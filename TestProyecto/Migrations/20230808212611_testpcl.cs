@@ -4,7 +4,7 @@ using MySql.EntityFrameworkCore.Metadata;
 
 namespace TestProyecto.Migrations
 {
-    public partial class PruebaPCC1 : Migration
+    public partial class testpcl : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -194,7 +194,7 @@ namespace TestProyecto.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "DetalleVenta",
+                name: "detalleVentas",
                 columns: table => new
                 {
                     FkProducto = table.Column<int>(type: "int", nullable: false),
@@ -205,15 +205,15 @@ namespace TestProyecto.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DetalleVenta", x => new { x.FkProducto, x.FkVenta });
+                    table.PrimaryKey("PK_detalleVentas", x => new { x.FkProducto, x.FkVenta });
                     table.ForeignKey(
-                        name: "FK_DetalleVenta_Productos_FkProducto",
+                        name: "FK_detalleVentas_Productos_FkProducto",
                         column: x => x.FkProducto,
                         principalTable: "Productos",
                         principalColumn: "PkProducto",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_DetalleVenta_Ventas_FkVenta",
+                        name: "FK_detalleVentas_Ventas_FkVenta",
                         column: x => x.FkVenta,
                         principalTable: "Ventas",
                         principalColumn: "PkCompra",
@@ -301,14 +301,30 @@ namespace TestProyecto.Migrations
                 columns: new[] { "PkCliente", "ApellidoCliente", "CorreoCliente", "FkRol", "NombreCliente", "PasswordCliente", "SaldoCliente" },
                 values: new object[] { 1, "Perez", "arriba@gmail.com", 1, "Juan", "123", 0.0 });
 
+            migrationBuilder.InsertData(
+                table: "SuperAdministradores",
+                columns: new[] { "PkSuperAdmin", "ApellidoSuperAdmin", "ContraseñaSuperAdmin", "CorreoSuperAdmin", "FkRol", "NombreSuperAdmin" },
+                values: new object[] { 1, "Gutierrez", "123", "Felipe@gmail.com", 3, "Felipe" });
+
+            migrationBuilder.InsertData(
+                table: "Vendedores",
+                columns: new[] { "PkVendedor", "ApellidoVendedor", "ContraseñaVendedor", "CorreoV", "FkRol", "NombreVendedor" },
+                values: new object[,]
+                {
+                    { 1, "Gonzalez", "546546", "juan.gonzalez@gmail.com", 2, "Juan" },
+                    { 2, "Silva", "564643", "maria.silva@gmail.com", 2, "Maria" },
+                    { 3, "Rojas", "234324", "cristian.rojas@gmail.com", 2, "Cristian" },
+                    { 4, "Perez", "123", "diablo@gmail.com", 3, "Leonardo" }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Clientes_FkRol",
                 table: "Clientes",
                 column: "FkRol");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DetalleVenta_FkVenta",
-                table: "DetalleVenta",
+                name: "IX_detalleVentas_FkVenta",
+                table: "detalleVentas",
                 column: "FkVenta");
 
             migrationBuilder.CreateIndex(
@@ -355,7 +371,7 @@ namespace TestProyecto.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "DetalleVenta");
+                name: "detalleVentas");
 
             migrationBuilder.DropTable(
                 name: "ProductoVenta");
