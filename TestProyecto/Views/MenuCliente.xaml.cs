@@ -88,16 +88,21 @@ namespace TestProyecto.Views
 
                 using (var _context = new ApplicationDbContext())
                 {
+                    List<object> Resultados = new List<object>();
                     if (cbSearchOptions.SelectedItem == "NomProducto")
                     {
                         ID = int.Parse(txtSearch.Text);
-
+                        
                         if (cbOptionsConditions.SelectedItem == "Específico")
                         {
                             
-                            var Busqueda = _context.Productos.Where(x => x.PkProducto == ID).ToList();
+
+                             Resultados.AddRange(_context.Productos.Where(x => x.PkProducto == ID).Select(producto => new { cantidad = producto.Cantidad, vendedor = producto.FkVendedor }).ToList());
+
+
+                           // var Busqueda = _context.Productos.Where(x => x.PkProducto == ID).ToList();
                           //  var BusquedaFk = _context.Productos.Where(x => x.PkProducto == ID).Include(y => y.FkLote.ToString()).ToList();
-                            ProductosTable.ItemsSource = Busqueda;
+                            ProductosTable.ItemsSource = Resultados;
                             }
                             else if (cbOptionsConditions.SelectedItem == "Mayor que")
                             {
@@ -129,8 +134,11 @@ namespace TestProyecto.Views
                         Dato = txtSearch.Text;
                         if (cbOptionsConditions.SelectedItem == "Específico")
                         {
-                            var Busqueda = _context.Productos.Where(x => x.Nombre == Dato).ToList();
-                            ProductosTable.ItemsSource = Busqueda;
+                            Resultados.AddRange(_context.Productos
+                     .Where(prod => prod.Nombre.Contains(Dato))
+                     .Select(prod => new { IdProducto = prod.PkProducto, Nombre = prod.Nombre, IdVendedor = prod.FkVendedor, NombreVendedor = prod.Vendedores.NombreVendedor, Lote = prod.Lotes.NomLote, Tamaño = prod.Tamanos.TamanoP, Sabor = prod.Sabores.NameSabor, Cantidad = prod.Cantidad, PrecioUni = prod.PrecioUnitario })
+                     .ToList());
+                            ProductosTable.ItemsSource = Resultados;
                         }
                         else if (cbOptionsConditions.SelectedItem == "Diferente que")
                         {

@@ -42,13 +42,7 @@
                 <DataGridTextColumn Header="Sabor" Binding="{Binding Sabores.NameSabor}"/>
                 <DataGridTextColumn Header="Tamaño" Binding="{Binding Tamanos.TamanoP}"/>
                 <DataGridTextColumn Header="Lote" Binding="{Binding Lotes.NomLote}"/>
-                <DataGridTemplateColumn Header="Carrito">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button  Background="#FA4D4D" Content="Añadir al carrito"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                
 
             </DataGrid.Columns>
 
@@ -71,5 +65,8 @@
         <Button x:Name="btnSearch" Content="Buscar" HorizontalAlignment="Left" Margin="441,26,0,0" VerticalAlignment="Top" Height="32" Width="44" RenderTransformOrigin="-0.068,0.658" Click="btnSearch_Click"/>
         <ComboBox x:Name="cbSearchOptions" HorizontalAlignment="Left" Margin="147,28,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbSearchOptions_SelectionChanged"/>
         <ComboBox x:Name="cbOptionsConditions" HorizontalAlignment="Left" Margin="292,31,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lblDataType" Content="Tipo de dato" HorizontalAlignment="Left" Margin="168,2,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="lblConditional" Content="Selecciona la condicional" HorizontalAlignment="Left" Margin="293,4,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="lbData" Content="Inserta el dato" HorizontalAlignment="Left" Margin="38,-1,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
     </Grid>
 </Window>

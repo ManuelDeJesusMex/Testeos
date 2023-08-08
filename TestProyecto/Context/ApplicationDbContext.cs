@@ -37,6 +37,8 @@ namespace TestProyecto.Context
 
         public DbSet<SuperAdmin> SuperAdministradores { get; set; }
 
+        public DbSet<DetalleVenta> detalleVentas { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

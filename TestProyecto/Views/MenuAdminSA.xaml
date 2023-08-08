@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:TestProyecto.Views"
         mc:Ignorable="d"
         Title="MenuAdminSA" Height="486" Width="863">
-    <Grid Margin="0,0,0,-2" Width="NaN">
+    <Grid Margin="0,0,-49,-45" Width="NaN">
         <Grid.Background>
             <ImageBrush ImageSource="/Views/FondoNegro.jpg"/>
         </Grid.Background>
         <ComboBox x:Name="cboptionsUsers" HorizontalAlignment="Left" Height="25" Margin="14,25,0,0" VerticalAlignment="Top" Width="160" SelectionChanged="cboptionsUsers_SelectionChanged"/>
-        <DataGrid x:Name="ClienteTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="205,17,11,169" Visibility="Hidden">
+        <DataGrid x:Name="ClienteTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="205,50,11,135" Visibility="Hidden">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding PkCliente}" />
                 <DataGridTextColumn Header="Nombre" Binding="{Binding NombreCliente}" />
@@ -37,7 +37,7 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <DataGrid x:Name="VendedorTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="205,17,11,169" Visibility="Hidden">
+        <DataGrid x:Name="VendedorTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="204,56,12,130" Visibility="Hidden">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding PkVendedor}" />
                 <DataGridTextColumn Header="Nombre" Binding="{Binding NombreVendedor}" />
@@ -62,7 +62,7 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <DataGrid x:Name="SuperAdminTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="205,17,11,169" Visibility="Hidden">
+        <DataGrid x:Name="SuperAdminTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="205,52,11,134" Visibility="Hidden">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding PkSuperAdmin}" />
                 <DataGridTextColumn Header="Nombre" Binding="{Binding NombreSuperAdmin}" />
@@ -87,7 +87,7 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <DataGrid x:Name="ProductosTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="205,17,11,169" Visibility="Hidden">
+        <DataGrid x:Name="ProductosTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="206,53,10,133" Visibility="Hidden">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding PkProducto}" />
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
@@ -115,7 +115,7 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <DataGrid x:Name="LotesTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="222,30,227,279" Visibility="Hidden">
+        <DataGrid x:Name="LotesTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="217,89,232,220" Visibility="Hidden">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding PkLote}" />
                 <DataGridTextColumn Header="Nom Lote" Binding="{Binding NomLote}" />
@@ -136,7 +136,7 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="SaboresTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="220,32,229,272" Visibility="Hidden">
+        <DataGrid x:Name="SaboresTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="219,94,230,210" Visibility="Hidden">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding PkSabor}" />
                 <DataGridTextColumn Header="Sabor" Binding="{Binding NameSabor}" />
@@ -157,8 +157,8 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        
-        <DataGrid x:Name="TamañosTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="222,29,230,274" Visibility="Hidden">
+
+        <DataGrid x:Name="TamañosTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="219,99,233,204" Visibility="Hidden">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding PkTamano}" />
                 <DataGridTextColumn Header="Tamano" Binding="{Binding TamanoP}" />
@@ -179,7 +179,7 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="RolesTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="222,29,230,274" Visibility="Hidden">
+        <DataGrid x:Name="RolesTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="216,124,236,179" Visibility="Hidden">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding PkRol}" />
                 <DataGridTextColumn Header="Tamano" Binding="{Binding RolName}" />
@@ -200,7 +200,7 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="DetalleVentaTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="205,17,11,169" Visibility="Hidden">
+        <DataGrid x:Name="DetalleVentaTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="206,58,10,128" Visibility="Hidden">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="NomProducto " Binding="{Binding FkProducto}" />
                 <DataGridTextColumn Header="NomVenta" Binding="{Binding FkVenta}" />
@@ -211,7 +211,7 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        
+
         <Button x:Name="btnUpdate" Content="Agregar" HorizontalAlignment="Left" Margin="14,398,0,0" VerticalAlignment="Top" Height="49" Width="110" Click="btnUpdate_Click"/>
         <ComboBox x:Name="cbLote" HorizontalAlignment="Left" Margin="161,416,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
         <ComboBox x:Name="cbSabor" HorizontalAlignment="Left" Margin="317,415,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden" SelectedValuePath="PkSabor" DisplayMemberPath="NameSabor"/>
@@ -229,10 +229,34 @@
         <Label x:Name="lbCorreo" Content="Correo" HorizontalAlignment="Left" Margin="15,199,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label x:Name="lbPassword" Content="Contraseña" HorizontalAlignment="Left" Margin="15,260,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label x:Name="lbPK" Content="ID" HorizontalAlignment="Left" Margin="15,322,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label x:Name="lbSaldo" Content="Saldo" HorizontalAlignment="Left" Margin="230,303,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Label x:Name="lbSaldo" Content="Saldo" HorizontalAlignment="Left" Margin="339,358,0,0" VerticalAlignment="Top" Visibility="Hidden" FontWeight="Bold" Foreground="#FFFFEEEE"/>
         <Label x:Name="lblote" Content="Lote" HorizontalAlignment="Left" Margin="206,389,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.202,0.906" Width="47" Visibility="Hidden"/>
         <Label x:Name="lbsabor" Content="Sabor" HorizontalAlignment="Left" Margin="363,385,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.202,0.906" Width="47" Visibility="Hidden"/>
         <Label x:Name="lbtamaño" Content="Tamaño" HorizontalAlignment="Left" Margin="498,388,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.202,0.906" Width="84" Visibility="Hidden"/>
-        <Button x:Name="btnLogOut" Content="Cerrar sesión" HorizontalAlignment="Left" Margin="778,335,0,0" VerticalAlignment="Top" Height="28" Width="74" Click="btnLogOut_Click"/>
+        <Button x:Name="btnLogOut" Content="" HorizontalAlignment="Left" Margin="817,383,0,0" VerticalAlignment="Top" Height="58" Width="74" Click="btnLogOut_Click">
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+            <Button.Foreground>
+                <ImageBrush/>
+            </Button.Foreground>
+            <Button.Background>
+                <ImageBrush ImageSource="/Views/cerrar-sesion (1).png"/>
+            </Button.Background>
+        </Button>
+        <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Margin="258,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214" Height="35" Visibility="Hidden"/>
+        <ComboBox x:Name="cbDataType" HorizontalAlignment="Left" Margin="509,30,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <ComboBox x:Name="cbConditional" HorizontalAlignment="Left" Margin="653,31,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <Label x:Name="lbData" Content="Inserta dato" HorizontalAlignment="Left" Margin="300,4,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" Foreground="#FFFFFCFC" Visibility="Hidden"/>
+        <Label x:Name="lbdatatype" Content="Selecciona el tipo de dato" HorizontalAlignment="Left" Margin="491,9,0,0" VerticalAlignment="Top" Width="155" FontWeight="Bold" Foreground="#FFFFFCFC" Visibility="Hidden"/>
+        <Label x:Name="lbConditional" Content="Selecciona condicional" HorizontalAlignment="Left" Margin="651,9,0,0" VerticalAlignment="Top" Width="155" FontWeight="Bold" Foreground="#FFFFFCFC" Visibility="Hidden"/>
+        <Button x:Name="btnSearch" Content="" HorizontalAlignment="Left" Margin="809,14,0,0" VerticalAlignment="Top" Height="47" Width="49" Visibility="Hidden">
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <ImageBrush ImageSource="/Views/lupa.png"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

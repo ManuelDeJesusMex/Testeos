@@ -304,16 +304,13 @@ namespace TestProyecto.Services
 				using (var _context = new ApplicationDbContext())
 				{
 
-					//return _context.Ventas.Include(x => x.ProductosVenta).ThenInclude(y => y.Producto).ToList();
+					List<DetalleVenta> lista = new List<DetalleVenta> ();
 
-					Venta Lista = new Venta();
+					lista = _context.detalleVentas.Include(x => x.Venta).Include(y => y.Producto).ToList();
 
-					// List<Venta> Lista = new List<Venta>();
 
-					var Hola = Lista.ProductosVenta.ToList();
-					//
 
-					return Hola;
+					return lista;
 				}
 			}
 			catch (Exception ex)
