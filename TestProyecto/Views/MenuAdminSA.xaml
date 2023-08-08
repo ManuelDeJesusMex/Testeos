@@ -250,7 +250,7 @@
         <Label x:Name="lbData" Content="Inserta dato" HorizontalAlignment="Left" Margin="300,4,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" Foreground="#FFFFFCFC" Visibility="Hidden"/>
         <Label x:Name="lbdatatype" Content="Selecciona el tipo de dato" HorizontalAlignment="Left" Margin="491,9,0,0" VerticalAlignment="Top" Width="155" FontWeight="Bold" Foreground="#FFFFFCFC" Visibility="Hidden"/>
         <Label x:Name="lbConditional" Content="Selecciona condicional" HorizontalAlignment="Left" Margin="651,9,0,0" VerticalAlignment="Top" Width="155" FontWeight="Bold" Foreground="#FFFFFCFC" Visibility="Hidden"/>
-        <Button x:Name="btnSearch" Content="" HorizontalAlignment="Left" Margin="809,14,0,0" VerticalAlignment="Top" Height="47" Width="49" Visibility="Hidden">
+        <Button x:Name="btnSearch" Content="" HorizontalAlignment="Left" Margin="809,14,0,0" VerticalAlignment="Top" Height="47" Width="49" Visibility="Visible" Click="btnSearch_Click">
             <Button.BorderBrush>
                 <ImageBrush/>
             </Button.BorderBrush>

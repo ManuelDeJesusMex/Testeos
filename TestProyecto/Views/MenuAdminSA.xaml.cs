@@ -1050,5 +1050,346 @@ namespace TestProyecto.Views
 
             MessageBox.Show("Sesión cerrada");
         }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            if (cboptionsUsers.SelectedItem == "Cliente")
+            {
+                if (cbDataType.SelectedItem == "ID")
+                {
+                    if (cbConditional.SelectedItem == "Igual")
+                    {
+
+                    } else if (cbConditional.SelectedItem == "Mayor que")
+                    {
+
+                    } else if (cbConditional.SelectedItem == "Menor que")
+                    {
+
+                    } else if ( cbConditional.SelectedItem == "Diferente que") 
+                    {
+
+                    } else
+                    {
+                        MessageBox.Show("No has seleccionado todos los campos");
+                    }
+                } else if (cbDataType.SelectedItem == "Nombre")
+                {
+                    if (cbConditional.SelectedItem == "Igual")
+                    {
+
+                    }
+                    else if (cbConditional.SelectedItem == "Diferente que")
+                    {
+
+                    }
+                    else if (cbDataType.SelectedItem == "Apellido")
+                    {
+                        if (cbConditional.SelectedItem == "Igual")
+                        {
+
+                        }
+                        else if (cbConditional.SelectedItem == "Diferente que")
+                        {
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("No has seleccionado todos los campos");
+                        }
+                    }
+                } else if (cbDataType.SelectedItem == "Correo")
+                {
+                    if (cbConditional.SelectedItem == "Igual")
+                    {
+
+                    }
+                    else if (cbConditional.SelectedItem == "Diferente que")
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("No has seleccionado todos los campos");
+                    }
+                } else if (cbDataType.SelectedItem == "Contraseña")
+                {
+                    if (cbConditional.SelectedItem == "Igual")
+                    {
+
+                    }
+                    else if (cbConditional.SelectedItem == "Diferente que")
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("No has seleccionado todos los campos");
+                    }
+                } else if (cbDataType.SelectedItem == "Rol")
+                {
+                    if (cbConditional.SelectedItem == "Igual")
+                    {
+
+                    }
+                    else if (cbConditional.SelectedItem == "Mayor que")
+                    {
+
+                    }
+                    else if (cbConditional.SelectedItem == "Menor que")
+                    {
+
+                    }
+                    else if (cbConditional.SelectedItem == "Diferente que")
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("No has seleccionado todos los campos");
+                    }
+                } else
+                {
+                    MessageBox.Show("Selecciona los demás campos, no pueden ser nulos");
+                }
+            } else if (cboptionsUsers.SelectedItem == "Vendedor")
+            {
+                if (cbDataType.SelectedItem == "ID")
+                {
+                    if (cbConditional.SelectedItem == "Igual")
+                    {
+
+                    }
+                    else if (cbConditional.SelectedItem == "Mayor que")
+                    {
+
+                    }
+                    else if (cbConditional.SelectedItem == "Menor que")
+                    {
+
+                    }
+                    else if (cbConditional.SelectedItem == "Diferente que")
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("No has seleccionado todos los campos");
+                    }
+                }
+                else if (cbDataType.SelectedItem == "Nombre")
+                {
+                    if (cbConditional.SelectedItem == "Igual")
+                    {
+
+                    }
+                    else if (cbConditional.SelectedItem == "Diferente que")
+                    {
+
+                    }
+                    else if (cbDataType.SelectedItem == "Apellido")
+                    {
+                        if (cbConditional.SelectedItem == "Igual")
+                        {
+
+                        }
+                        else if (cbConditional.SelectedItem == "Diferente que")
+                        {
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("No has seleccionado todos los campos");
+                        }
+                    }
+                }
+                else if (cbDataType.SelectedItem == "Correo")
+                {
+                    if (cbConditional.SelectedItem == "Igual")
+                    {
+
+                    }
+                    else if (cbConditional.SelectedItem == "Diferente que")
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("No has seleccionado todos los campos");
+                    }
+                }
+                else if (cbDataType.SelectedItem == "Contraseña")
+                {
+                    if (cbConditional.SelectedItem == "Igual")
+                    {
+
+                    }
+                    else if (cbConditional.SelectedItem == "Diferente que")
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("No has seleccionado todos los campos");
+                    }
+                }
+                else if (cbDataType.SelectedItem == "Rol")
+                {
+                    if (cbConditional.SelectedItem == "Igual")
+                    {
+
+                    }
+                    else if (cbConditional.SelectedItem == "Mayor que")
+                    {
+
+                    }
+                    else if (cbConditional.SelectedItem == "Menor que")
+                    {
+
+                    }
+                    else if (cbConditional.SelectedItem == "Diferente que")
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("No has seleccionado todos los campos");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selecciona los demás campos, no pueden ser nulos");
+                }
+            } else if (cboptionsUsers.SelectedItem == "SA")
+            {
+                if (cbDataType.SelectedItem == "ID")
+                {
+                    if (cbConditional.SelectedItem == "Igual")
+                    {
+
+                    }
+                    else if (cbConditional.SelectedItem == "Mayor que")
+                    {
+
+                    }
+                    else if (cbConditional.SelectedItem == "Menor que")
+                    {
+
+                    }
+                    else if (cbConditional.SelectedItem == "Diferente que")
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("No has seleccionado todos los campos");
+                    }
+                }
+                else if (cbDataType.SelectedItem == "Nombre")
+                {
+                    if (cbConditional.SelectedItem == "Igual")
+                    {
+
+                    }
+                    else if (cbConditional.SelectedItem == "Diferente que")
+                    {
+
+                    }
+                    else if (cbDataType.SelectedItem == "Apellido")
+                    {
+                        if (cbConditional.SelectedItem == "Igual")
+                        {
+
+                        }
+                        else if (cbConditional.SelectedItem == "Diferente que")
+                        {
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("No has seleccionado todos los campos");
+                        }
+                    }
+                }
+                else if (cbDataType.SelectedItem == "Correo")
+                {
+                    if (cbConditional.SelectedItem == "Igual")
+                    {
+
+                    }
+                    else if (cbConditional.SelectedItem == "Diferente que")
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("No has seleccionado todos los campos");
+                    }
+                }
+                else if (cbDataType.SelectedItem == "Contraseña")
+                {
+                    if (cbConditional.SelectedItem == "Igual")
+                    {
+
+                    }
+                    else if (cbConditional.SelectedItem == "Diferente que")
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("No has seleccionado todos los campos");
+                    }
+                }
+                else if (cbDataType.SelectedItem == "Rol")
+                {
+                    if (cbConditional.SelectedItem == "Igual")
+                    {
+
+                    }
+                    else if (cbConditional.SelectedItem == "Mayor que")
+                    {
+
+                    }
+                    else if (cbConditional.SelectedItem == "Menor que")
+                    {
+
+                    }
+                    else if (cbConditional.SelectedItem == "Diferente que")
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("No has seleccionado todos los campos");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selecciona los demás campos, no pueden ser nulos");
+                }
+            } else if (cboptionsUsers.SelectedItem == "Producto")
+            {
+
+            } else if (cboptionsUsers.SelectedItem == "Sabores")
+            {
+
+            } else if (cboptionsUsers.SelectedItem == "Lotes")
+            {
+
+            } else if (cboptionsUsers.SelectedItem == "Tamanos")
+            {
+
+            } else if (cbDataType.SelectedItem == "Detalle de ventas")
+            {
+
+            } else if (cbDataType.SelectedItem == "Roles")
+            {
+
+            } else
+            {
+                MessageBox.Show("No has seleccionado ningún tipo de entidad para buscar");
+            }
+        }
     }
 }
