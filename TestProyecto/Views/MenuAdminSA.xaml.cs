@@ -1421,11 +1421,15 @@ namespace TestProyecto.Views
                 {
                     if (cbConditional.SelectedItem == "Igual")
                     {
-
+                        string Dato = txtSearch.Text;
+                        var Busqueda = _context.SuperAdministradores.Where(x => x.CorreoSuperAdmin== Dato).ToList();
+                        SuperAdminTable.ItemsSource = Busqueda;
                     }
                     else if (cbConditional.SelectedItem == "Diferente que")
                     {
-
+                        string Dato = txtSearch.Text;
+                        var Busqueda = _context.SuperAdministradores.Where(x => x.CorreoSuperAdmin != Dato).ToList();
+                        SuperAdminTable.ItemsSource = Busqueda;
                     }
                     else
                     {
@@ -1436,11 +1440,15 @@ namespace TestProyecto.Views
                 {
                     if (cbConditional.SelectedItem == "Igual")
                     {
-
+                        string Dato = txtSearch.Text;
+                        var Busqueda = _context.SuperAdministradores.Where(x => x.ContraseñaSuperAdmin == Dato).ToList();
+                        SuperAdminTable.ItemsSource = Busqueda;
                     }
                     else if (cbConditional.SelectedItem == "Diferente que")
                     {
-
+                        string Dato = txtSearch.Text;
+                        var Busqueda = _context.SuperAdministradores.Where(x => x.ContraseñaSuperAdmin == Dato).ToList();
+                        SuperAdminTable.ItemsSource = Busqueda;
                     }
                     else
                     {
@@ -1451,19 +1459,27 @@ namespace TestProyecto.Views
                 {
                     if (cbConditional.SelectedItem == "Igual")
                     {
-
+                        int ID = int.Parse(txtSearch.Text);
+                        var Busqueda = _context.SuperAdministradores.Where(x => x.FkRol == ID).ToList();
+                        SuperAdminTable.ItemsSource = Busqueda;
                     }
                     else if (cbConditional.SelectedItem == "Mayor que")
                     {
-
+                        int ID = int.Parse(txtSearch.Text);
+                        var Busqueda = _context.SuperAdministradores.Where(x => x.FkRol > ID).ToList();
+                        SuperAdminTable.ItemsSource = Busqueda;
                     }
                     else if (cbConditional.SelectedItem == "Menor que")
                     {
-
+                        int ID = int.Parse(txtSearch.Text);
+                        var Busqueda = _context.SuperAdministradores.Where(x => x.FkRol < ID).ToList();
+                        SuperAdminTable.ItemsSource = Busqueda;
                     }
                     else if (cbConditional.SelectedItem == "Diferente que")
                     {
-
+                        int ID = int.Parse(txtSearch.Text);
+                        var Busqueda = _context.SuperAdministradores.Where(x => x.FkRol != ID).ToList();
+                        SuperAdminTable.ItemsSource = Busqueda;
                     }
                     else
                     {
@@ -1487,12 +1503,16 @@ namespace TestProyecto.Views
             {
                 if (cbDataType.SelectedItem == "ID")
                 {
-
-                }
+                        int ID = int.Parse(txtSearch.Text);
+                        var Busqueda = _context.Sabores.Where(x => x.PkSabor == ID).ToList();
+                        SaboresTable.ItemsSource = Busqueda;
+                    }
                 else if (cbDataType.SelectedItem == "Sabor")
                 {
-
-                }
+                        int ID = int.Parse(txtSearch.Text);
+                        var Busqueda = _context.Sabores.Where(x => x.PkSabor == ID).ToList();
+                        SaboresTable.ItemsSource = Busqueda;
+                    }
                 else
                 {
                     MessageBox.Show("No has seleccionado el tipo de dato");
@@ -1501,13 +1521,35 @@ namespace TestProyecto.Views
             else if (cboptionsUsers.SelectedItem == "Lotes")
             {
                 if (cbDataType.SelectedItem == "ID")
-                {
-
-                }
+                { if (cbConditional.SelectedItem == "Igual que")
+                        {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Lotes.Where(x => x.PkLote == ID).ToList();
+                            LotesTable.ItemsSource = Busqueda;
+                        } else
+                        {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Lotes.Where(x => x.PkLote != ID).ToList();
+                            LotesTable.ItemsSource = Busqueda;
+                        }
+                        
+                    }
                 else if (cbDataType.SelectedItem == "Nom Lote")
                 {
-
-                }
+                        if (cbConditional.SelectedItem == "Igual que")
+                        {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Lotes.Where(x => x.PkLote == ID).ToList();
+                            LotesTable.ItemsSource = Busqueda;
+                        }
+                        else
+                        {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Lotes.Where(x => x.PkLote != ID).ToList();
+                            LotesTable.ItemsSource = Busqueda;
+                            //AA
+                        }
+                    }
                 else
                 {
                     MessageBox.Show("No has seleccionado el tipo de dato");
