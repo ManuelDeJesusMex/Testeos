@@ -1558,12 +1558,43 @@ namespace TestProyecto.Views
             else if (cboptionsUsers.SelectedItem == "Tamanos")
             {
                 if (cbDataType.SelectedItem == "ID")
+                { if (cbConditional.SelectedItem == "Igual que")
+                        {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Tamanos.Where(x => x.PkTamano == ID).ToList();
+                            TamañosTable.ItemsSource = Busqueda;
+                        } else if (cbConditional.SelectedItem == "Diferente que")
+                        {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Tamanos.Where(x => x.PkTamano != ID).ToList();
+                            TamañosTable.ItemsSource = Busqueda;
+                        } else if (cbConditional.SelectedItem == "Mayor que")
+                        {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Tamanos.Where(x => x.PkTamano > ID).ToList();
+                            TamañosTable.ItemsSource = Busqueda;
+                        } else if (cbConditional.SelectedItem == "Menor que")
+                        {
+                            int ID = int.Parse(txtSearch.Text);
+                            var Busqueda = _context.Tamanos.Where(x => x.PkTamano < ID).ToList();
+                            TamañosTable.ItemsSource = Busqueda;
+                        }
+                       
+                        //AA
+                    }
+                    else if (cbDataType.SelectedItem == "Tamano")
                 {
-
-                }
-                else if (cbDataType.SelectedItem == "Tamano")
-                {
-
+                        if (cbConditional.SelectedItem == "Igual que")
+                        {
+                            string Dato= txtSearch.Text;
+                            var Busqueda = _context.Tamanos.Where(x => x.TamanoP == Dato).ToList();
+                            TamañosTable.ItemsSource = Busqueda;
+                        } else if (cbConditional.SelectedItem == "Diferente que")
+                        {
+                            string Dato = txtSearch.Text;
+                            var Busqueda = _context.Tamanos.Where(x => x.TamanoP == Dato).ToList();
+                            TamañosTable.ItemsSource = Busqueda;
+                        }
                 }
                 else
                 {
@@ -1591,8 +1622,19 @@ namespace TestProyecto.Views
                 }
                 else if (cbDataType.SelectedItem == "Rol")
                 {
-
-                }
+                        if ( cbConditional.SelectedItem == "Igual que")
+                        {
+                            string Dato = txtSearch.Text;
+                            var Busqueda = _context.Roles.Where(x => x.RolName == Dato).ToList();
+                            RolesTable.ItemsSource = Busqueda;
+                        } else
+                        {
+                            string Dato = txtSearch.Text;
+                            var Busqueda = _context.Roles.Where(x => x.RolName != Dato).ToList();
+                            RolesTable.ItemsSource = Busqueda;
+                        }
+                        
+                    }
                 else
                 {
                     MessageBox.Show("No has seleccionado el tipo de dato");
