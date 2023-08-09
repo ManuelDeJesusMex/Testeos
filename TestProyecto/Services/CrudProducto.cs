@@ -22,7 +22,7 @@ namespace TestProyecto.Services
 				{
 				using (var _context = new ApplicationDbContext()) {
 
-
+					//
 					
 					Vendedor FindVendedor = _context.Vendedores.Find(IDSA);
 
